@@ -211,7 +211,7 @@ const About = () => {
           initial="hidden"
           animate={animationTriggered ? 'visible' : 'hidden'}
           variants={fadeUpVariant}
-          className="mb-12 md:mb-16 text-center relative"
+          className="mb-12 md:mb-14 text-center relative"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             About Me
@@ -364,8 +364,8 @@ const About = () => {
           className="flex justify-center"
         >
           <motion.a
-            href="/resume.pdf"
-            download
+            href="https://drive.google.com/file/d/1bQiDX61ELv7SdJuGrYpmxKRKXtlsWrWJ/view?usp=drive_link"
+            target="_blank"
             className="group relative overflow-hidden bg-gradient-to-r from-gray-900 to-black px-7 py-3 shadow-lg transition-all duration-300"
             whileTap={{ scale: 0.98 }}
           >
