@@ -106,7 +106,7 @@ const ContactForm = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-14 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold  items-center justify-center">
             Get in Touch
@@ -118,7 +118,7 @@ const ContactForm = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
             />
           </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-8 text-gray-600 max-w-2xl mx-auto">
             Interested in working together or have an opportunity to discuss?
             Feel free to reach out I&apos;d love to connect!
           </p>

@@ -96,9 +96,9 @@ const HomePage = () => {
       {/* Main Content */}
       <main
         id="home"
-        className="container mx-auto px-4 md:max-w-7xl pt-16 md:pt-24 lg:pt-24"
+        className="container mx-auto px-4 md:max-w-7xl py-16 md:pt-24 lg:pt-24"
       >
-        <div className="flex flex-col md:flex-row justify-between pt-8 items-center max-w-[1440px] mx-auto">
+        <div className="flex flex-col md:flex-row justify-between pt-8 max-sm:space-y-6 items-center max-w-[1440px] mx-auto">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -135,7 +135,7 @@ const HomePage = () => {
               <br />
               Based in Bhopal
             </h1>
-            <div className="md:text-lg font-normal mt-4 mb-8">
+            <div className="md:text-lg font-normal mt-2 mb-6 sm:mt-4 sm:mb-8">
               Blending design, code, and creativity.
             </div>
 
@@ -184,7 +184,7 @@ const HomePage = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="w-full overflow-hidden bg-black -rotate-3 text-white md:py-5 py-2 absolute bottom-0"
+        className="w-full overflow-hidden bg-black -rotate-3 text-white md:py-5 py-3 absolute bottom-0"
       >
         <motion.div
           animate={{ x: ['0%', '-50%'] }}

@@ -339,9 +339,7 @@ const Projects = () => {
                     />
                   </motion.div>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-end gap-4 p-4"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-end gap-4 p-4"
                     transition={{ duration: 0.3 }}
                   >
                     {project.links.live && (
