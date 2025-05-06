@@ -23,7 +23,7 @@ const Footer = () => {
     {
       name: 'Twitter',
       icon: <BsTwitterX size={16} />,
-      url: 'https://twitter.com/yourusername',
+      url: 'https://x.com/Piyushverma098',
     },
     {
       name: 'Behance',

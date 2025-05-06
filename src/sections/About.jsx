@@ -219,7 +219,7 @@ const About = () => {
           <motion.div
             className="h-1 w-20 bg-red-500 mx-auto mt-2"
             initial={{ width: 0 }}
-            animate={animationTriggered ? { width: 100 } : { width: 0 }}
+            animate={animationTriggered ? { width: 150 } : { width: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
         </motion.div>
@@ -393,15 +393,13 @@ const About = () => {
 
             {/* Shine effect*/}
             <motion.div
-              className="absolute inset-0 -left-full w-[200%] h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
-              animate={{
-                x: ['0%', '100%'],
-              }}
+              className="absolute inset-0 w-full h-full skew-x-[20deg] bg-gradient-to-r from-transparent via-white to-transparent opacity-40"
+              initial={{ x: '-100%' }}
+              animate={{ x: '100%' }}
               transition={{
-                duration: 1.8,
+                duration: 2.5,
                 repeat: Infinity,
-                repeatDelay: 1.5,
-                ease: 'easeInOut',
+                repeatDelay: 1,
               }}
             />
 

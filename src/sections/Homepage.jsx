@@ -96,7 +96,7 @@ const HomePage = () => {
       {/* Main Content */}
       <main
         id="home"
-        className="container mx-auto px-4 md:max-w-7xl py-16 md:pt-24 lg:pt-24"
+        className="container mx-auto px-4 md:max-w-7xl py-14 md:pt-24 lg:pt-24"
       >
         <div className="flex flex-col md:flex-row justify-between pt-8 max-sm:space-y-6 items-center max-w-[1440px] mx-auto">
           {/* Left Content */}
