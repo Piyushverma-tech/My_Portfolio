@@ -229,7 +229,7 @@ const About = () => {
           variants={containerVariant}
           initial="hidden"
           animate={animationTriggered ? 'visible' : 'hidden'}
-          className="flex flex-col md:flex-row items-center gap-12 md:mb-20 mb-12"
+          className="flex flex-col md:flex-row items-center gap-12 md:mb-20 mb-10"
         >
           <div className="max-w-4xl mx-auto text-center">
             <motion.h3
@@ -240,7 +240,7 @@ const About = () => {
             </motion.h3>
             <motion.p
               variants={fadeUpVariant}
-              className="text-lg md:text-xl leading-relaxed text-gray-700"
+              className="text-lg md:text-xl leading-tight text-gray-700"
             >
               I combine design and development to craft user-focused experiences
               that solve real problems.
@@ -341,8 +341,11 @@ const About = () => {
           transition={{ staggerChildren: 0.2 }}
           className="mb-20"
         >
-          <motion.div variants={fadeUpVariant} className="mb-16 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          <motion.div
+            variants={fadeUpVariant}
+            className="sm:mb-16 mb-10 text-center"
+          >
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
               Skills & Expertise
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">

@@ -54,7 +54,7 @@ export const SkillCategory = ({ category, skills }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="mb-8 ">
+    <div className="sm:mb-8 mb-6">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full flex items-center justify-between bg-white ${
