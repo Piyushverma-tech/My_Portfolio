@@ -170,7 +170,7 @@ const HomePage = () => {
           >
             <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden bg-gray-200 border-8 border-white shadow-xl">
               <img
-                src="/profile-pic.png"
+                src="/Piyush-verma.png"
                 alt="Piyush - Creative Developer"
                 className="w-full h-full object-cover"
               />

@@ -18,12 +18,12 @@ const Footer = () => {
     {
       name: 'LinkedIn',
       icon: <Linkedin size={18} />,
-      url: 'https://www.linkedin.com/in/piyush-verma-674b631a6/',
+      url: 'https://www.linkedin.com/in/piyush-verma-dev/',
     },
     {
       name: 'Twitter',
       icon: <BsTwitterX size={16} />,
-      url: 'https://x.com/Piyushverma098',
+      url: 'https://x.com/piyushvermaDev',
     },
     {
       name: 'Behance',

@@ -11,51 +11,243 @@ const Recipick = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Case Study Header */}
-      <header className="bg-recipickPrimary  pb-4 pt-14 px-6">
-        <div className="max-w-6xl mx-auto">
+      <header className="bg-black pb-4 pt-14 px-6 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          {/* Abstract shapes with Framer Motion */}
+
+          <motion.div
+            initial={{ opacity: 0.1 }}
+            animate={{
+              opacity: [0.1, 0.3, 0.1],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 5,
+              repeatType: 'reverse',
+              ease: 'easeInOut',
+            }}
+            className="absolute md:hidden bottom-28 right-28 w-32 h-32 rounded-full bg-serveasebackground blur-xl"
+          ></motion.div>
+
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 6,
+              ease: 'easeInOut',
+            }}
+            className="absolute bottom-1/3 left-1/4 w-12 h-12 border-2 border-serveasebackground rounded-full opacity-10"
+          ></motion.div>
+
+          {/* Twinkling Stars - scattered around */}
+          {[...Array(10)].map((_, i) => (
+            <motion.div
+              key={`star-${i}`}
+              className="absolute w-1 h-1 rounded-full bg-serveasebackground"
+              style={{
+                top: `${10 + Math.random() * 80}%`,
+                left: `${Math.random() * 90}%`,
+                opacity: 0,
+              }}
+              animate={{
+                opacity: [0, 0.8, 0],
+                scale: [0.8, 1.2, 0.8],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 1 + Math.random() * 3,
+                delay: Math.random() * 2,
+                ease: 'easeInOut',
+              }}
+            />
+          ))}
+
+          {/* Larger star elements */}
+          {[...Array(5)].map((_, i) => (
+            <motion.div
+              key={`bigstar-${i}`}
+              style={{
+                top: `${20 + Math.random() * 60}%`,
+                left: `${10 + Math.random() * 80}%`,
+                opacity: 0,
+              }}
+              className="absolute text-serveasebackground"
+              animate={{
+                opacity: [0, 0.7, 0],
+                rotate: [0, 10, 0],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 2 + Math.random() * 4,
+                delay: Math.random() * 5,
+                ease: 'easeInOut',
+              }}
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 1L9 9L1 12L9 15L12 23L15 15L23 12L15 9L12 1Z"></path>
+              </svg>
+            </motion.div>
+          ))}
+
+          {/* Dotted grid pattern - visible on larger screens */}
+          <div className="hidden md:block absolute inset-0">
+            <div className="absolute right-10 top-10 grid grid-cols-5 gap-4">
+              {[...Array(25)].map((_, i) => (
+                <motion.div
+                  key={`dot-${i}`}
+                  className="w-1 h-1 rounded-full bg-serveasebackground"
+                  initial={{ opacity: 0.1 }}
+                  animate={{
+                    opacity: i % 3 === 0 ? [0.1, 0.3, 0.1] : 0.15, // Only animate every 3rd dot
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 1.5 + (i % 3),
+                    delay: i * 0.1,
+                    ease: 'easeInOut',
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 mb-8 md:mb-0 max-sm:text-center">
+            <div className="md:w-1/2 mb-8 md:mb-0 max-sm:text-center relative">
+              {/* Decorative star/sparkle element near title with Framer Motion */}
+              <motion.div
+                className="absolute -top-6 -left-4 md:-left-8 transform text-recipicktext hidden md:block"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.8, 1, 0.8],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 3,
+                  ease: 'easeInOut',
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 1L9 9L1 12L9 15L12 23L15 15L23 12L15 9L12 1Z"></path>
+                </svg>
+              </motion.div>
+
               <h1 className="text-3xl text-recipicktext md:text-5xl font-bold mb-4 max-md:mt-6 tracking-tight">
                 Recipick - Case Study
+                {/* Inline decoration after text with Framer Motion */}
+                <motion.span
+                  className="ml-2 text-recipicktext hidden md:inline-block"
+                  animate={{
+                    opacity: [0.5, 1, 0.5],
+                    scale: [0.9, 1.1, 0.9],
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 3,
+                    ease: 'easeInOut',
+                  }}
+                >
+                  ✧
+                </motion.span>
               </h1>
-              <p className="text-lg font-medium md:text-xl max-w-xl leading-relaxed mb-6">
+
+              <p className="text-lg md:text-xl max-w-xl text-gray-200 leading-tight sm:leading-relaxed mb-8 relative">
                 Empowering food lovers to discover, cook, and share with an
                 engaging community-driven recipe app.
               </p>
 
               <div className="flex flex-col items-center sm:flex-row gap-4 mb-6">
-                <div className="bg-white/10  backdrop-blur-sm rounded-lg px-4 py-2">
-                  <div className="flex text-recipicktext items-center justify-center gap-4 max-w-xl">
-                    <FiFigma size={24} /> <SiAdobeillustrator size={24} />{' '}
+                <motion.div
+                  className="text-recipicktext backdrop-blur-sm px-4 py-2"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <div className="flex items-center justify-center gap-4 max-w-xl">
+                    <motion.div whileHover={{ scale: 1.1, rotate: 5 }}>
+                      <FiFigma size={24} />
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.1, rotate: -5 }}>
+                      <SiAdobeillustrator size={24} />
+                    </motion.div>
                   </div>
-                </div>
+                </motion.div>
 
-                <a
-                  href="https://www.figma.com/design/vRw65wD0ecZrSRIAvBT30d/ReciPick?node-id=50-521&t=0p7qgMA8dqxiwd7f-1"
+                <motion.a
+                  href="https://www.figma.com/design/vRw65wD0ecZrSRIAvBT30d/ReciPick?node-id=50-521&t=zRtKTjJBREa4XctV-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-recipicktext transition-colors duration-300 text-white font-medium rounded-lg px-6 py-3 shadow-md hover:shadow-lg"
+                  className="inline-flex items-center justify-center bg-recipicktext text-white font-medium rounded-lg px-6 py-3 shadow-md group"
+                  whileHover={{
+                    y: -2,
+                    boxShadow:
+                      '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
-                  <svg
+                  <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 mr-2"
                     viewBox="0 0 24 24"
                     fill="currentColor"
+                    animate={{ rotate: [0, 10, 0] }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 2,
+                      repeatType: 'loop',
+                      ease: 'easeInOut',
+                      repeatDelay: 1,
+                    }}
                   >
                     <path d="M15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
                     <path d="M12 3.5A3.5 3.5 0 0 0 8.5 7h7a3.5 3.5 0 0 0-3.5-3.5zm3.5 10.5a3.5 3.5 0 0 0-3.5 3.5v3.5a3.5 3.5 0 0 0 7 0V14h-3.5zm-7-7H5a3.5 3.5 0 0 0 0 7h3.5V7zm0 7H5a3.5 3.5 0 0 0 3.5 3.5V14z" />
-                  </svg>
+                  </motion.svg>
                   View Prototype
-                </a>
+                </motion.a>
               </div>
             </div>
 
-            <div className="md:w-1/2 relative ">
-              <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1745846046/Recipick%20-%20case%20study/rr85ni9q0fj8idcc3wdh.png"
-                loading="lazy"
-                alt="Recipick App Interface"
-              />
+            <div className="md:w-1/2 relative">
+              {/* Image with subtle animation */}
+              <motion.div
+                className="relative"
+                animate={{
+                  opacity: [1],
+                  scale: [0.9, 1.1, 0.9],
+                  rotate: [0, 5, 0],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 5,
+                  ease: 'easeInOut',
+                }}
+              >
+                {/* Decorative device frame shadow with animation */}
+
+                <img
+                  src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1745846046/Recipick%20-%20case%20study/rr85ni9q0fj8idcc3wdh.png"
+                  loading="lazy"
+                  alt="ServEase App Interface"
+                  className="relative z-10"
+                />
+              </motion.div>
             </div>
           </div>
         </div>
