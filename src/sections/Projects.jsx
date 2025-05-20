@@ -490,7 +490,7 @@ const Projects = () => {
 
               {/* Project Details with staggered animation */}
               <motion.h3
-                className="text-xl font-bold text-gray-900 mb-2"
+                className="sm:text-xl text-lg font-bold text-gray-900 mb-2"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -505,7 +505,7 @@ const Projects = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.4 }}
-                className="text-gray-700 mb-4"
+                className="text-gray-700 max-sm:text-sm mb-4"
               >
                 {project.description}
               </motion.p>
