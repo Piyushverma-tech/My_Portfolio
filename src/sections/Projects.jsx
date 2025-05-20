@@ -23,6 +23,8 @@ const Projects = () => {
         image:
           'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034309/Portfolio/jppxrchyxo3p8zgxmb4v.png',
         tags: ['Next.js', ' Zustand', 'MongoDB', ' Tailwind CSS'],
+        videoUrl:
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747578940/zcyiu8zolzpf1qarjiji.mp4',
         links: {
           live: 'https://codebin-alpha.vercel.app/',
           github: 'https://github.com/Piyushverma-tech/codebin',
@@ -30,28 +32,32 @@ const Projects = () => {
       },
       {
         id: 2,
-        title: 'Salex - Sales Management App',
+        title: 'iWitness - AI-Powered Crime Reporting App',
         description:
-          'A web app to manage sales data, sales insights, and customer tracking.',
+          'A platform for users to anonymously report incidents or crimes with evidence.',
         image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034249/Portfolio/pfwd5nr9cxgahxpwzdpj.png',
-        tags: ['Next.js', 'TanStack', 'ShadCN UI', 'MongoDB'],
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1747671768/Mockup_Ribbon_2_1_cbbako.png',
+        tags: ['Next.js', 'Prisma', 'Tailwind CSS', 'BCrypt'],
+        videoUrl:
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747663953/nipfgf39zfrs2vez3uy5.mp4',
         links: {
-          live: 'https://salex-deals.vercel.app/',
-          github: 'https://github.com/Piyushverma-tech/sales-management-app',
+          live: 'https://iwitness-report.vercel.app/',
+          github: 'https://github.com/Piyushverma-tech/iwitness',
         },
       },
       {
         id: 3,
-        title: 'iWitness - Anonymous Reporting App',
+        title: 'Salex - Sales Management App',
         description:
-          'A platform for users to anonymously report incidents or crimes with evidence.',
+          'A web app to manage sales data, sales insights, and customer tracking.',
         image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034299/Portfolio/e2mnpvjbg3qp3bczqoyx.png',
-        tags: ['Next.js', 'Prisma', 'Tailwind CSS', 'BCrypt'],
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1747671757/Mockup_Ribbon_10_1_wfbbzy.png',
+        tags: ['Next.js', 'TanStack', 'ShadCN UI', 'MongoDB'],
+        videoUrl:
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747581601/0518_1_jncepy.mp4',
         links: {
-          live: 'https://iwitness-report.vercel.app/',
-          github: 'https://github.com/Piyushverma-tech/iwitness',
+          live: 'https://salex-deals.vercel.app/',
+          github: 'https://github.com/Piyushverma-tech/sales-management-app',
         },
       },
       {
@@ -62,6 +68,8 @@ const Projects = () => {
         image:
           'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034253/Portfolio/pewq5cmcud6isui9gfr2.png',
         tags: ['React', 'Node.js', 'MongoDB', 'Context API'],
+        videoUrl:
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747730306/0518_xsussh.mp4',
         links: {
           live: 'https://taggle-social-media.onrender.com/',
           github: 'https://github.com/Piyushverma-tech/Taggle---social-media',
@@ -316,7 +324,7 @@ const Projects = () => {
                 },
               }}
             >
-              {/* Project Image */}
+              {/* Project Image/Video with Hover Effect */}
               <div className="mb-6 relative transform perspective-1000 group">
                 <motion.div
                   whileHover={{
@@ -327,19 +335,89 @@ const Projects = () => {
                     transition: { type: 'spring', stiffness: 300 },
                   }}
                   className="relative overflow-hidden rounded-lg shadow-xl"
+                  onMouseEnter={(e) => {
+                    // Find and play the video
+                    const video = e.currentTarget.querySelector('video');
+                    if (video) {
+                      video.style.opacity = '1';
+                      video.play();
+                      // Hide the image
+                      const img = e.currentTarget.querySelector('img');
+                      if (img) {
+                        img.style.opacity = '0';
+                      }
+                      // Show the action buttons overlay
+                      const overlay = e.currentTarget.querySelector(
+                        '.absolute.inset-0.bg-gradient-to-t'
+                      );
+                      if (overlay) {
+                        overlay.style.opacity = '1';
+                        overlay.style.pointerEvents = 'auto';
+                      }
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    // Find and pause the video
+                    const video = e.currentTarget.querySelector('video');
+                    if (video) {
+                      video.style.opacity = '0';
+                      video.pause();
+                      video.currentTime = 0;
+                      // Show the image
+                      const img = e.currentTarget.querySelector('img');
+                      if (img) {
+                        img.style.opacity = '1';
+                      }
+                      // Hide the action buttons overlay
+                      const overlay = e.currentTarget.querySelector(
+                        '.absolute.inset-0.bg-gradient-to-t'
+                      );
+                      if (overlay) {
+                        overlay.style.opacity = '0';
+                        overlay.style.pointerEvents = 'none';
+                      }
+                    }
+                  }}
                 >
                   <motion.div
                     variants={imageReveal}
                     className="w-full h-64 overflow-hidden"
                   >
+                    {/* Thumbnail Image (shown by default) */}
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-64 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-64 object-cover object-center transition-all duration-500"
+                      style={{
+                        position: 'relative',
+                        opacity: '1',
+                      }}
                     />
+
+                    {/* Video (plays on hover) */}
+                    {project.videoUrl && (
+                      <video
+                        src={project.videoUrl}
+                        className="w-full h-64 object-cover object-center transition-opacity duration-300"
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          zIndex: 5,
+                          opacity: 0,
+                        }}
+                        muted
+                        playsInline
+                        loop
+                        preload="auto"
+                      />
+                    )}
                   </motion.div>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-end gap-4 p-4"
+                    className="absolute inset-0 bg-gradient-to-t from-black/0 to-transparent opacity-0 transition-all duration-500 flex items-end justify-end gap-4 p-4 z-10"
+                    style={{
+                      pointerEvents: 'none',
+                    }}
                     transition={{ duration: 0.3 }}
                   >
                     {project.links.live && (
@@ -463,7 +541,6 @@ const Projects = () => {
       </AnimatePresence>
     </motion.div>
   );
-
   const renderDesignProjects = () => (
     <motion.div
       variants={container}
