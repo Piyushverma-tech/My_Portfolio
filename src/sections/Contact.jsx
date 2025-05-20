@@ -118,7 +118,7 @@ const ContactForm = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
             />
           </h2>
-          <p className="mt-10 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-10 text-gray-600 max-w-2xl max-sm:text-sm mx-auto">
             Interested in working together or have an opportunity to discuss?
             Feel free to reach out I&apos;d love to connect!
           </p>
