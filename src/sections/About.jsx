@@ -348,7 +348,7 @@ const About = () => {
             <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
               Skills & Expertise
             </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl max-sm:text-sm mx-auto">
               Click on each category to explore my technical proficiencies and
               hover over individual skills to learn more about my experience.
             </p>
