@@ -17,14 +17,14 @@ const Projects = () => {
     development: [
       {
         id: 1,
-        title: 'Codebin - Code Management App',
+        title: 'Codebin - AI-Powered Code Management App',
         description:
-          'A personal code library to save, tag, and manage code snippets efficiently.',
+          'A personal code library to save, generate, and manage code snippets efficiently.',
         image:
           'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034309/Portfolio/jppxrchyxo3p8zgxmb4v.png',
         tags: ['Next.js', ' Zustand', 'MongoDB', ' Tailwind CSS'],
         videoUrl:
-          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747578940/zcyiu8zolzpf1qarjiji.mp4',
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1749838244/Codebin_tngddk.mp4',
         links: {
           live: 'https://codebin-alpha.vercel.app/',
           github: 'https://github.com/Piyushverma-tech/codebin',
@@ -49,10 +49,10 @@ const Projects = () => {
         id: 3,
         title: 'Salex - Sales Management App',
         description:
-          'A web app to manage sales data, sales insights, and customer tracking.',
+          'A SaaS web app to manage sales data, sales insights, team and customer tracking.',
         image:
           'https://res.cloudinary.com/dsrmecb5y/image/upload/v1747671757/Mockup_Ribbon_10_1_wfbbzy.png',
-        tags: ['Next.js', 'TanStack', 'ShadCN UI', 'MongoDB'],
+        tags: ['Next.js', 'ShadCN UI', 'MongoDB', 'Razorpay'],
         videoUrl:
           'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747581601/0518_1_jncepy.mp4',
         links: {
