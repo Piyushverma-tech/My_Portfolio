@@ -367,7 +367,7 @@ const About = () => {
           className="flex justify-center"
         >
           <motion.a
-            href="https://drive.google.com/file/d/1bQiDX61ELv7SdJuGrYpmxKRKXtlsWrWJ/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1bQiDX61ELv7SdJuGrYpmxKRKXtlsWrWJ/view?usp=sharing"
             target="_blank"
             className="group relative overflow-hidden bg-gradient-to-r from-gray-900 to-black px-7 py-3 shadow-lg transition-all duration-300"
             whileTap={{ scale: 0.98 }}
