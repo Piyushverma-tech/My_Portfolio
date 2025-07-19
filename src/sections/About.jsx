@@ -45,7 +45,7 @@ const About = () => {
       },
       {
         name: 'Framer Motion',
-        level: 'Advanced',
+        level: 'Intermediate',
         description:
           'Created smooth animations, transitions, layout shifts, and micro-interactions to elevate user experience.',
       },
@@ -72,7 +72,7 @@ const About = () => {
       },
       {
         name: 'Adobe XD',
-        level: 'Intermediate',
+        level: 'Advanced',
         description:
           'Designed high-fidelity mockups, interactive flows, and developer-ready assets for web and mobile projects.',
       },
@@ -84,7 +84,7 @@ const About = () => {
       },
       {
         name: 'Adobe Photoshop',
-        level: 'Intermediate',
+        level: 'Advanced',
         description:
           'Edited images, designed layouts, UI assets, and creative visuals for marketing and product design.',
       },
@@ -105,7 +105,7 @@ const About = () => {
       },
       {
         name: 'WebSocket',
-        level: 'Basic',
+        level: 'Intermediate',
         description:
           'Implemented real-time communication using WebSocket for features like live chat and real-time notifications.',
       },
