@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { SkillCategory } from '../components/Skills';
+import CreativeSkillsSection from '../components/Skills';
 
 const About = () => {
   const [animationTriggered, setAnimationTriggered] = useState(false);
@@ -16,164 +16,6 @@ const About = () => {
 
     return () => clearTimeout(timeout);
   }, []);
-
-  const skillsData = {
-    Frontend: [
-      {
-        name: 'React.js',
-        level: 'Advanced',
-        description:
-          'Built scalable apps using components, custom hooks, state management (Redux/Context), routing, and performance optimization.',
-      },
-      {
-        name: 'JavaScript',
-        level: 'Advanced',
-        description:
-          'Proficient in ES6+, async/await, closures, HOFs, DOM manipulation, and dynamic UI logic for interactive experiences.',
-      },
-      {
-        name: 'CSS/SCSS',
-        level: 'Expert',
-        description:
-          'Expertise in responsive layouts, Flexbox, Grid, SCSS, animations, Tailwind CSS, and modern component-level styling.',
-      },
-      {
-        name: 'Next.js',
-        level: 'Advanced',
-        description:
-          'Used for SSR, static generation, API routes, dynamic routing, SEO, and building fast, production-grade apps.',
-      },
-      {
-        name: 'Framer Motion',
-        level: 'Intermediate',
-        description:
-          'Created smooth animations, transitions, layout shifts, and micro-interactions to elevate user experience.',
-      },
-      {
-        name: 'GSAP',
-        level: 'Intermediate',
-        description:
-          'Used for advanced timeline-based animations, scroll-triggered effects, and creating dynamic UI animations.',
-      },
-    ],
-
-    Design: [
-      {
-        name: 'UI/UX Design',
-        level: 'Advanced',
-        description:
-          'Skilled in wireframing, prototyping, user journeys, usability testing, and solving real problems with functional design.',
-      },
-      {
-        name: 'Figma',
-        level: 'Advanced',
-        description:
-          'Efficient with auto-layouts, components, design systems, interactive prototypes, and collaborative workflows.',
-      },
-      {
-        name: 'Adobe XD',
-        level: 'Advanced',
-        description:
-          'Designed high-fidelity mockups, interactive flows, and developer-ready assets for web and mobile projects.',
-      },
-      {
-        name: 'Adobe Illustrator',
-        level: 'Intermediate',
-        description:
-          'Created vector graphics, logos, icons, and branding assets for both digital and print design needs.',
-      },
-      {
-        name: 'Adobe Photoshop',
-        level: 'Advanced',
-        description:
-          'Edited images, designed layouts, UI assets, and creative visuals for marketing and product design.',
-      },
-      {
-        name: 'Canva',
-        level: 'Advanced',
-        description:
-          'Designed branded visuals, social media content, and presentations quickly using templates and custom layouts.',
-      },
-    ],
-
-    Backend: [
-      {
-        name: 'Node.js',
-        level: 'Intermediate',
-        description:
-          'Built REST APIs with Express.js, handled JWT auth, middleware, routing, and integrated third-party APIs.',
-      },
-      {
-        name: 'WebSocket',
-        level: 'Intermediate',
-        description:
-          'Implemented real-time communication using WebSocket for features like live chat and real-time notifications.',
-      },
-      {
-        name: 'File Handling',
-        level: 'Intermediate',
-        description:
-          'Handled file uploads using Multer, integrated AWS S3 for storage, and implemented optimization techniques for performance and security.',
-      },
-      {
-        name: 'MongoDB',
-        level: 'Intermediate',
-        description:
-          'Worked with Mongoose for schema design, CRUD operations, data modeling, and using aggregation pipelines.',
-      },
-      {
-        name: 'PostgreSQL',
-        level: 'Basic',
-        description:
-          'Familiar with writing SQL queries, creating normalized schemas, managing relationships, and indexing.',
-      },
-      {
-        name: 'Prisma',
-        level: 'Intermediate',
-        description:
-          'Used for schema modeling, database migrations, and writing type-safe queries in full-stack apps.',
-      },
-    ],
-
-    'AI & Automation': [
-      {
-        name: 'Workflow Automation',
-        level: 'Advanced',
-        description:
-          'Streamline daily operations, reduce manual work and boost business efficiency.',
-      },
-      {
-        name: 'AI Chatbots',
-        level: 'Advanced',
-        description:
-          'Automate customer support, lead generation and real-time communication.',
-      },
-      {
-        name: 'AI Video',
-        level: 'Advanced',
-        description:
-          'Create AI-powered video content for storytelling, marketing and brand identity.',
-      },
-      {
-        name: 'AI Content',
-        level: 'Advanced',
-        description:
-          'Automate copywriting, social media posts, ad creatives and blog content.',
-      },
-      {
-        name: 'AI Strategy',
-        level: 'Advanced',
-        description:
-          'Identify AI opportunities to cut costs, optimize work, and scale faster.',
-      },
-      {
-        name: 'AI Integrations',
-        level: 'Intermediate',
-        description:
-          'Connect AI with CRMs, websites, and workflow automation tools.',
-      },
-    ],
-  };
 
   // Fade up animation variant
   const fadeUpVariant = {
@@ -259,7 +101,7 @@ const About = () => {
         <motion.div
           initial="hidden"
           animate={animationTriggered ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4"
         >
           {/* What I Do Card */}
           <motion.div
@@ -290,7 +132,7 @@ const About = () => {
                   transition={{ delay: index * 0.3 + 0.6 }}
                   className="flex items-center"
                 >
-                  <div className="w-2 h-2 rounded-full bg-red-500 mr-3"></div>
+                  <span className="text-red-500 mx-2">✴</span>
                   <span>{item}</span>
                 </motion.li>
               ))}
@@ -326,7 +168,7 @@ const About = () => {
                   transition={{ delay: index * 0.3 + 0.6 }}
                   className="flex items-center"
                 >
-                  <div className="w-2 h-2 rounded-full bg-red-500 mr-3"></div>
+                  <span className="text-red-500 mx-2">✴</span>
                   <span>{item}</span>
                 </motion.li>
               ))}
@@ -339,24 +181,9 @@ const About = () => {
           initial="hidden"
           animate={animationTriggered ? 'visible' : 'hidden'}
           transition={{ staggerChildren: 0.2 }}
-          className="mb-20"
+          className="mb-6"
         >
-          <motion.div
-            variants={fadeUpVariant}
-            className="sm:mb-16 mb-10 text-center"
-          >
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-              Skills & Expertise
-            </h3>
-            <p className="text-gray-600 max-w-2xl max-sm:text-sm mx-auto">
-              Click on each category to explore my technical proficiencies and
-              hover over individual skills to learn more about my experience.
-            </p>
-          </motion.div>
-
-          {Object.entries(skillsData).map(([category, skills]) => (
-            <SkillCategory key={category} category={category} skills={skills} />
-          ))}
+          <CreativeSkillsSection />
         </motion.div>
 
         {/* Download Resume Button */}
@@ -374,7 +201,7 @@ const About = () => {
           >
             {/* Content container */}
             <div className="relative z-10 flex items-center gap-4">
-              <span className="font-medium tracking-wide text-white">
+              <span className="font-medium tracking-wide sm:text-lg text-white">
                 Download CV
               </span>
 

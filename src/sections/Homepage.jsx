@@ -54,6 +54,7 @@ const HomePage = () => {
     'WEBFLOW',
     'PostgreSQL',
     'NODE.JS',
+    'DSA',
     'AI & Automation',
     'UI/UX',
   ];
