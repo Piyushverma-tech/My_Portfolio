@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Camera, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import FloatingShapes from '../components/FloatingShapes';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('development');
@@ -738,6 +739,9 @@ const Projects = () => {
       id="projects"
       className="md:py-28 py-16 bg-gradient-to-b from-white to-gray-100"
     >
+      <div className="hidden lg:block">
+        <FloatingShapes />
+      </div>
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

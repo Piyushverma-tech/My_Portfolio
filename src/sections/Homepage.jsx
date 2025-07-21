@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import FloatingShapes from '../components/FloatingShapes';
 
 const HomePage = () => {
   const [showEntryStar, setShowEntryStar] = useState(true);
@@ -61,6 +62,10 @@ const HomePage = () => {
 
   return (
     <div className="bg-gradient-to-b from-white to-gray-100 w-full min-h-screen relative ">
+      {/* Floating Background Shapes */}
+      <div className="hidden lg:block">
+        <FloatingShapes />
+      </div>
       {/* Entry Star Animation */}
       <AnimatePresence>
         {showEntryStar && (
@@ -152,11 +157,15 @@ const HomePage = () => {
 
               <Link to={'/about'}>
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: 'rgba(0,0,0,0.05)',
+                  }}
                   whileTap={{ scale: 0.95 }}
-                  className="border border-black max-sm:text-sm  px-4 py-2  md:px-8 md:py-3 hover:bg-black hover:text-white font-semibold hover:font-normal transition duration-300 whitespace-nowrap"
+                  className="border-2 border-black px-8 py-3 font-semibold hover:bg-black hover:text-white transition-all duration-300 relative overflow-hidden group rounded-sm"
                 >
-                  About me
+                  <motion.div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+                  <span className="relative z-10">About me</span>
                 </motion.button>
               </Link>
             </div>

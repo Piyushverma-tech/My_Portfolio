@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Send, Check } from 'lucide-react';
 import { useState } from 'react';
+import FloatingShapes from '../components/FloatingShapes';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -99,6 +100,9 @@ const ContactForm = () => {
       id="contact"
       className="py-24 min-h-screen bg-gradient-to-b from-white to-gray-100"
     >
+      <div className="hidden lg:block">
+        <FloatingShapes />
+      </div>
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Section Header */}
         <motion.div
