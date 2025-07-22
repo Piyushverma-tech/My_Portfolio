@@ -327,7 +327,7 @@ const CreativeSkillsSection = () => {
           initial="hidden"
           animate={animationTriggered ? 'visible' : 'hidden'}
           variants={containerVariant}
-          className="flex flex-wrap justify-center  mb-10 sm:mb-12 lg:mb-16 px-2"
+          className="flex flex-wrap justify-center max-sm:gap-y-2 mb-10 sm:mb-12 lg:mb-16 px-2"
         >
           {Object.keys(skillsData).map((category) => {
             const IconComponent = categoryIcons[category];

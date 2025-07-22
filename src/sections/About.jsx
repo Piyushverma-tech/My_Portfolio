@@ -106,10 +106,6 @@ const About = () => {
           {/* What I Do Card */}
           <motion.div
             variants={fadeUpVariant}
-            whileHover={{
-              y: -5,
-              transition: { duration: 0.3, ease: 'easeOut' },
-            }}
             className="bg-white rounded-lg p-8 shadow-lg transition-all duration-300"
           >
             <h3 className="font-bold text-2xl mb-6 text-gray-900 border-b pb-4">
@@ -142,10 +138,6 @@ const About = () => {
           {/* My Approach Card */}
           <motion.div
             variants={fadeUpVariant}
-            whileHover={{
-              y: -5,
-              transition: { duration: 0.3, ease: 'easeOut' },
-            }}
             className="bg-white rounded-lg p-8 shadow-lg transition-all duration-300"
           >
             <h3 className="font-bold text-2xl mb-6 text-gray-900 border-b pb-4">
