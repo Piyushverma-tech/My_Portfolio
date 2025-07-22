@@ -149,7 +149,7 @@ const ServEase = () => {
                 </svg>
               </motion.div>
 
-              <h1 className="text-3xl text-serveasebackground md:text-5xl font-bold mb-4 max-md:mt-8 tracking-tight">
+              <h1 className="text-3xl text-white md:text-5xl font-bold mb-4 max-md:mt-8 tracking-tight">
                 ServEase - Case Study
                 {/* Inline decoration after text with Framer Motion */}
                 <motion.span
@@ -175,7 +175,7 @@ const ServEase = () => {
 
               <div className="flex flex-col items-center sm:flex-row gap-4 mb-6">
                 <motion.div
-                  className="text-serveasebackground backdrop-blur-sm px-4 py-2"
+                  className="text-white backdrop-blur-sm px-4 py-2"
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
@@ -196,7 +196,7 @@ const ServEase = () => {
                   href="https://www.figma.com/design/XGmaUCjyyklBUF6JLkwR4y/ServEase?node-id=134-254&t=JEkqjYZiDf1wR5yE-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-serveasebackground font-semibold rounded-lg px-6 py-3 shadow-md group"
+                  className="inline-flex items-center justify-center bg-white font-semibold rounded-lg px-6 py-3 shadow-md group"
                   whileHover={{
                     y: -2,
                     boxShadow:
