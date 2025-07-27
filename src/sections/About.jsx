@@ -84,8 +84,9 @@ const About = () => {
               variants={fadeUpVariant}
               className="text-lg md:text-xl leading-tight text-gray-700"
             >
-              I combine design and development to craft user-focused experiences
-              that solve real problems.
+              I’ve been messing around with web apps for about a year now—doing
+              the whole front-end, back-end, and even some design stuff. I’m
+              hooked on making things dope and actually work for people.
             </motion.p>
             <motion.p
               variants={fadeUpVariant}
