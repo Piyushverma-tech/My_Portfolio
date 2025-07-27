@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { FiFigma } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { SiAdobeillustrator, SiAdobephotoshop } from 'react-icons/si';
+import NextStudyBtn from '../components/NextStudyBtn';
 
 const ServEase = () => {
   useEffect(() => {
@@ -1196,23 +1197,7 @@ const ServEase = () => {
           </div>
         </div>
       </section>
-      <a
-        href="https://www.figma.com/design/XGmaUCjyyklBUF6JLkwR4y/ServEase?node-id=134-254&t=JEkqjYZiDf1wR5yE-1"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex  justify-center items-center bg-amber-500 hover:bg-amber-600 transition-colors duration-300 text-white font-medium px-6 py-4 md:py-6 shadow-md hover:shadow-lg"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 mr-2"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-        >
-          <path d="M15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
-          <path d="M12 3.5A3.5 3.5 0 0 0 8.5 7h7a3.5 3.5 0 0 0-3.5-3.5zm3.5 10.5a3.5 3.5 0 0 0-3.5 3.5v3.5a3.5 3.5 0 0 0 7 0V14h-3.5zm-7-7H5a3.5 3.5 0 0 0 0 7h3.5V7zm0 7H5a3.5 3.5 0 0 0 3.5 3.5V14z" />
-        </svg>
-        View Prototype
-      </a>
+      <NextStudyBtn title={'Recipick'} slug={'/recipick'} />
     </div>
   );
 };

@@ -115,7 +115,7 @@ const Projects = () => {
       },
       {
         id: 2,
-        title: 'AI Animated Film for Startup',
+        title: 'Animated Film for Startup',
         description:
           'Created an AI-driven short film for a startup internship project.',
         image:
@@ -382,13 +382,13 @@ const Projects = () => {
                 >
                   <motion.div
                     variants={imageReveal}
-                    className="w-full h-64 overflow-hidden"
+                    className="w-full h-72 overflow-hidden"
                   >
                     {/* Thumbnail Image (shown by default) */}
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-64 object-cover object-center transition-all duration-500"
+                      className="w-full h-72 object-cover object-center transition-all duration-500"
                       style={{
                         position: 'relative',
                         opacity: '1',
@@ -399,7 +399,7 @@ const Projects = () => {
                     {project.videoUrl && (
                       <video
                         src={project.videoUrl}
-                        className="w-full h-64 object-cover object-center transition-opacity duration-300"
+                        className="w-full h-72 object-cover object-center transition-opacity duration-300"
                         style={{
                           position: 'absolute',
                           top: 0,
@@ -434,7 +434,7 @@ const Projects = () => {
                         }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <ExternalLink size={16} />
+                        <ExternalLink size={18} />
                       </motion.a>
                     )}
                     {project.links.github && (
@@ -450,7 +450,7 @@ const Projects = () => {
                         }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Github size={16} />
+                        <Github size={18} />
                       </motion.a>
                     )}
                   </motion.div>
@@ -572,7 +572,7 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-72 object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
                   />
 
                   {/* Hover Content Overlay */}
