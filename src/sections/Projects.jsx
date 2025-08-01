@@ -56,7 +56,7 @@ const Projects = () => {
       },
       {
         id: 3,
-        title: 'Salex - Sales Management App',
+        title: 'Salex - Sales Management App (SaaS)',
         description:
           'A SaaS web app to manage sales data, sales insights, team and customer tracking.',
         image:
