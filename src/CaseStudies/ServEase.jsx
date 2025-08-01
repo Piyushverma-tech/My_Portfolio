@@ -3,6 +3,7 @@ import { FiFigma } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { SiAdobeillustrator, SiAdobephotoshop } from 'react-icons/si';
 import NextStudyBtn from '../components/NextStudyBtn';
+import { MatrixRain } from '../components/Martrix';
 
 const ServEase = () => {
   useEffect(() => {
@@ -10,186 +11,94 @@ const ServEase = () => {
   }, []);
 
   return (
-    <div className="bg-gray-50 min-h-screen font-sans">
-      {/* Case Study Header */}
-      <header className="bg-black pb-4 pt-14 px-6 relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          {/* Abstract shapes with Framer Motion */}
-
-          <motion.div
-            initial={{ opacity: 0.1 }}
-            animate={{
-              opacity: [0.1, 0.3, 0.1],
-              scale: [1, 1.1, 1],
+    <div className="bg-gradient-to-br from-gray-900 via-black to-gray-800 min-h-screen font-sans">
+      {/* Animated Background Grid */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      </div>
+      {/* Cyberpunk Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.6, 0.3, 0.6],
+          }}
+          transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+        />
+      </div>
+      <header className="bg-black pb-4 pt-14 px-6 relative overflow-hidden border-b border-green-400/20">
+        <MatrixRain opacity={0.1} />
+        {/* Cyberpunk Grid Background */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `
+          linear-gradient(rgba(0, 255, 157, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 255, 157, 0.1) 1px, transparent 1px)
+        `,
+              backgroundSize: '50px 50px',
             }}
-            transition={{
-              repeat: Infinity,
-              duration: 5,
-              repeatType: 'reverse',
-              ease: 'easeInOut',
-            }}
-            className="absolute md:hidden bottom-28 right-28 w-32 h-32 rounded-full bg-serveasebackground blur-xl"
-          ></motion.div>
-
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.2, 0.1],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 6,
-              ease: 'easeInOut',
-            }}
-            className="absolute bottom-1/3 left-1/4 w-12 h-12 border-2 border-serveasebackground rounded-full opacity-10"
-          ></motion.div>
-
-          {/* Twinkling Stars - scattered around */}
-          {[...Array(10)].map((_, i) => (
-            <motion.div
-              key={`star-${i}`}
-              className="absolute w-1 h-1 rounded-full bg-serveasebackground"
-              style={{
-                top: `${10 + Math.random() * 80}%`,
-                left: `${Math.random() * 90}%`,
-                opacity: 0,
-              }}
-              animate={{
-                opacity: [0, 0.8, 0],
-                scale: [0.8, 1.2, 0.8],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 1 + Math.random() * 3,
-                delay: Math.random() * 2,
-                ease: 'easeInOut',
-              }}
-            />
-          ))}
-
-          {/* Larger star elements */}
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={`bigstar-${i}`}
-              style={{
-                top: `${20 + Math.random() * 60}%`,
-                left: `${10 + Math.random() * 80}%`,
-                opacity: 0,
-              }}
-              className="absolute text-serveasebackground"
-              animate={{
-                opacity: [0, 0.7, 0],
-                rotate: [0, 10, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 2 + Math.random() * 4,
-                delay: Math.random() * 5,
-                ease: 'easeInOut',
-              }}
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 1L9 9L1 12L9 15L12 23L15 15L23 12L15 9L12 1Z"></path>
-              </svg>
-            </motion.div>
-          ))}
-
-          {/* Dotted grid pattern - visible on larger screens */}
-          <div className="hidden md:block absolute inset-0">
-            <div className="absolute right-10 top-10 grid grid-cols-5 gap-4">
-              {[...Array(25)].map((_, i) => (
-                <motion.div
-                  key={`dot-${i}`}
-                  className="w-1 h-1 rounded-full bg-serveasebackground"
-                  initial={{ opacity: 0.1 }}
-                  animate={{
-                    opacity: i % 3 === 0 ? [0.1, 0.3, 0.1] : 0.15, // Only animate every 3rd dot
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 1.5 + (i % 3),
-                    delay: i * 0.1,
-                    ease: 'easeInOut',
-                  }}
-                />
-              ))}
-            </div>
-          </div>
+          />
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 mb-8 md:mb-0 max-sm:text-center relative">
-              {/* Decorative star/sparkle element near title with Framer Motion */}
-              <motion.div
-                className="absolute -top-6 -left-4 md:-left-8 transform text-serveasebackground hidden md:block"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.8, 1, 0.8],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 3,
-                  ease: 'easeInOut',
-                }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 1L9 9L1 12L9 15L12 23L15 15L23 12L15 9L12 1Z"></path>
-                </svg>
-              </motion.div>
-
-              <h1 className="text-3xl text-white md:text-5xl font-bold mb-4 max-md:mt-8 tracking-tight">
-                ServEase - Case Study
-                {/* Inline decoration after text with Framer Motion */}
-                <motion.span
-                  className="ml-2 text-serveasebackground hidden md:inline-block"
-                  animate={{
-                    opacity: [0.5, 1, 0.5],
-                    scale: [0.9, 1.1, 0.9],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 3,
-                    ease: 'easeInOut',
-                  }}
-                >
-                  ✧
-                </motion.span>
+              <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-cyan-400 to-green-300 md:text-5xl font-bold mb-4 max-md:mt-6 tracking-tight relative">
+                ServEase
+                <span className="block text-2xl md:text-3xl text-gray-300 font-light mt-1">
+                  Case Study
+                </span>
               </h1>
 
-              <p className="text-lg md:text-xl max-w-xl text-gray-200 leading-tight sm:leading-relaxed mb-8 relative">
-                Connecting local professionals with customers through seamless
-                experiences
+              {/* Simple neon underline */}
+              <motion.div
+                className="w-28 h-px max-sm:mx-auto bg-gradient-to-r from-green-400 to-cyan-400 mb-6"
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2,
+                  ease: 'easeInOut',
+                }}
+              />
+
+              <p className="text-lg md:text-xl max-w-xl text-gray-300 leading-tight sm:leading-relaxed mb-8 relative">
+                Connecting local professionals with customers through
+                <span className="text-green-400 font-medium">
+                  {' '}
+                  seamless experiences
+                </span>
+                .
               </p>
 
               <div className="flex flex-col items-center sm:flex-row gap-4 mb-6">
                 <motion.div
-                  className="text-white backdrop-blur-sm px-4 py-2"
-                  whileHover={{ scale: 1.1 }}
+                  className="flex items-center justify-center gap-4 bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm/30 backdrop-blur-sm px-6 py-3 rounded-lg shadow-lg shadow-green-400/10"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0 0 20px rgba(0, 255, 157, 0.3)',
+                    borderColor: 'rgba(0, 255, 157, 0.6)',
+                  }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <div className="flex items-center justify-center gap-4 max-w-xl">
-                    <motion.div whileHover={{ scale: 1.1, rotate: 5 }}>
-                      <FiFigma size={24} />
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.1, rotate: -5 }}>
-                      <SiAdobeillustrator size={24} />
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.1, rotate: 5 }}>
-                      <SiAdobephotoshop size={24} />
-                    </motion.div>
+                  <div className="text-green-400">
+                    <FiFigma size={24} />
+                  </div>
+                  <div className="text-cyan-400">
+                    <SiAdobeillustrator size={24} />
+                  </div>
+                  <div className="text-cyan-400">
+                    <SiAdobephotoshop size={24} />
                   </div>
                 </motion.div>
 
@@ -197,18 +106,19 @@ const ServEase = () => {
                   href="https://www.figma.com/design/XGmaUCjyyklBUF6JLkwR4y/ServEase?node-id=134-254&t=JEkqjYZiDf1wR5yE-1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-white font-semibold rounded-lg px-6 py-3 shadow-md group"
+                  className="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-cyan-500 text-black font-bold rounded-lg px-8 py-3 shadow-lg shadow-green-400/25 group relative overflow-hidden"
                   whileHover={{
-                    y: -2,
+                    y: -3,
                     boxShadow:
-                      '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                      '0 0 30px rgba(0, 255, 157, 0.4), 0 0 60px rgba(0, 255, 255, 0.2)',
+                    scale: 1,
                   }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
                   <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
+                    className="h-5 w-5 mr-2 relative z-10"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     animate={{ rotate: [0, 10, 0] }}
@@ -223,28 +133,22 @@ const ServEase = () => {
                     <path d="M15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
                     <path d="M12 3.5A3.5 3.5 0 0 0 8.5 7h7a3.5 3.5 0 0 0-3.5-3.5zm3.5 10.5a3.5 3.5 0 0 0-3.5 3.5v3.5a3.5 3.5 0 0 0 7 0V14h-3.5zm-7-7H5a3.5 3.5 0 0 0 0 7h3.5V7zm0 7H5a3.5 3.5 0 0 0 3.5 3.5V14z" />
                   </motion.svg>
-                  View Prototype
+                  <span className="relative z-10">View Prototype</span>
                 </motion.a>
               </div>
             </div>
 
             <div className="md:w-1/2 relative">
-              {/* Image with subtle animation */}
+              {/* Floating App Image */}
               <motion.div
                 className="relative"
-                animate={{
-                  opacity: [1],
-                  scale: [0.9, 1.1, 0.9],
-                  rotate: [0, 5, 0],
-                }}
+                animate={{ y: [0, -10, 0] }}
                 transition={{
                   repeat: Infinity,
-                  duration: 5,
+                  duration: 6,
                   ease: 'easeInOut',
                 }}
               >
-                {/* Decorative device frame shadow with animation */}
-
                 <img
                   src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1744464404/jt6st7sx43icz79beddp.png"
                   loading="lazy"
@@ -260,7 +164,7 @@ const ServEase = () => {
       {/* Project Overview */}
       <section className="py-12 px-4 md:py-16 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400 font-bold mb-8 md:mb-12 relative">
             Project Overview{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -269,18 +173,18 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
           </h2>
 
           <div className="space-y-8 md:space-y-12">
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-blue-600">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-cyan-400">
                 Problem
               </h3>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+              <p className="text-gray-200 text-base md:text-lg leading-relaxed">
                 In many cities, finding trusted local professionals like
                 plumbers, tutors, and home chefs is difficult, and skilled
                 individuals often struggle to reach clients efficiently. Current
@@ -289,14 +193,14 @@ const ServEase = () => {
               </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-green-600">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-cyan-400">
                 Solution
               </h3>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-4">
+              <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-4">
                 ServEase bridges the gap by offering:
               </p>
-              <ul className="list-disc pl-5 text-base md:text-lg text-gray-700 space-y-2">
+              <ul className="list-disc pl-5 text-base md:text-lg text-gray-200 space-y-2">
                 <li>
                   A smooth and intuitive experience for customers to discover
                   and book verified local professionals.
@@ -320,7 +224,7 @@ const ServEase = () => {
       {/* ServEase Timeline */}
       <section className="py-12 px-4 md:py-16 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400 font-bold mb-8 md:mb-12 relative">
             Project Timeline{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -329,57 +233,59 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
           </h2>
 
-          <div className="bg-white rounded-lg shadow-sm p-6 md:p-8 mb-8">
+          <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8 mb-8">
             <div className="flex items-center mb-6">
-              <h3 className="text-xl md:text-2xl font-semibold">20-Days</h3>
+              <h3 className="text-xl md:text-2xl text-cyan-400 font-semibold">
+                25-Days
+              </h3>
             </div>
 
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                  <tr className="border-b border-gray-100">
+                    <th className="text-left py-3 px-4 font-semibold text-gray-200">
                       Phase
                     </th>
-                    <th className="text-right py-3 px-4 font-semibold text-gray-700">
+                    <th className="text-right py-3 px-4 font-semibold text-gray-200">
                       Duration
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr className="border-b border-gray-100 hover:bg-gray-50">
+                <tbody className="text-gray-200">
+                  <tr className="border-b border-gray-100 hover:bg-green-400/20">
                     <td className="py-4 px-4">Research & Discovery</td>
                     <td className="py-4 px-4 text-right font-medium">4 days</td>
                   </tr>
-                  <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <tr className="border-b border-gray-100 hover:bg-green-400/20">
                     <td className="py-4 px-4">User Personas & Flows</td>
                     <td className="py-4 px-4 text-right font-medium">3 days</td>
                   </tr>
-                  <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <tr className="border-b border-gray-100 hover:bg-green-400/20">
                     <td className="py-4 px-4">Wireframing</td>
-                    <td className="py-4 px-4 text-right font-medium">3 days</td>
+                    <td className="py-4 px-4 text-right font-medium">4 days</td>
                   </tr>
-                  <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <tr className="border-b border-gray-100 hover:bg-green-400/20">
                     <td className="py-4 px-4">UI Design</td>
                     <td className="py-4 px-4 text-right font-medium">5 days</td>
                   </tr>
-                  <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <tr className="border-b border-gray-100 hover:bg-green-400/20">
                     <td className="py-4 px-4">Prototyping & Interaction</td>
-                    <td className="py-4 px-4 text-right font-medium">2 days</td>
+                    <td className="py-4 px-4 text-right font-medium">4 days</td>
                   </tr>
-                  <tr className="border-b border-gray-100 hover:bg-gray-50">
+                  <tr className="border-b border-gray-100 hover:bg-green-400/20">
                     <td className="py-4 px-4">Testing & Feedback</td>
-                    <td className="py-4 px-4 text-right font-medium">2 days</td>
+                    <td className="py-4 px-4 text-right font-medium">3 days</td>
                   </tr>
-                  <tr className="hover:bg-gray-50">
+                  <tr className="hover:bg-green-400/20">
                     <td className="py-4 px-4">Final Revisions & Polish</td>
-                    <td className="py-4 px-4 text-right font-medium">1 day</td>
+                    <td className="py-4 px-4 text-right font-medium">2 day</td>
                   </tr>
                 </tbody>
               </table>
@@ -391,7 +297,7 @@ const ServEase = () => {
       {/* Research & Insights */}
       <section className="py-12 px-4 md:py-16 md:px-6 ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
             Research & Insights{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -400,18 +306,18 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
           </h2>
 
           <div className="space-y-8 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-6">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
+              <h3 className="text-xl text-cyan-400  md:text-2xl font-semibold mb-3 md:mb-6">
                 Competitor Gaps
               </h3>
-              <ul className="list-disc text-base md:text-lg pl-5 text-gray-700 space-y-4">
+              <ul className="list-disc text-base md:text-lg pl-5 text-gray-200 space-y-4">
                 <li>
                   Cluttered flows with too many steps before booking or
                   accepting a job.
@@ -423,14 +329,14 @@ const ServEase = () => {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-6">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
+              <h3 className="text-xl text-cyan-400 md:text-2xl font-semibold mb-3 md:mb-6">
                 Key User Pain Points
               </h3>
-              <p className="text-gray-800 text-base md:text-xl font-medium mb-2">
+              <p className="text-gray-100 border-b border-gray-100 text-base md:text-xl font-medium mb-2">
                 Customer Users:
               </p>
-              <ul className="list-disc pl-5 text-base md:text-lg text-gray-700 space-y-4 mb-4">
+              <ul className="list-disc pl-5 text-base md:text-lg text-gray-200 space-y-4 mb-4">
                 <li>
                   &quot;I just want to find someone nearby I can trust without
                   scrolling endlessly.&quot;
@@ -440,10 +346,10 @@ const ServEase = () => {
                   forms.&quot;
                 </li>
               </ul>
-              <p className="text-gray-800 text-base md:text-xl font-medium mb-2">
+              <p className="text-gray-50 border-b border-gray-100 text-base md:text-xl font-medium mb-2">
                 Service Providers:
               </p>
-              <ul className="list-disc pl-5 text-base md:text-lg text-gray-700 space-y-2">
+              <ul className="list-disc pl-5 text-base md:text-lg text-gray-200 space-y-2">
                 <li>
                   &quot;It takes too long to get verified and start receiving
                   work.&quot;
@@ -461,7 +367,7 @@ const ServEase = () => {
       {/* User Personas Section */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
             User Personas{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -470,7 +376,7 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
@@ -479,11 +385,11 @@ const ServEase = () => {
           <div className="grid  gap-12">
             {/* Customer Persona */}
             <div>
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-blue-600">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-400">
                 Customer Persona
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1746794321/Frame_44_3_hkkrlb.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983588/Frame_45_rfoxsp.png"
                 alt="Customer Persona"
                 loading="lazy"
                 className="w-full"
@@ -492,11 +398,11 @@ const ServEase = () => {
 
             {/* Service Provider Persona */}
             <div>
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-green-600">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-400">
                 Service Provider Persona
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1746794480/Frame_45_3_w0widn.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983614/Frame_46_q2x8ok.png"
                 alt="Service Provider Persona"
                 loading="lazy"
                 className="w-full "
@@ -509,7 +415,7 @@ const ServEase = () => {
       {/* Design Process Section */}
       <section className="py-12 px-4 md:py-16 md:px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
             Design Process{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -518,33 +424,33 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
           </h2>
 
           <div className="space-y-10 md:space-y-16">
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
               <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                 <div className="flex flex-col items-center md:items-start md:w-1/4">
-                  <div className="bg-yellow-100 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-3">
-                    <span className="text-xl md:text-2xl font-bold text-yellow-800">
+                  <div className="bg-cyan-400/20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-3">
+                    <span className="text-xl md:text-2xl font-bold text-cyan-400">
                       1
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-center md:text-left">
+                  <h3 className="text-xl text-cyan-400 font-semibold mb-2 text-center md:text-left">
                     Research
                   </h3>
                 </div>
                 <div className="md:w-3/4">
-                  <p className="text-gray-700 text-base md:text-lg mb-4">
+                  <p className="text-gray-200 text-base md:text-lg mb-4">
                     To design something truly useful, I first needed to
                     understand real pain points—both for customers struggling to
                     find reliable services and individuals looking to offer
                     their skills.
                   </p>
-                  <ul className="list-disc pl-5 text-base md:text-lg text-gray-700 space-y-2">
+                  <ul className="list-disc pl-5 text-base md:text-lg text-gray-200 space-y-2">
                     <li>
                       Conducted user interviews with both potential customers
                       and service providers.
@@ -562,25 +468,25 @@ const ServEase = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
               <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                 <div className="flex flex-col items-center md:items-start md:w-1/4">
-                  <div className="bg-yellow-100 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-3">
-                    <span className="text-xl md:text-2xl font-bold text-yellow-800">
+                  <div className="bg-cyan-400/20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-3">
+                    <span className="text-xl md:text-2xl font-bold text-cyan-400">
                       2
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-center md:text-left">
+                  <h3 className="text-xl text-cyan-400 font-semibold mb-2 text-center md:text-left">
                     Ideation
                   </h3>
                 </div>
                 <div className="md:w-3/4">
-                  <p className="text-gray-700 text-base md:text-lg mb-4">
+                  <p className="text-gray-200 text-base md:text-lg mb-4">
                     With insights in hand, I shifted toward defining a solution
                     that feels easy, fast, and empowering—one that brings
                     clarity and confidence to both sides.
                   </p>
-                  <ul className="list-disc pl-5 text-base md:text-lg text-gray-700 space-y-2">
+                  <ul className="list-disc pl-5 text-base md:text-lg text-gray-200 space-y-2">
                     <li>
                       Brainstormed flows that reduce friction and create
                       confidence from the first tap.
@@ -597,25 +503,25 @@ const ServEase = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
               <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                 <div className="flex flex-col items-center md:items-start md:w-1/4">
-                  <div className="bg-yellow-100 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-3">
-                    <span className="text-xl md:text-2xl font-bold text-yellow-800">
+                  <div className="bg-cyan-400/20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-3">
+                    <span className="text-xl md:text-2xl font-bold text-cyan-400">
                       3
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-center md:text-left">
+                  <h3 className="text-xl text-cyan-400 font-semibold mb-2 text-center md:text-left">
                     Prototyping
                   </h3>
                 </div>
                 <div className="md:w-3/4">
-                  <p className="text-gray-700 text-base md:text-lg mb-4">
+                  <p className="text-gray-200 text-base md:text-lg mb-4">
                     Ideas became tangible through low to high-fidelity
                     wireframes—tested and refined based on feedback to ensure
                     everything felt seamless and intuitive.
                   </p>
-                  <ul className="list-disc pl-5 text-base md:text-lg text-gray-700 space-y-2">
+                  <ul className="list-disc pl-5 text-base md:text-lg text-gray-200 space-y-2">
                     <li>
                       Designed over 50+ screens including onboarding, booking,
                       and dashboards.
@@ -639,7 +545,7 @@ const ServEase = () => {
       {/* Site map */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
             Site Map{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -648,7 +554,7 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
@@ -657,11 +563,11 @@ const ServEase = () => {
           <div className="grid  gap-12">
             {/* Customer */}
             <div>
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-blue-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 For Customer
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1746794556/Desktop_-_23_hb4s6r.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983571/Desktop_-_23_ahz9qn.png"
                 alt="Customer Site Map"
                 loading="lazy"
                 className="w-full "
@@ -670,11 +576,11 @@ const ServEase = () => {
 
             {/* Service Provider*/}
             <div>
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-green-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 For Service Providers
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1746794556/Desktop_-_24_erlcbw.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983577/Desktop_-_24_e0hhi6.png"
                 alt="Service Provider Site Map"
                 loading="lazy"
                 className="w-full "
@@ -687,7 +593,7 @@ const ServEase = () => {
       {/* User Flow */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
             User Flow{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -696,7 +602,7 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
@@ -705,11 +611,11 @@ const ServEase = () => {
           <div className="grid  gap-12">
             {/* Customer */}
             <div>
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-blue-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 For Customer
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1746794622/Desktop_-_25_fgi0vy.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983587/Desktop_-_25_lkawtt.png"
                 alt="Customer User Flow"
                 loading="lazy"
                 className="w-full "
@@ -718,11 +624,11 @@ const ServEase = () => {
 
             {/* Service Provider */}
             <div>
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-green-600">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-400">
                 For Service Provider
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1746794735/Desktop_-_26_1_uosg53.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983582/Desktop_-_26_p9qcgz.png"
                 alt="Service Provider User Flow"
                 loading="lazy"
                 className="w-full "
@@ -735,7 +641,7 @@ const ServEase = () => {
       {/* Key Features Section */}
       <section className="py-12 px-4 md:py-16 md:px-6 ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
             Key Features{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -744,49 +650,49 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg md:text-xl font-semibold mb-3">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm p-6 ">
+              <h3 className="text-lg text-cyan-400 md:text-xl font-semibold mb-3">
                 Location-Based Discovery
               </h3>
-              <p className="text-gray-700 text-base md:text-lg">
+              <p className="text-gray-200 text-base md:text-lg">
                 Users can easily discover and filter service providers based on
                 proximity, ratings, and availability without endless scrolling.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg md:text-xl font-semibold mb-3">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm p-6 ">
+              <h3 className="text-lg text-cyan-400 md:text-xl font-semibold mb-3">
                 Streamlined Booking
               </h3>
-              <p className="text-gray-700 text-base md:text-lg">
+              <p className="text-gray-200 text-base md:text-lg">
                 Simplified booking process with minimal form fields and smart
                 defaults based on user preferences and history.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg md:text-xl font-semibold mb-3">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm p-6 ">
+              <h3 className="text-lg text-cyan-400 md:text-xl font-semibold mb-3">
                 Provider Dashboard
               </h3>
-              <p className="text-gray-700 text-base md:text-lg">
+              <p className="text-gray-200 text-base md:text-lg">
                 Comprehensive yet simple dashboard for service providers to
                 manage their schedule, jobs, and client communications in one
                 place.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg md:text-xl font-semibold mb-3">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm p-6 ">
+              <h3 className="text-lg text-cyan-400 md:text-xl font-semibold mb-3">
                 Instant Messaging
               </h3>
-              <p className="text-gray-700 text-base md:text-lg">
+              <p className="text-gray-200 text-base md:text-lg">
                 Real-time communication system allowing customers and providers
                 to discuss details, ask questions, and coordinate services.
               </p>
@@ -798,7 +704,7 @@ const ServEase = () => {
       {/* wireframes */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
             WireFrames{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -807,7 +713,7 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
@@ -816,11 +722,11 @@ const ServEase = () => {
           <div className="grid  gap-16">
             {/* Customer */}
             <div>
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-blue-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 Customer Side
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1744551196/iu2whz30p3atjp3onad0.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983627/Frame_9_wuaoh0.png"
                 loading="lazy"
                 alt="Customer Wireframe"
                 className="w-full "
@@ -829,11 +735,11 @@ const ServEase = () => {
 
             {/* Service Provider */}
             <div>
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-green-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 Service Provider Side
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1744551200/cxeodyq5i0kvfy6lyycm.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983584/Desktop_-_14_gjykdh.png"
                 alt="Service Provider Wireframe"
                 loading="lazy"
                 className="w-full "
@@ -845,7 +751,7 @@ const ServEase = () => {
       {/* Style guide */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
             Style Guide{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -854,16 +760,15 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
           </h2>
 
-          {/* Customer */}
           <div>
             <img
-              src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1744465144/j0ujrvo0eqt8bugnuzvi.png"
+              src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983598/Desktop_-_27_i6lc5n.png"
               alt="Style Guide"
               loading="lazy"
               className="w-full "
@@ -875,7 +780,7 @@ const ServEase = () => {
       {/*High Fidelity*/}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
             High Fidelity{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -884,7 +789,7 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
@@ -893,11 +798,11 @@ const ServEase = () => {
           <div className="grid  gap-16">
             {/* Customer */}
             <div>
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-blue-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 Customer Side
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1744551198/ymi1sfthjhkeazwub8eg.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983627/Frame_43_iupms0.png"
                 alt="Customer High Fidelity"
                 loading="lazy"
                 className="w-full "
@@ -906,11 +811,11 @@ const ServEase = () => {
 
             {/* Service Provider */}
             <div>
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-green-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 Service Provider Side
               </h3>
               <img
-                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1744551189/wm0injqau74my7w2mxqb.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1753983604/Desktop_-_14-1_s0egyn.png"
                 alt="Service Provider High Fidelity"
                 loading="lazy"
                 className="w-full "
@@ -923,7 +828,7 @@ const ServEase = () => {
       {/* Final UI & Prototype*/}
       <section className="py-12 px-4 md:py-16 md:px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
             Final UI & Prototype{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -932,18 +837,18 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-blue-600">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-400">
                 For Customers
               </h3>
-              <ul className="list-disc text-base md:text-lg pl-5 text-gray-700 space-y-2">
+              <ul className="list-disc text-base md:text-lg pl-5 text-gray-200 space-y-2">
                 <li>Home, Explore, and Booking pages with smart filters.</li>
                 <li>Real-time chat and notifications.</li>
                 <li>
@@ -953,11 +858,11 @@ const ServEase = () => {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-green-600">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-400">
                 For Providers
               </h3>
-              <ul className="list-disc pl-5 text-base md:text-lg text-gray-700 space-y-2">
+              <ul className="list-disc pl-5 text-base md:text-lg text-gray-200 space-y-2">
                 <li>
                   Personalized Dashboard with key metrics (jobs, earnings,
                   schedule).
@@ -975,7 +880,7 @@ const ServEase = () => {
       {/* Sign up demo */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
             Sign Up{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -984,7 +889,7 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
@@ -992,7 +897,7 @@ const ServEase = () => {
 
           <div className="flex flex-col md:flex-row gap-12">
             <div className="flex-1 p-4">
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-blue-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 Customer Sign up
               </h3>
               <video
@@ -1010,7 +915,7 @@ const ServEase = () => {
             </div>
 
             <div className="flex-1 p-4">
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-green-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 Service Provider Sign up
               </h3>
               <video
@@ -1033,7 +938,7 @@ const ServEase = () => {
       {/* Task Flow demo video */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
             Task Completion{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -1042,7 +947,7 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
@@ -1050,7 +955,7 @@ const ServEase = () => {
 
           <div className="flex flex-col md:flex-row gap-12">
             <div className="flex-1 p-4">
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-blue-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 Booking Service
               </h3>
               <video
@@ -1068,7 +973,7 @@ const ServEase = () => {
             </div>
 
             <div className="flex-1 p-4">
-              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-green-600">
+              <h3 className="text-xl md:text-2xl  font-semibold mb-4 text-cyan-400">
                 Completing Job
               </h3>
               <video
@@ -1090,7 +995,7 @@ const ServEase = () => {
       {/* Results & Takeaways Section */}
       <section className="py-12 px-4 md:py-16 md:px-6 ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
             Results & Takeaways{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -1099,18 +1004,18 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-400">
                 Results
               </h3>
-              <ul className="space-y-4 text-base md:text-lg text-gray-700">
+              <ul className="space-y-4 text-base md:text-lg text-gray-200">
                 <li className="flex items-start">
                   <span className="mr-2 text-gray-400">•</span>
                   <span>
@@ -1134,11 +1039,11 @@ const ServEase = () => {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-gray-800">
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-400">
                 What I Learned
               </h3>
-              <ul className="space-y-4 text-base md:text-lg text-gray-700">
+              <ul className="space-y-4 text-base md:text-lg text-gray-200">
                 <li className="flex items-start">
                   <span className="mr-2 text-gray-400">•</span>
                   <span>
@@ -1167,9 +1072,9 @@ const ServEase = () => {
       </section>
 
       {/* Final Thoughts */}
-      <section className="py-12 px-4 md:py-16 md:px-6 mb-8  ">
+      <section className="py-12 px-4 md:py-16 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 relative">
+          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
             Final Thoughts{' '}
             <motion.span
               animate={{ rotate: 360 }}
@@ -1178,14 +1083,14 @@ const ServEase = () => {
                 repeat: Infinity,
                 ease: 'linear',
               }}
-              className="inline-block text-4xl rounded-full text-red-600"
+              className="inline-block text-4xl rounded-full text-cyan-400"
             >
               ✴
             </motion.span>
           </h2>
 
-          <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+          <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
+            <p className="text-base md:text-lg text-gray-200 leading-relaxed">
               With ServEase, I set out to solve a real-world problem, connecting
               people with trusted local services effortlessly, while empowering
               skilled individuals to grow and thrive. Every screen was designed
@@ -1196,8 +1101,8 @@ const ServEase = () => {
             </p>
           </div>
         </div>
+        <NextStudyBtn title={'Recipick'} slug={'/recipick'} />
       </section>
-      <NextStudyBtn title={'Recipick'} slug={'/recipick'} />
     </div>
   );
 };

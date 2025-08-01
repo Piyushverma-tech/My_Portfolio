@@ -47,6 +47,10 @@ const Navbar = () => {
 
   // Detect active section
   useEffect(() => {
+    if (location.pathname !== '/') {
+      setActiveSection(''); // Clear active section if not on homepage
+      return;
+    }
     const observerOptions = {
       root: null,
       rootMargin: '-50% 0px',
@@ -72,7 +76,7 @@ const Navbar = () => {
     });
 
     return () => observer.disconnect();
-  });
+  }, [location.pathname]);
 
   const navVariants = {
     open: {
@@ -101,7 +105,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed w-full bg-gradient-to-b from-white to-gray-100 z-50 px-4 sm:px-6 lg:px-12 py-3"
+      className="fixed w-full  bg-gray-900  z-50 px-4 sm:px-6 lg:px-12 py-3"
       initial={{ y: -60 }}
       animate={{ y: 0 }}
       viewport={{ once: true }}
@@ -117,9 +121,9 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="h-4 w-full overflow-hidden">
+            <div className="h-8 w-full overflow-hidden">
               <img
-                src="/mylogo.png"
+                src="/Logo.png"
                 alt="Piyush - Creative Developer"
                 className="h-full w-full object-cover"
               />
@@ -134,13 +138,13 @@ const Navbar = () => {
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href, item.isRoute)}
                 className={`transition-colors text-sm lg:text-[15px] font-semibold ${
-                  activeSection === item.id
-                    ? 'text-red-500 border-red-500 hover:border-black'
-                    : 'text-gray-600 hover:text-black'
-                } ${
-                  item.isRoute
-                    ? 'py-1 px-2 lg:px-4 border border-black hover:bg-black hover:text-white'
-                    : ''
+                  location.pathname === '/' &&
+                  activeSection === item.id &&
+                  !item.isRoute
+                    ? 'text-green-500'
+                    : location.pathname === item.href && item.isRoute
+                    ? 'text-green-500'
+                    : 'text-gray-200 hover:text-gray-100'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -151,7 +155,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex text-cyan-400 items-center">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.95 }}
@@ -166,7 +170,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="md:hidden w-full bg-gradient-to-b from-black to-zinc-800 fixed left-0 right-0 top-12"
+              className="md:hidden w-full bg-gradient-to-br from-gray-900 via-black to-gray-800 fixed left-0 right-0 top-12 z-40"
               initial="closed"
               animate="open"
               exit="closed"
@@ -177,9 +181,9 @@ const Navbar = () => {
                   <motion.a
                     key={item.title}
                     href={item.href}
-                    className={`text-gray-200 hover:text-gray-100 transition-colors ${
+                    className={`text-gray-100 hover:text-gray-100 transition-colors ${
                       activeSection === item.id
-                        ? 'text-red-500 font-medium'
+                        ? 'text-green-500 font-medium'
                         : ''
                     }`}
                     whileHover={{ scale: 1.05 }}
@@ -196,6 +200,11 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
+        <motion.div
+          className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-400 to-transparent"
+          animate={{ x: ['-100%', '100%'] }}
+          transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+        />
       </div>
     </motion.nav>
   );

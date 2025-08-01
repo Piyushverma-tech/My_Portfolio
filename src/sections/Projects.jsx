@@ -1,16 +1,24 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Camera, Youtube } from 'lucide-react';
+import {
+  ExternalLink,
+  Github,
+  Camera,
+  Youtube,
+  Terminal,
+  Database,
+  Code,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
-import FloatingShapes from '../components/FloatingShapes';
+import { MatrixRain } from '../components/Martrix';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('development');
 
   const categories = [
-    { id: 'development', label: 'Development' },
-    { id: 'design', label: 'Design' },
-    { id: 'hobby', label: 'Hobby' },
+    { id: 'development', label: 'DEVELOPMENT', icon: Code },
+    { id: 'design', label: 'DESIGN', icon: Database },
+    { id: 'hobby', label: 'HOBBY', icon: Terminal },
   ];
 
   //Projects data
@@ -86,7 +94,7 @@ const Projects = () => {
         image:
           'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034358/Portfolio/ha0vcakprxxlw08x5c8o.png',
         tags: ['Figma', 'UI/UX', 'Prototyping', 'User Research'],
-        link: '/recipick',
+        slug: '/recipick',
       },
       {
         id: 2,
@@ -96,7 +104,7 @@ const Projects = () => {
         image:
           'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034277/Portfolio/mwso8jbwpsnbhvdqvnyb.png',
         tags: ['Figma', 'UI/UX', 'Prototyping', 'User Research'],
-        link: '/Servease',
+        slug: '/Servease',
       },
     ],
 
@@ -159,30 +167,29 @@ const Projects = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08, // Slightly faster stagger for more elegance
-        delayChildren: 0.06, // Reduced delay for smoother appearance
-        ease: [0.25, 0.1, 0.25, 1], // Custom cubic-bezier for a more polished feel
+        staggerChildren: 0.08,
+        delayChildren: 0.06,
+        ease: [0.25, 0.1, 0.25, 1],
       },
     },
     exit: {
       opacity: 0,
       transition: {
         staggerChildren: 0.04,
-        staggerDirection: -1, // Items disappear in reverse order
+        staggerDirection: -1,
         ease: [0.4, 0, 0.2, 1],
         duration: 0.5,
       },
     },
   };
 
-  // More sophisticated item animation with slight 3D effect
   const item = {
     hidden: {
       y: 30,
       opacity: 0,
       scale: 0.92,
-      rotateX: 5, // Subtle 3D rotation
-      filter: 'blur(4px)', // Start with slight blur
+      rotateX: 5,
+      filter: 'blur(4px)',
     },
     show: {
       y: 0,
@@ -210,7 +217,6 @@ const Projects = () => {
     },
   };
 
-  // More elegant page transition with sophisticated sequencing
   const pageTransition = {
     hidden: {
       opacity: 0,
@@ -218,7 +224,7 @@ const Projects = () => {
       scale: 0.98,
       transition: {
         duration: 0.4,
-        ease: [0.65, 0, 0.35, 1], // Custom easing for smoother entry
+        ease: [0.65, 0, 0.35, 1],
       },
     },
     show: {
@@ -227,7 +233,7 @@ const Projects = () => {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: [0.34, 1.56, 0.64, 1], // Slight overshoot for elegant entrance
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
     exit: {
@@ -242,7 +248,6 @@ const Projects = () => {
     },
   };
 
-  // Add this custom animation for tab switching
   const tabSwitchAnimation = {
     initial: { opacity: 0, scale: 0.9 },
     animate: {
@@ -250,7 +255,7 @@ const Projects = () => {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: [0.34, 1.56, 0.64, 1], // Custom spring-like cubic bezier
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
     exit: {
@@ -264,7 +269,6 @@ const Projects = () => {
     },
   };
 
-  // Unique stagger animation for images in projects
   const imageReveal = {
     hidden: {
       opacity: 0,
@@ -277,7 +281,7 @@ const Projects = () => {
       filter: 'saturate(1) brightness(1)',
       transition: {
         duration: 0.8,
-        ease: [0.25, 1, 0.5, 1], // Custom easing for a smooth reveal
+        ease: [0.25, 1, 0.5, 1],
       },
     },
     exit: {
@@ -307,7 +311,7 @@ const Projects = () => {
           animate="animate"
           exit="exit"
           key="development-section"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-8 md:gap-y-6 mt-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-8 md:gap-y-8 mt-8"
         >
           {projectsData.development.map((project, index) => (
             <motion.div
@@ -325,29 +329,26 @@ const Projects = () => {
                 },
               }}
             >
-              {/* Project Image/Video with Hover Effect */}
+              {/* Project Image/Video with Cyberpunk Hover Effect */}
               <div className="mb-6 relative transform perspective-1000 group">
                 <motion.div
                   whileHover={{
                     y: -5,
                     rotateY: 2,
                     boxShadow:
-                      '0 15px 30px rgba(0,0,0,0.12), 0 8px 12px rgba(0,0,0,0.08)',
+                      '0 0 30px rgba(34,211,238,0.5), 0 0 60px rgba(34,255,0,0.2)',
                     transition: { type: 'spring', stiffness: 300 },
                   }}
-                  className="relative overflow-hidden rounded-lg shadow-xl"
+                  className="relative overflow-hidden border border-green-400/30 bg-black/50 backdrop-blur-sm"
                   onMouseEnter={(e) => {
-                    // Find and play the video
                     const video = e.currentTarget.querySelector('video');
                     if (video) {
                       video.style.opacity = '1';
                       video.play();
-                      // Hide the image
                       const img = e.currentTarget.querySelector('img');
                       if (img) {
                         img.style.opacity = '0';
                       }
-                      // Show the action buttons overlay
                       const overlay = e.currentTarget.querySelector(
                         '.absolute.inset-0.bg-gradient-to-t'
                       );
@@ -358,18 +359,15 @@ const Projects = () => {
                     }
                   }}
                   onMouseLeave={(e) => {
-                    // Find and pause the video
                     const video = e.currentTarget.querySelector('video');
                     if (video) {
                       video.style.opacity = '0';
                       video.pause();
                       video.currentTime = 0;
-                      // Show the image
                       const img = e.currentTarget.querySelector('img');
                       if (img) {
                         img.style.opacity = '1';
                       }
-                      // Hide the action buttons overlay
                       const overlay = e.currentTarget.querySelector(
                         '.absolute.inset-0.bg-gradient-to-t'
                       );
@@ -382,10 +380,10 @@ const Projects = () => {
                 >
                   <motion.div
                     variants={imageReveal}
-                    className="w-full h-72 overflow-hidden"
+                    className="w-full h-72 overflow-hidden relative"
                   >
-                    {/* Thumbnail Image (shown by default) */}
-                    <img
+                    {/* Thumbnail Image */}
+                    {/* <img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-72 object-cover object-center transition-all duration-500"
@@ -393,9 +391,22 @@ const Projects = () => {
                         position: 'relative',
                         opacity: '1',
                       }}
-                    />
+                    /> */}
 
-                    {/* Video (plays on hover) */}
+                    <MatrixRain opacity={0.3} />
+
+                    {/* Cyberpunk Scanning Effect */}
+                    {/* <motion.div
+                      className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/30 to-transparent h-8"
+                      animate={{ y: ['0%', '1000%'] }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: 'linear',
+                      }}
+                    /> */}
+
+                    {/* Video overlay */}
                     {project.videoUrl && (
                       <video
                         src={project.videoUrl}
@@ -414,8 +425,10 @@ const Projects = () => {
                       />
                     )}
                   </motion.div>
+
+                  {/* Cyberpunk Action Overlay */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-black/0 to-transparent opacity-0 transition-all duration-500 flex items-end justify-end gap-4 p-4 z-10"
+                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-all duration-500 flex items-end justify-end gap-4 p-4 z-10"
                     style={{
                       pointerEvents: 'none',
                     }}
@@ -426,10 +439,11 @@ const Projects = () => {
                         href={project.links.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white bg-red-500 p-2 rounded-full hover:bg-red-600 transition-colors"
+                        className="text-black bg-green-400 p-2 border border-green-400/50   transition-colors backdrop-blur-sm"
                         whileHover={{
                           scale: 1.15,
-                          rotate: 3,
+
+                          boxShadow: '0 0 20px rgba(34,211,238,0.8)',
                           transition: { type: 'spring', stiffness: 400 },
                         }}
                         whileTap={{ scale: 0.95 }}
@@ -442,10 +456,11 @@ const Projects = () => {
                         href={project.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white bg-gray-800 p-2 rounded-full hover:bg-gray-900 transition-colors"
+                        className="text-green-400 bg-black/80 border border-green-400/50 p-2 hover:bg-gray-900 hover:border-cyan-400 transition-colors backdrop-blur-sm"
                         whileHover={{
                           scale: 1.15,
-                          rotate: -3,
+
+                          boxShadow: '0 0 20px rgba(34,255,0,0.8)',
                           transition: { type: 'spring', stiffness: 400 },
                         }}
                         whileTap={{ scale: 0.95 }}
@@ -456,9 +471,9 @@ const Projects = () => {
                   </motion.div>
                 </motion.div>
 
-                {/*decorative elements with animation */}
+                {/* Cyberpunk decorative elements */}
                 <motion.div
-                  className="absolute -bottom-3 -left-3 w-16 h-16 border-2 border-gray-200 rounded-lg z-10"
+                  className="absolute -bottom-3 -left-3 w-16 h-16 border-2 border-green-400/30 z-10"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{
                     scale: 1,
@@ -468,12 +483,13 @@ const Projects = () => {
                   whileHover={{
                     rotate: -5,
                     x: -2,
-                    borderColor: '#f1f1f1',
+                    borderColor: '#22d3ee',
+                    boxShadow: '0 0 15px rgba(34,211,238,0.5)',
                     transition: { duration: 0.3 },
                   }}
                 ></motion.div>
                 <motion.div
-                  className="absolute -top-3 -right-3 w-16 h-16 border-2 border-red-200 rounded-lg z-10"
+                  className="absolute -top-3 -right-3 w-16 h-16 border-2 border-cyan-400/30 z-10"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{
                     scale: 1,
@@ -483,15 +499,16 @@ const Projects = () => {
                   whileHover={{
                     rotate: 5,
                     x: 2,
-                    borderColor: '#fecaca',
+                    borderColor: '#22ff00',
+                    boxShadow: '0 0 15px rgba(34,255,0,0.5)',
                     transition: { duration: 0.3 },
                   }}
                 ></motion.div>
               </div>
 
-              {/* Project Details with staggered animation */}
+              {/* Project Details with cyberpunk styling */}
               <motion.h3
-                className="sm:text-xl text-lg font-bold text-gray-900 mb-2"
+                className="sm:text-xl text-lg font-bold text-green-400 mb-2 font-mono tracking-wider"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -506,17 +523,17 @@ const Projects = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.4 }}
-                className="text-gray-700 max-sm:text-sm mb-4"
+                className="text-gray-300 max-sm:text-sm mb-4 bg-black/20 p-3 border-l-2 border-cyan-400/50 backdrop-blur-sm"
               >
                 {project.description}
               </motion.p>
 
-              {/*tag animations */}
+              {/* Cyberpunk tags */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag, index) => (
                   <motion.span
                     key={index}
-                    className="text-xs font-medium px-2.5 py-0.5 rounded-md bg-red-50 text-red-700"
+                    className="text-xs font-medium px-2.5 py-0.5 bg-black/50 text-green-400 border border-green-400/30 font-mono backdrop-blur-sm"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
@@ -527,8 +544,9 @@ const Projects = () => {
                     whileHover={{
                       scale: 1.08,
                       y: -2,
-                      backgroundColor: '#fef2f2', // Slightly brighter on hover
-                      boxShadow: '0 2px 5px rgba(239, 68, 68, 0.1)',
+                      backgroundColor: 'rgba(34,211,238,0.1)',
+                      borderColor: '#22d3ee',
+                      boxShadow: '0 0 10px rgba(34,211,238,0.3)',
                       transition: { type: 'spring', stiffness: 300 },
                     }}
                   >
@@ -542,6 +560,7 @@ const Projects = () => {
       </AnimatePresence>
     </motion.div>
   );
+
   const renderDesignProjects = () => (
     <motion.div
       variants={container}
@@ -561,41 +580,49 @@ const Projects = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-8"
         >
           {projectsData.design.map((project, index) => (
-            <motion.div
-              key={project.id}
-              variants={item}
-              className="group relative aspect-w-16 aspect-h-12"
-            >
-              {/* Main Image Container */}
-              <Link to={project.link}>
-                <div className="relative w-full h-full rounded-lg shadow-xl  overflow-hidden">
+            <Link to={project.slug} key={index}>
+              <motion.div
+                key={project.id}
+                variants={item}
+                className="group relative aspect-w-16 aspect-h-12"
+              >
+                {/* Main Image Container with cyberpunk styling */}
+                <div className="relative w-full h-full border border-green-400/30 bg-black/20 backdrop-blur-sm overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-72 object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Hover Content Overlay */}
+                  {/* Cyberpunk Scanning Effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent w-8"
+                    animate={{ x: ['0%', '1000%'] }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: 'linear',
+                    }}
+                  />
+
+                  {/* Cyberpunk Hover Content Overlay */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{
                       opacity: 1,
                       transition: { duration: 0.3 },
                     }}
-                    className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"
                   >
                     {/* Top Content Container */}
                     <div className="absolute inset-x-0 top-0 p-6 translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-500">
                       <div className="space-y-2">
-                        {/* Title and Links */}
                         <div className="flex items-center justify-between">
-                          <h3 className="text-xl font-bold text-white">
+                          <h3 className="text-xl font-bold text-green-400 font-mono tracking-wider">
                             {project.title}
                           </h3>
                         </div>
-
-                        {/* Description */}
-                        <p className="text-white/90 text-sm leading-relaxed">
+                        <p className="text-gray-300 text-sm leading-relaxed bg-black/30 p-2 border-l-2 border-cyan-400/50 backdrop-blur-sm">
                           {project.description}
                         </p>
                       </div>
@@ -603,13 +630,12 @@ const Projects = () => {
 
                     {/* Bottom Content Container */}
                     <div className="absolute inset-x-0 bottom-0 p-6 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500">
-                      {/* Tags */}
                       <div className="flex flex-wrap justify-end gap-2">
                         {project.tags.map((tag, index) => (
                           <motion.span
                             key={index}
                             whileHover={{ scale: 1.05 }}
-                            className="px-3 py-1 text-xs rounded-full bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-colors duration-300"
+                            className="px-3 py-1 text-xs bg-black/50 text-green-400 border border-green-400/30 hover:border-cyan-400 hover:text-cyan-400 transition-colors duration-300 font-mono backdrop-blur-sm"
                           >
                             {tag}
                           </motion.span>
@@ -618,9 +644,10 @@ const Projects = () => {
                     </div>
                   </motion.div>
                 </div>
-                {/* Decorative elements */}
+
+                {/* Cyberpunk decorative elements */}
                 <motion.div
-                  className="absolute -bottom-3 -left-3 w-16 h-16 border-2 border-gray-200 rounded-lg z-10"
+                  className="absolute -bottom-3 -left-3 w-16 h-16 border-2 border-green-400/30 z-10"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{
                     scale: 1,
@@ -630,12 +657,13 @@ const Projects = () => {
                   whileHover={{
                     rotate: -5,
                     x: -2,
-                    borderColor: '#f1f1f1',
+                    borderColor: '#22d3ee',
+                    boxShadow: '0 0 15px rgba(34,211,238,0.5)',
                     transition: { duration: 0.3 },
                   }}
                 ></motion.div>
                 <motion.div
-                  className="absolute -top-3 -right-3 w-16 h-16 border-2 border-red-200 rounded-lg z-10"
+                  className="absolute -top-3 -right-3 w-16 h-16 border-2 border-cyan-400/30 z-10"
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{
                     scale: 1,
@@ -645,17 +673,19 @@ const Projects = () => {
                   whileHover={{
                     rotate: 5,
                     x: 2,
-                    borderColor: '#fecaca',
+                    borderColor: '#22ff00',
+                    boxShadow: '0 0 15px rgba(34,255,0,0.5)',
                     transition: { duration: 0.3 },
                   }}
                 ></motion.div>
-              </Link>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </AnimatePresence>
     </motion.div>
   );
+
   const renderHobbyProjects = () => (
     <motion.div
       variants={container}
@@ -672,7 +702,7 @@ const Projects = () => {
               key={project.id}
               variants={item}
               custom={index}
-              className="group relative aspect-square overflow-hidden "
+              className="group relative aspect-square overflow-hidden border border-green-400/30 bg-black/20 backdrop-blur-sm"
             >
               {/* Background Image */}
               <motion.div variants={imageReveal} className="w-full h-full">
@@ -682,45 +712,62 @@ const Projects = () => {
                   style={{ willChange: 'transform' }}
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                 />
+
+                {/* Cyberpunk Scanning Effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-green-400/20 to-transparent h-8"
+                  animate={{ y: ['0%', '1000%'] }}
+                  transition={{
+                    duration: 2.5 + index * 0.3,
+                    repeat: Infinity,
+                    ease: 'linear',
+                  }}
+                />
               </motion.div>
 
-              {/* Hover Overlay with Info */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover:opacity-100 flex flex-col justify-end p-4 -translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-500">
-                {/* Link Icon */}
+              {/* Cyberpunk Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 flex flex-col justify-end p-4 -translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-500">
+                {/* Link Icons */}
                 {project.links.instagram && (
                   <a
                     href={project.links.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-4 right-4 p-1.5 rounded-full bg-white/10  hover:bg-white/30   delay-200"
+                    className="absolute top-4 right-4 p-1.5 bg-black/50 border border-green-400/50 hover:border-cyan-400 backdrop-blur-sm transition-colors"
                   >
-                    <Camera size={20} className="text-white" />
+                    <Camera
+                      size={20}
+                      className="text-green-400 hover:text-cyan-400 transition-colors"
+                    />
                   </a>
                 )}
-                {/* Link Icon */}
                 {project.links.youtube && (
                   <a
                     href={project.links.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-4 right-4 p-1.5 rounded-full bg-white/10 hover:bg-white/30   delay-200"
+                    className="absolute top-4 right-4 p-1.5 bg-black/50 border border-green-400/50 hover:border-cyan-400 backdrop-blur-sm transition-colors"
                   >
-                    <Youtube size={20} className="text-white" />
+                    <Youtube
+                      size={20}
+                      className="text-green-400 hover:text-cyan-400 transition-colors"
+                    />
                   </a>
                 )}
-                <h3 className="text-white text-lg font-bold mb-1 ">
+
+                <h3 className="text-green-400 text-lg font-bold mb-1 font-mono tracking-wider">
                   {project.title}
                 </h3>
-                <p className="text-gray-200 text-sm mb-3 line-clamp-2  delay-75">
+                <p className="text-gray-300 text-sm mb-3 line-clamp-2 bg-black/30 p-2 border-l-2 border-cyan-400/50 backdrop-blur-sm">
                   {project.description}
                 </p>
 
-                {/* Tags - show only on larger screens */}
-                <div className="hidden md:flex flex-wrap gap-1 mb-3  delay-150">
+                {/* Cyberpunk Tags */}
+                <div className="hidden md:flex flex-wrap gap-1 mb-3">
                   {project.tags.slice(0, 2).map((tag, index) => (
                     <span
                       key={index}
-                      className="text-xs px-1.5 py-0.5 rounded-sm bg-white/20 text-white/90"
+                      className="text-xs px-1.5 py-0.5 bg-black/50 text-green-400 border border-green-400/30 font-mono backdrop-blur-sm"
                     >
                       {tag}
                     </span>
@@ -734,92 +781,190 @@ const Projects = () => {
     </motion.div>
   );
 
+  // Cyberpunk Animation variants for the heading
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.9, // Less dramatic scale change
+      rotateX: -10, // Reduced rotation
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotateX: 0,
+      transition: {
+        duration: 0.5, // Reduced from 0.8s
+        ease: 'easeOut',
+        staggerChildren: 0.05, // Reduced from 0.1s
+      },
+    },
+  };
+
+  const textVariants = {
+    hidden: {
+      opacity: 0,
+      clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
+    },
+    visible: {
+      opacity: 1,
+      clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+      transition: {
+        duration: 0.6, // Reduced from 1s
+        ease: 'easeInOut',
+        delay: 0.2, // Reduced from 0.6s
+      },
+    },
+  };
+
+  const accentVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.2, // Reduced from 0.3s
+        ease: 'easeOut',
+        delay: 0.4, // Reduced from 1s
+      },
+    },
+  };
+
   return (
     <section
       id="projects"
-      className="md:py-28 py-16 bg-gradient-to-b from-white to-gray-100"
+      className="md:py-28 py-16  min-h-screen overflow-hidden"
     >
-      <div className="hidden lg:block">
-        <FloatingShapes />
-      </div>
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-4 max-w-7xl relative z-10">
+        {/* Animated Background Grid */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        </div>
+        {/* Cyberpunk Background Effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{ duration: 4, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.6, 0.3, 0.6],
+            }}
+            transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+          />
+        </div>
+
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 15 }} // Reduced y offset from 20
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            type: 'spring',
-            stiffness: 100,
-            damping: 20,
-            mass: 1,
-          }}
-          className="mb-14 text-center"
+          transition={{ duration: 0.4 }} // Reduced from 0.6s
+          className="mb-16 text-center relative"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            My Work
-          </h2>
+          {/* Cyberpunk-styled header container */}
           <motion.div
-            className="h-1 w-20 bg-red-500 mx-auto mt-3"
-            initial={{ width: 0, opacity: 0 }}
-            whileInView={{ width: 145, opacity: 1 }}
+            className="relative inline-block"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{
-              type: 'spring',
-              stiffness: 100,
-              damping: 20,
-              mass: 1,
-              delay: 0.3,
-            }}
-          />
+          >
+            {/* Main heading with cyberpunk styling */}
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono"
+              variants={textVariants}
+            >
+              &gt; Projects_
+              <motion.span
+                className="text-cyan-400"
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
+              >
+                |
+              </motion.span>
+            </motion.h2>
+
+            {/* Cyberpunk corner accents */}
+            <motion.div
+              className="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-green-400"
+              variants={accentVariants}
+            />
+            <motion.div
+              className="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-cyan-400"
+              variants={accentVariants}
+            />
+            <motion.div
+              className="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-cyan-400"
+              variants={accentVariants}
+            />
+            <motion.div
+              className="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-green-400"
+              variants={accentVariants}
+            />
+          </motion.div>
         </motion.div>
 
+        {/* Cyberpunk Tab Navigation */}
         <div className="flex justify-center mb-16 md:mb-24">
-          <div className="inline-flex bg-white rounded-full shadow-md w-full max-w-md overflow-hidden">
-            {categories.map((category) => (
-              <div
-                key={category.id}
-                className="relative flex-1 flex justify-center overflow-hidden"
-              >
-                {activeCategory === category.id && (
-                  <motion.div
-                    className="absolute inset-0 bg-black rounded-full z-0"
-                    layoutId="activeBackground"
-                    transition={{
-                      type: 'spring',
-                      stiffness: 300,
-                      damping: 30,
-                    }}
-                  />
-                )}
-                <motion.button
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`relative z-10 px-2 md:px-8 py-2 w-full text-center text-sm md:text-base font-medium transition-colors duration-300 ${
-                    activeCategory === category.id
-                      ? 'text-white'
-                      : 'text-gray-500 hover:text-gray-800'
-                  }`}
-                  whileHover={activeCategory !== category.id ? { y: -2 } : {}}
-                  whileTap={{ scale: 0.97 }}
+          <div className="inline-flex bg-black/50 border border-green-400/30 backdrop-blur-sm w-full max-w-md overflow-hidden">
+            {categories.map((category) => {
+              const IconComponent = category.icon;
+              return (
+                <div
+                  key={category.id}
+                  className="relative flex-1 flex justify-center overflow-hidden"
                 >
-                  {category.label}
-                </motion.button>
-                {/* shine effect */}
-                {activeCategory === category.id && (
-                  <motion.div
-                    className="absolute inset-0 w-full h-full skew-x-[20deg] bg-gradient-to-r from-transparent via-white to-transparent opacity-40"
-                    initial={{ x: '-100%' }}
-                    animate={{ x: '100%' }}
-                    transition={{
-                      duration: 2.5,
-                      repeat: Infinity,
-                      repeatDelay: 1,
-                    }}
-                  />
-                )}
-              </div>
-            ))}
+                  {activeCategory === category.id && (
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-cyan-400/20 border border-green-400/50 backdrop-blur-sm z-0"
+                      layoutId="activeBackground"
+                      transition={{
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                  <motion.button
+                    onClick={() => setActiveCategory(category.id)}
+                    className={`relative z-10 px-2 md:px-8 py-3 w-full text-center text-sm md:text-base font-medium font-mono tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 ${
+                      activeCategory === category.id
+                        ? 'text-green-400'
+                        : 'text-gray-400 hover:text-cyan-400'
+                    }`}
+                    whileHover={activeCategory !== category.id ? { y: -2 } : {}}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    <IconComponent size={16} />
+                    {category.label}
+                  </motion.button>
+                  {/* Cyberpunk shine effect */}
+                  {activeCategory === category.id && (
+                    <motion.div
+                      className="absolute inset-0 w-full h-full skew-x-[20deg] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"
+                      initial={{ x: '-100%' }}
+                      animate={{ x: '100%' }}
+                      transition={{
+                        duration: 2.5,
+                        repeat: Infinity,
+                        repeatDelay: 1,
+                      }}
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -837,4 +982,5 @@ const Projects = () => {
     </section>
   );
 };
+
 export default Projects;

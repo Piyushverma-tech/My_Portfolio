@@ -1,237 +1,773 @@
-import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import CreativeSkillsSection from '../components/Skills';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Briefcase,
+  ChevronRight,
+  Code,
+  Database,
+  Download,
+  Folder,
+  Leaf,
+  Target,
+  Terminal,
+  User,
+  Zap,
+} from 'lucide-react';
+import { DiNodejsSmall } from 'react-icons/di';
+import {
+  SiAdobeillustrator,
+  SiAdobephotoshop,
+  SiAdobexd,
+  SiCanva,
+  SiCss3,
+  SiJavascript,
+  SiPostgresql,
+  SiPrisma,
+  SiReact,
+  SiSocketdotio,
+} from 'react-icons/si';
+import { PiFramerLogo } from 'react-icons/pi';
+import { FaSuperpowers } from 'react-icons/fa';
+import { BsPlayBtn, BsRobot } from 'react-icons/bs';
+import { CgUiKit } from 'react-icons/cg';
+import { FiFigma } from 'react-icons/fi';
+import { BiChat, BiTargetLock } from 'react-icons/bi';
+import { TbWriting } from 'react-icons/tb';
+import { GrIntegration } from 'react-icons/gr';
+import { RiNextjsFill } from 'react-icons/ri';
+
+// Import skill icons (you'll need to add these imports based on your actual icon library)
 
 const About = () => {
-  const [animationTriggered, setAnimationTriggered] = useState(false);
-
-  // Handle initial page scroll and animation trigger
+  const [activeSkillCategory, setActiveSkillCategory] = useState('Frontend');
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Small delay to ensure page has loaded
-    const timeout = setTimeout(() => {
-      setAnimationTriggered(true);
-    }, 200);
-
-    return () => clearTimeout(timeout);
   }, []);
 
-  // Fade up animation variant
-  const fadeUpVariant = {
-    hidden: { opacity: 0, y: 30 },
+  const skillsData = {
+    Frontend: [
+      {
+        name: 'React.js',
+        level: 'Advanced',
+        proficiency: 90,
+        description:
+          'Built scalable apps using components, custom hooks, state management (Redux/Context), routing, and performance optimization.',
+        icon: <SiReact size={40} />,
+        color: 'from-gray-500 to-cyan-500',
+      },
+      {
+        name: 'JavaScript',
+        level: 'Advanced',
+        proficiency: 88,
+        description:
+          'Proficient in ES6+, async/await, closures, HOFs, DOM manipulation, and dynamic UI logic for interactive experiences.',
+        icon: <SiJavascript />,
+        color: 'from-yellow-500 to-orange-500',
+      },
+      {
+        name: 'CSS/SCSS',
+        level: 'Expert',
+        proficiency: 95,
+        description:
+          'Expertise in responsive layouts, Flexbox, Grid, SCSS, animations, Tailwind CSS, and modern component-level styling.',
+        icon: <SiCss3 />,
+        color: 'from-pink-500 to-rose-500',
+      },
+      {
+        name: 'Next.js',
+        level: 'Advanced',
+        proficiency: 85,
+        description:
+          'Used for SSR, static generation, API routes, dynamic routing, SEO, and building fast, production-grade apps.',
+        icon: <RiNextjsFill size={50} />,
+        color: 'from-gray-800 to-gray-600',
+      },
+      {
+        name: 'Framer Motion',
+        level: 'Intermediate',
+        proficiency: 75,
+        description:
+          'Created smooth animations, transitions, layout shifts, and micro-interactions to elevate user experience.',
+        icon: <PiFramerLogo size={40} />,
+        color: 'from-purple-500 to-indigo-500',
+      },
+      {
+        name: 'GSAP',
+        level: 'Intermediate',
+        proficiency: 70,
+        description:
+          'Used for advanced timeline-based animations, scroll-triggered effects, and creating dynamic UI animations.',
+        icon: <FaSuperpowers />,
+        color: 'from-green-500 to-emerald-500',
+      },
+    ],
+    Design: [
+      {
+        name: 'UI/UX Design',
+        level: 'Advanced',
+        proficiency: 90,
+        description:
+          'Skilled in wireframing, prototyping, user journeys, usability testing, and solving real problems with functional design.',
+        icon: <CgUiKit size={40} />,
+        color: 'from-violet-500 to-purple-500',
+      },
+      {
+        name: 'Figma',
+        level: 'Advanced',
+        proficiency: 92,
+        description:
+          'Efficient with auto-layouts, components, design systems, interactive prototypes, and collaborative workflows.',
+        icon: <FiFigma />,
+        color: 'from-red-500 to-pink-500',
+      },
+      {
+        name: 'Adobe XD',
+        level: 'Advanced',
+        proficiency: 85,
+        description:
+          'Designed high-fidelity mockups, interactive flows, and developer-ready assets for web and mobile projects.',
+        icon: <SiAdobexd />,
+        color: 'from-blue-600 to-purple-600',
+      },
+      {
+        name: 'Adobe Illustrator',
+        level: 'Intermediate',
+        proficiency: 75,
+        description:
+          'Created vector graphics, logos, icons, and branding assets for both digital and print design needs.',
+        icon: <SiAdobeillustrator />,
+        color: 'from-orange-500 to-red-500',
+      },
+      {
+        name: 'Adobe Photoshop',
+        level: 'Advanced',
+        proficiency: 88,
+        description:
+          'Edited images, designed layouts, UI assets, and creative visuals for marketing and product design.',
+        icon: <SiAdobephotoshop />,
+        color: 'from-blue-500 to-indigo-500',
+      },
+      {
+        name: 'Canva',
+        level: 'Advanced',
+        proficiency: 80,
+        description:
+          'Designed branded visuals, social media content, and presentations quickly using templates and custom layouts.',
+        icon: <SiCanva size={40} />,
+        color: 'from-cyan-500 to-blue-500',
+      },
+    ],
+    Backend: [
+      {
+        name: 'Node.js',
+        level: 'Intermediate',
+        proficiency: 75,
+        description:
+          'Built REST APIs with Express.js, handled JWT auth, middleware, routing, and integrated third-party APIs.',
+        icon: <DiNodejsSmall className="text-3xl sm:text-5xl" />,
+        color: 'from-green-600 to-green-500',
+      },
+      {
+        name: 'WebSocket',
+        level: 'Intermediate',
+        proficiency: 70,
+        description:
+          'Implemented real-time communication using WebSocket for features like live chat and real-time notifications.',
+        icon: <SiSocketdotio />,
+        color: 'from-yellow-600 to-orange-500',
+      },
+      {
+        name: 'File Handling',
+        level: 'Intermediate',
+        proficiency: 72,
+        description:
+          'Handled file uploads using Multer, integrated AWS S3 for storage, and implemented optimization techniques.',
+        icon: <Folder className="w-7 h-7 sm:w-8 sm:h-8" />,
+        color: 'from-gray-600 to-gray-500',
+      },
+      {
+        name: 'MongoDB',
+        level: 'Intermediate',
+        proficiency: 78,
+        description:
+          'Worked with Mongoose for schema design, CRUD operations, data modeling, and using aggregation pipelines.',
+        icon: <Leaf className="w-8 h-8 sm:w-9 sm:h-9" />,
+        color: 'from-green-500 to-teal-500',
+      },
+      {
+        name: 'PostgreSQL',
+        level: 'Basic',
+        proficiency: 60,
+        description:
+          'Familiar with writing SQL queries, creating normalized schemas, managing relationships, and indexing.',
+        icon: <SiPostgresql className="text-3xl sm:text-4xl" />,
+        color: 'from-blue-600 to-indigo-600',
+      },
+      {
+        name: 'Prisma',
+        level: 'Intermediate',
+        proficiency: 73,
+        description:
+          'Used for schema modeling, database migrations, and writing type-safe queries in full-stack apps.',
+        icon: <SiPrisma />,
+        color: 'from-indigo-500 to-purple-500',
+      },
+    ],
+    'AI & Automation': [
+      {
+        name: 'Workflow Automation',
+        level: 'Advanced',
+        proficiency: 90,
+        description:
+          'Streamline daily operations, reduce manual work and boost business efficiency.',
+        icon: <BsRobot className="text-3xl sm:text-4xl" />,
+        color: 'from-purple-600 to-pink-600',
+      },
+      {
+        name: 'AI Chatbots',
+        level: 'Advanced',
+        proficiency: 88,
+        description:
+          'Automate customer support, lead generation and real-time communication.',
+        icon: <BiChat className="text-3xl sm:text-4xl" />,
+        color: 'from-blue-500 to-purple-500',
+      },
+      {
+        name: 'AI Video',
+        level: 'Advanced',
+        proficiency: 85,
+        description:
+          'Create AI-powered video content for storytelling, marketing and brand identity.',
+        icon: <BsPlayBtn />,
+        color: 'from-red-500 to-pink-500',
+      },
+      {
+        name: 'AI Content',
+        level: 'Advanced',
+        proficiency: 92,
+        description:
+          'Automate copywriting, social media posts, ad creatives and blog content.',
+        icon: <TbWriting className="text-3xl sm:text-4xl" />,
+        color: 'from-green-500 to-blue-500',
+      },
+      {
+        name: 'AI Strategy',
+        level: 'Advanced',
+        proficiency: 87,
+        description:
+          'Identify AI opportunities to cut costs, optimize work, and scale faster.',
+        icon: <BiTargetLock size={45} />,
+        color: 'from-orange-500 to-red-500',
+      },
+      {
+        name: 'AI Integrations',
+        level: 'Intermediate',
+        proficiency: 75,
+        description:
+          'Connect AI with CRMs, websites, and workflow automation tools.',
+        icon: <GrIntegration size={30} />,
+        color: 'from-cyan-500 to-purple-500',
+      },
+    ],
+  };
+
+  const skillCategories = [
+    { id: 'Frontend', label: 'FRONTEND', icon: Code },
+    { id: 'Design', label: 'DESIGN', icon: Terminal },
+    { id: 'Backend', label: 'BACKEND', icon: Database },
+    { id: 'AI & Automation', label: 'AI & AUTO', icon: Zap },
+  ];
+
+  const whatIDo = [
+    'UI/UX Design',
+    'Web Development',
+    'Graphic Design & Illustration',
+  ];
+
+  const myApproach = [
+    'Blend creativity with problem-solving',
+    'Focus on simplicity and usability',
+    'Design interfaces that speak for themselves',
+  ];
+
+  // Animation variants
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.9, // Less dramatic scale change
+      rotateX: -10, // Reduced rotation
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotateX: 0,
+      transition: {
+        duration: 0.5, // Reduced from 0.8s
+        ease: 'easeOut',
+        staggerChildren: 0.05, // Reduced from 0.1s
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1],
       },
     },
   };
 
-  // Stagger children animation variant
-  const containerVariant = {
-    hidden: { opacity: 0 },
+  const skillItemVariants = {
+    hidden: { opacity: 0, x: -30, scale: 0.9 },
     visible: {
       opacity: 1,
+      x: 0,
+      scale: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        duration: 0.5,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
+  };
+
+  const textVariants = {
+    hidden: {
+      opacity: 0,
+      clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
+    },
+    visible: {
+      opacity: 1,
+      clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+      transition: {
+        duration: 0.6, // Reduced from 1s
+        ease: 'easeInOut',
+        delay: 0.2, // Reduced from 0.6s
+      },
+    },
+  };
+
+  const accentVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.2, // Reduced from 0.3s
+        ease: 'easeOut',
+        delay: 0.4, // Reduced from 1s
+      },
+    },
+  };
+
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href =
+      'https://drive.google.com/uc?export=download&id=1GD8_Bdel0Ti12evm3jUqYL8laUGXkboJ';
+
+    link.download = 'Piyush_Verma_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
-    <section
-      id="about"
-      className="py-24 min-h-screen bg-gradient-to-b from-white to-gray-100"
-    >
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        {/* Header  */}
+    <section className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-16 md:py-24 relative overflow-hidden">
+      {/* Cyberpunk Background Effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          initial="hidden"
-          animate={animationTriggered ? 'visible' : 'hidden'}
-          variants={fadeUpVariant}
-          className="mb-12 md:mb-14 text-center relative"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.6, 0.3, 0.6],
+          }}
+          transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+        />
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+      </div>
+
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }} // Reduced y offset from 20
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }} // Reduced from 0.6s
+          className="mb-16 text-center relative"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            About Me
-          </h2>
+          {/* Cyberpunk-styled header container */}
           <motion.div
-            className="h-1 w-20 bg-red-500 mx-auto mt-2"
-            initial={{ width: 0 }}
-            animate={animationTriggered ? { width: 150 } : { width: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          />
-        </motion.div>
-
-        {/* Profile section */}
-        <motion.div
-          variants={containerVariant}
-          initial="hidden"
-          animate={animationTriggered ? 'visible' : 'hidden'}
-          className="flex flex-col md:flex-row items-center gap-12 md:mb-20 mb-10"
-        >
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h3
-              variants={fadeUpVariant}
-              className="text-2xl md:text-3xl font-semibold md:mb-4 mb-2 text-gray-800"
-            >
-              Hello, I&apos;m Piyush Verma
-            </motion.h3>
-            <motion.p
-              variants={fadeUpVariant}
-              className="text-lg md:text-xl leading-tight text-gray-700"
-            >
-              I’ve been messing around with web apps for about a year now—doing
-              the whole front-end, back-end, and even some design stuff. I’m
-              hooked on making things dope and actually work for people.
-            </motion.p>
-            <motion.p
-              variants={fadeUpVariant}
-              className="md:mt-2 mt-6 text-gray-600 italic max-sm:text-sm"
-            >
-              <span className="font-medium ">Currently working on:</span>{' '}
-              Creating AI-Powered Solutions.
-            </motion.p>
-          </div>
-        </motion.div>
-
-        {/* What I Do & My Approach */}
-        <motion.div
-          initial="hidden"
-          animate={animationTriggered ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4"
-        >
-          {/* What I Do Card */}
-          <motion.div
-            variants={fadeUpVariant}
-            className="bg-white rounded-lg p-8 shadow-lg transition-all duration-300"
+            className="relative inline-block"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
           >
-            <h3 className="font-bold text-2xl mb-6 text-gray-900 border-b pb-4">
-              What I do
-            </h3>
-            <ul className="space-y-3 font-medium text-gray-700">
-              {[
-                'UI/UX Design',
-                'Web Development',
-                'Graphic Design & Illustration',
-              ].map((item, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={
-                    animationTriggered
-                      ? { opacity: 1, x: 0 }
-                      : { opacity: 0, x: -30 }
-                  }
-                  transition={{ delay: index * 0.3 + 0.6 }}
-                  className="flex items-center"
-                >
-                  <span className="text-red-500 mx-2">✴</span>
-                  <span>{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* My Approach Card */}
-          <motion.div
-            variants={fadeUpVariant}
-            className="bg-white rounded-lg p-8 shadow-lg transition-all duration-300"
-          >
-            <h3 className="font-bold text-2xl mb-6 text-gray-900 border-b pb-4">
-              My approach
-            </h3>
-            <ul className="space-y-3 font-medium text-gray-700">
-              {[
-                'Blend creativity with problem-solving',
-                'Focus on simplicity and usability',
-                'Make technology feel effortless',
-              ].map((item, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={
-                    animationTriggered
-                      ? { opacity: 1, x: 0 }
-                      : { opacity: 0, x: -30 }
-                  }
-                  transition={{ delay: index * 0.3 + 0.6 }}
-                  className="flex items-center"
-                >
-                  <span className="text-red-500 mx-2">✴</span>
-                  <span>{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </motion.div>
-
-        {/* Skills & Expertise  */}
-        <motion.div
-          initial="hidden"
-          animate={animationTriggered ? 'visible' : 'hidden'}
-          transition={{ staggerChildren: 0.2 }}
-          className="mb-6"
-        >
-          <CreativeSkillsSection />
-        </motion.div>
-
-        {/* Download Resume Button */}
-        <motion.div
-          variants={fadeUpVariant}
-          initial="hidden"
-          animate={animationTriggered ? 'visible' : 'hidden'}
-          className="flex justify-center"
-        >
-          <motion.a
-            href="https://drive.google.com/file/d/1bQiDX61ELv7SdJuGrYpmxKRKXtlsWrWJ/view?usp=sharing"
-            target="_blank"
-            className="group relative overflow-hidden bg-gradient-to-r from-gray-900 to-black px-7 py-3 shadow-lg transition-all duration-300"
-            whileTap={{ scale: 0.98 }}
-          >
-            {/* Content container */}
-            <div className="relative z-10 flex items-center gap-4">
-              <span className="font-medium tracking-wide sm:text-lg text-white">
-                Download CV
-              </span>
-
-              {/* Icon container */}
-              <motion.div
-                className="flex items-center"
-                animate={{
-                  y: [0, -4, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
+            {/* Main heading with cyberpunk styling */}
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono"
+              variants={textVariants}
+            >
+              &gt; ABOUT_ME_
+              <motion.span
+                className="text-cyan-400"
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
               >
-                <Download className="text-white" size={20} />
-              </motion.div>
+                |
+              </motion.span>
+            </motion.h2>
+
+            {/* Cyberpunk corner accents */}
+            <motion.div
+              className="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-green-400"
+              variants={accentVariants}
+            />
+            <motion.div
+              className="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-cyan-400"
+              variants={accentVariants}
+            />
+            <motion.div
+              className="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-cyan-400"
+              variants={accentVariants}
+            />
+            <motion.div
+              className="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-green-400"
+              variants={accentVariants}
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* Main Content Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20"
+        >
+          {/* Left Column - Introduction */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            {/* Introduction Card */}
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
+              {/* Scanning line */}
+              <motion.div
+                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+                animate={{ x: ['-100%', '100%'] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+              />
+
+              <div className="flex items-center gap-4 mb-6">
+                <User className="text-green-400" size={24} />
+                <h2 className="text-2xl font-bold text-green-400 font-mono">
+                  INIT_PERSONAL
+                </h2>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-xl text-cyan-400 font-mono">
+                  Hello World, I&apos;m{' '}
+                  <span className="text-green-400 font-bold">Piyush Verma</span>
+                  ,
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  I&apos;ve been working on web apps for about a year now—doing
+                  the whole front-end, back-end, and even some design stuff.
+                  I&apos;m hooked on making things dope and actually work for
+                  people.
+                </p>
+              </div>
             </div>
 
-            {/* Shine effect*/}
-            <motion.div
-              className="absolute inset-0 w-full h-full skew-x-[20deg] bg-gradient-to-r from-transparent via-white to-transparent opacity-40"
-              initial={{ x: '-100%' }}
-              animate={{ x: '100%' }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                repeatDelay: 1,
-              }}
-            />
+            {/* What I Do Card */}
+            <div className="bg-black/50 border border-cyan-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
+              <motion.div
+                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400 to-transparent"
+                animate={{ x: ['-100%', '100%'] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 1,
+                  delay: 0.5,
+                }}
+              />
 
-            {/* Subtle background glow on hover */}
+              <div className="flex items-center gap-4 mb-6">
+                <Briefcase className="text-cyan-400" size={24} />
+                <h3 className="text-xl font-bold text-cyan-400 font-mono">
+                  EXEC_SERVICES
+                </h3>
+              </div>
+
+              <div className="space-y-3">
+                {whatIDo.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 + 0.5 }}
+                    className="flex items-center gap-3"
+                  >
+                    <ChevronRight className="text-green-400" size={16} />
+                    <span className="text-gray-300">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Approach & Resume */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            {/* My Approach Card */}
+            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
+              <motion.div
+                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+                animate={{ x: ['-100%', '100%'] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 1,
+                  delay: 1,
+                }}
+              />
+
+              <div className="flex items-center gap-4 mb-6">
+                <Target className="text-green-400" size={24} />
+                <h3 className="text-xl font-bold text-green-400 font-mono">
+                  LOAD_APPROACH
+                </h3>
+              </div>
+
+              <div className="space-y-3">
+                {myApproach.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 + 0.8 }}
+                    className="flex items-center gap-3"
+                  >
+                    <ChevronRight className="text-cyan-400" size={16} />
+                    <span className="text-gray-300">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Download Resume Card */}
+            <div className="bg-black/50 border border-cyan-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
+              <motion.div
+                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400 to-transparent"
+                animate={{ x: ['-100%', '100%'] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 1,
+                  delay: 1.5,
+                }}
+              />
+
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-green-400 font-mono mb-6">
+                  ACCESS_RESUME
+                </h3>
+                <motion.button
+                  onClick={handleDownloadResume}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-green-400/20 to-cyan-400/20 border border-green-400 text-green-400 font-mono font-bold tracking-wider hover:bg-gradient-to-r hover:from-green-400/30 hover:to-cyan-400/30 hover:border-cyan-400 transition-all duration-300 overflow-hidden"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0 0 25px rgba(34, 255, 0, 0.3)',
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+                    animate={{ x: ['-100%', '100%'] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatDelay: 2,
+                    }}
+                  />
+                  <div className="flex items-center gap-3 relative z-10">
+                    <Download size={20} />
+                    DOWNLOAD.RESUME
+                  </div>
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Skills Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="mb-16"
+        >
+          {/* Skills Header */}
+          <div className="text-center mb-12">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold text-cyan-400 font-mono tracking-wider mb-4"
+              animate={{
+                textShadow: [
+                  '0 0 10px #00ffff',
+                  '0 0 20px #00ffff',
+                  '0 0 10px #00ffff',
+                ],
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              &gt; SKILLS_MATRIX
+              <motion.span
+                className="text-green-400"
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              >
+                |
+              </motion.span>
+            </motion.h2>
+          </div>
+
+          {/* Skills Categories */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex bg-black/50 border border-green-400/30 backdrop-blur-sm overflow-hidden">
+              {skillCategories.map((category) => {
+                const IconComponent = category.icon;
+                return (
+                  <div
+                    key={category.id}
+                    className="relative flex-1 flex justify-center  overflow-hidden"
+                  >
+                    {activeSkillCategory === category.id && (
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r  from-green-400/20 to-cyan-400/20 border border-green-400/50"
+                        layoutId="activeSkillBackground"
+                        transition={{
+                          type: 'spring',
+                          stiffness: 300,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                    <motion.button
+                      onClick={() => setActiveSkillCategory(category.id)}
+                      className={`relative z-10 px-4 md:px-8 py-2 text-sm font-mono font-medium tracking-wider transition-colors duration-300 flex items-center gap-2 ${
+                        activeSkillCategory === category.id
+                          ? 'text-green-400'
+                          : 'text-gray-400 hover:text-cyan-400'
+                      }`}
+                      whileHover={
+                        activeSkillCategory !== category.id ? { y: -2 } : {}
+                      }
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      <IconComponent size={16} />
+                      {category.label}
+                    </motion.button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Skills Grid */}
+          <AnimatePresence mode="wait">
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-400/0 to-purple-500/0 opacity-0 transition-opacity duration-300"
-              whileHover={{ opacity: 0.15 }}
-            />
-          </motion.a>
+              key={activeSkillCategory}
+              initial={{ opacity: 0, y: 40, scale: 0.6 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {skillsData[activeSkillCategory].map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  variants={skillItemVariants}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: index * 0.1 }}
+                  className="group bg-black/50 border border-green-400/30 backdrop-blur-sm p-6 hover:border-cyan-400/50 transition-all duration-300 relative overflow-hidden"
+                  whileHover={{
+                    y: -5,
+                    boxShadow: '0 10px 30px rgba(34, 255, 0, 0.1)',
+                  }}
+                >
+                  {/* Scanning effect */}
+                  <motion.div
+                    className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent opacity-0 group-hover:opacity-100"
+                    animate={{ x: ['-100%', '100%'] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  />
+
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-green-400 group-hover:text-cyan-400 transition-colors">
+                      {skill.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-green-400 font-mono group-hover:text-cyan-400 transition-colors">
+                        {skill.name}
+                      </h3>
+                      <span className="text-sm text-gray-400 font-mono">
+                        {skill.level}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                    {skill.description}
+                  </p>
+
+                  {/* Proficiency Bar */}
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-xs text-gray-400 font-mono">
+                        PROFICIENCY
+                      </span>
+                      <span className="text-xs text-green-400 font-mono">
+                        {skill.proficiency}%
+                      </span>
+                    </div>
+                    <div className="w-full bg-gray-800 h-2 relative overflow-hidden">
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-green-400 to-cyan-400"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${skill.proficiency}%` }}
+                        transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
+                      />
+                      {/* Animated glow effect */}
+                      <motion.div
+                        className="absolute top-0 left-0 h-full w-4 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                        animate={{ x: ['-100%', `${skill.proficiency + 10}%`] }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatDelay: 3,
+                          delay: index * 0.2,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>

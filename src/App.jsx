@@ -18,8 +18,10 @@ function App() {
           element={
             <>
               <HomePage />
-              <Projects />
-              <ContactForm />
+              <div className="bg-gradient-to-br from-gray-900 via-black to-gray-800">
+                <Projects />
+                <ContactForm />
+              </div>
             </>
           }
         />

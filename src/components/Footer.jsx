@@ -33,7 +33,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-t border-gray-100 bg-white py-24 dark:border-gray-800 dark:bg-black">
+    <footer className="border-t  py-24 dark:border-gray-800 dark:bg-black">
       <div className="container mx-auto px-16">
         <div className="flex flex-col items-center justify-between space-y-8 md:flex-row md:space-y-0">
           <div className="flex space-x-4">
@@ -43,7 +43,7 @@ const Footer = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                className="transition-colors duration-200 text-green-400 "
                 aria-label={social.name}
               >
                 {social.icon}
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
           <button
             onClick={scrollToTop}
-            className="group flex items-center space-x-1 text-sm text-gray-600 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+            className="group flex items-center space-x-1 text-sm text-green-400 transition-colors duration-200 "
           >
             <ArrowUp
               size={22}
@@ -60,7 +60,7 @@ const Footer = () => {
             />
           </button>
 
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm font-mono text-green-400">
             © {new Date().getFullYear()} Piyush Verma
           </p>
         </div>

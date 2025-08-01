@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code, Folder, Leaf, Palette, Server, Zap } from 'lucide-react';
@@ -22,6 +23,7 @@ import { FiFigma } from 'react-icons/fi';
 import { BiChat, BiTargetLock } from 'react-icons/bi';
 import { TbWriting } from 'react-icons/tb';
 import { GrIntegration } from 'react-icons/gr';
+import { RiNextjsFill } from 'react-icons/ri';
 
 const CreativeSkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState('Frontend');
@@ -43,7 +45,7 @@ const CreativeSkillsSection = () => {
         proficiency: 90,
         description:
           'Built scalable apps using components, custom hooks, state management (Redux/Context), routing, and performance optimization.',
-        icon: <SiReact />,
+        icon: <SiReact size={40} />,
         color: 'from-gray-500 to-cyan-500',
       },
       {
@@ -70,7 +72,7 @@ const CreativeSkillsSection = () => {
         proficiency: 85,
         description:
           'Used for SSR, static generation, API routes, dynamic routing, SEO, and building fast, production-grade apps.',
-        icon: '▲',
+        icon: <RiNextjsFill size={50} />,
         color: 'from-gray-800 to-gray-600',
       },
       {
@@ -79,7 +81,7 @@ const CreativeSkillsSection = () => {
         proficiency: 75,
         description:
           'Created smooth animations, transitions, layout shifts, and micro-interactions to elevate user experience.',
-        icon: <PiFramerLogo />,
+        icon: <PiFramerLogo size={40} />,
         color: 'from-purple-500 to-indigo-500',
       },
       {
@@ -99,7 +101,7 @@ const CreativeSkillsSection = () => {
         proficiency: 90,
         description:
           'Skilled in wireframing, prototyping, user journeys, usability testing, and solving real problems with functional design.',
-        icon: <CgUiKit />,
+        icon: <CgUiKit size={40} />,
         color: 'from-violet-500 to-purple-500',
       },
       {
@@ -144,7 +146,7 @@ const CreativeSkillsSection = () => {
         proficiency: 80,
         description:
           'Designed branded visuals, social media content, and presentations quickly using templates and custom layouts.',
-        icon: <SiCanva />,
+        icon: <SiCanva size={40} />,
         color: 'from-cyan-500 to-blue-500',
       },
     ],
@@ -155,7 +157,7 @@ const CreativeSkillsSection = () => {
         proficiency: 75,
         description:
           'Built REST APIs with Express.js, handled JWT auth, middleware, routing, and integrated third-party APIs.',
-        icon: <DiNodejsSmall className="text-3xl sm:text-4xl" />,
+        icon: <DiNodejsSmall className="text-3xl sm:text-5xl" />,
         color: 'from-green-600 to-green-500',
       },
       {
@@ -247,7 +249,7 @@ const CreativeSkillsSection = () => {
         proficiency: 87,
         description:
           'Identify AI opportunities to cut costs, optimize work, and scale faster.',
-        icon: <BiTargetLock className="text-3xl sm:text-4xl" />,
+        icon: <BiTargetLock size={45} />,
         color: 'from-orange-500 to-red-500',
       },
       {
@@ -256,7 +258,7 @@ const CreativeSkillsSection = () => {
         proficiency: 75,
         description:
           'Connect AI with CRMs, websites, and workflow automation tools.',
-        icon: <GrIntegration />,
+        icon: <GrIntegration size={30} />,
         color: 'from-cyan-500 to-purple-500',
       },
     ],
@@ -311,15 +313,11 @@ const CreativeSkillsSection = () => {
       <div className="container mx-auto px-3 sm:px-4 md:px-6 max-w-7xl">
         <motion.div
           variants={fadeUpVariant}
-          className="mb-8 sm:mb-12 lg:mb-16 text-center"
+          className="mb-8 sm:mb-8 text-center"
         >
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 mb-3 sm:mb-4">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
             Skills & Expertise
           </h3>
-          <p className="text-gray-600 max-w-2xl text-sm sm:text-base mx-auto px-2">
-            Click on each category to explore my technical proficiencies and
-            hover over individual skills to learn more about my experience.
-          </p>
         </motion.div>
 
         {/* Category Navigation */}
@@ -368,7 +366,7 @@ const CreativeSkillsSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-0"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           >
             {skillsData[activeCategory].map((skill, index) => (
               <motion.div
@@ -376,89 +374,120 @@ const CreativeSkillsSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                className="group relative h-56 perspective-1000"
                 onMouseEnter={() => setHoveredSkill(skill.name)}
                 onMouseLeave={() => setHoveredSkill(null)}
-                className="group relative bg-white rounded-lg sm:rounded-2xl  border border-gray-400/50 p-4 sm:p-6 lg:p-8  transition-all duration-300 overflow-hidden"
               >
-                {/* Background Gradient */}
+                {/* Flip Card Container */}
                 <motion.div
-                  className={`absolute inset-0  opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-                />
-
-                {/* Skill Icon */}
-                <div className="flex items-center justify-between mb-4 sm:mb-6">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl">
-                    {skill.icon}
-                  </div>
-                  <span
-                    className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${
-                      skill.level === 'Expert'
-                        ? 'bg-green-100 text-green-800'
-                        : skill.level === 'Advanced'
-                        ? 'bg-blue-100 text-blue-800'
-                        : 'bg-gray-100 text-gray-800'
-                    }`}
-                  >
-                    {skill.level}
-                  </span>
-                </div>
-
-                {/* Skill Name & Level */}
-                <div className="mb-3 sm:mb-4">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
-                    {skill.name}
-                  </h3>
-                </div>
-
-                {/* Proficiency Bar */}
-                <div className="mb-4 sm:mb-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs sm:text-sm font-medium text-gray-600">
-                      Proficiency
-                    </span>
-                    <span className="text-xs sm:text-sm font-bold text-gray-800">
-                      {skill.proficiency}%
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                    <motion.div
-                      className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.proficiency}%` }}
-                      transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-                    />
-                  </div>
-                </div>
-
-                {/* Description */}
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
+                  className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d"
                   animate={{
-                    opacity: hoveredSkill === skill.name ? 1 : 0.4,
-                    height: hoveredSkill === skill.name ? 'auto' : '16px',
+                    rotateY: hoveredSkill === skill.name ? 180 : 0,
                   }}
-                  className="text-xs sm:text-sm text-gray-600 leading-relaxed overflow-hidden"
                 >
-                  {skill.description}
-                </motion.div>
+                  {/* Front Side */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden bg-white border-2 border-gray-200 hover:shadow-red-400/20 hover:shadow-2xl transition-colors duration-300 flex flex-col">
+                    {/* Minimal corner accents */}
 
-                {/* Hover Effect */}
-                <motion.div
-                  className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-${skill.color} to-transparent opacity-0 group-hover:opacity-100`}
-                  animate={{
-                    x: hoveredSkill === skill.name ? ['0%', '100%'] : '0%',
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: hoveredSkill === skill.name ? Infinity : 0,
-                    ease: 'linear',
-                  }}
-                />
+                    {/* Content Container */}
+                    <div className="relative z-10 flex flex-col h-full p-6">
+                      {/* Header Section */}
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="text-3xl text-gray-800">
+                          {skill.icon}
+                        </div>
+                        <div className="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1">
+                          {String(index + 1).padStart(2, '0')}
+                        </div>
+                      </div>
+
+                      {/* Skill Name */}
+                      <div className="mb-4">
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">
+                          {skill.name}
+                        </h3>
+
+                        <span className="text-xs font-mono text-gray-600 uppercase tracking-wider">
+                          {skill.level}
+                        </span>
+                      </div>
+
+                      {/* Proficiency Section */}
+                      <div className="mt-auto">
+                        <div className="flex justify-between items-center mb-3">
+                          <span className="text-xs font-mono text-gray-600 uppercase tracking-wider">
+                            Proficiency
+                          </span>
+                          <span className="text-lg font-bold text-red-500">
+                            {skill.proficiency}%
+                          </span>
+                        </div>
+
+                        {/* Progress Bar */}
+                        <div className="w-full h-1.5 bg-gray-200 relative overflow-hidden">
+                          <motion.div
+                            className="h-full bg-black"
+                            initial={{ width: 0 }}
+                            animate={{ width: `${skill.proficiency}%` }}
+                            transition={{
+                              duration: 1,
+                              delay: index * 0.1 + 0.3,
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Back Side */}
+                  <div className="absolute inset-0 w-full h-full backface-hidden bg-black text-white border border-gray-700 flex flex-col transform rotateY-180">
+                    {/* Content Container */}
+                    <div className="relative z-10 flex flex-col h-full p-6">
+                      {/* Header Section */}
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="text-xs font-mono text-gray-400 bg-gray-900 px-2 py-1 border border-gray-700">
+                          DETAILS
+                        </div>
+                        <div className="text-3xl text-white">{skill.icon}</div>
+                      </div>
+
+                      {/* Description */}
+                      <div className="flex-1">
+                        <div className="absolute left-4 top-16 bottom-4 w-px bg-gray-700"></div>
+                        <p className="text-sm leading-relaxed text-gray-300 pl-6">
+                          {skill.description}
+                        </p>
+                      </div>
+
+                      {/* Bottom accent */}
+                      <div className="flex gap-1 mt-4">
+                        <div className="w-2 h-2 bg-white"></div>
+                        <div className="w-2 h-2 bg-gray-600"></div>
+                        <div className="w-2 h-2 bg-gray-800"></div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
       </div>
+
+      <style jsx>{`
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+        }
+        .backface-hidden {
+          backface-visibility: hidden;
+        }
+        .rotateY-180 {
+          transform: rotateY(180deg);
+        }
+      `}</style>
     </div>
   );
 };
