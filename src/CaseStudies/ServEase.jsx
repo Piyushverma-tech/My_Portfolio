@@ -10,6 +10,22 @@ const ServEase = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const textVariants = {
+    hidden: {
+      opacity: 0,
+      clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
+    },
+    visible: {
+      opacity: 1,
+      clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+      transition: {
+        duration: 0.6, // Reduced from 1s
+        ease: 'easeInOut',
+        delay: 0.2, // Reduced from 0.6s
+      },
+    },
+  };
+
   return (
     <div className="bg-gradient-to-br from-gray-900 via-black to-gray-800 min-h-screen font-sans">
       {/* Animated Background Grid */}
@@ -164,20 +180,19 @@ const ServEase = () => {
       {/* Project Overview */}
       <section className="py-12 px-4 md:py-16 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400 font-bold mb-8 md:mb-12 relative">
-            Project Overview{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Project_Overview
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="space-y-8 md:space-y-12">
             <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
@@ -224,20 +239,19 @@ const ServEase = () => {
       {/* ServEase Timeline */}
       <section className="py-12 px-4 md:py-16 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400 font-bold mb-8 md:mb-12 relative">
-            Project Timeline{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Project_Timeline
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8 mb-8">
             <div className="flex items-center mb-6">
@@ -297,20 +311,19 @@ const ServEase = () => {
       {/* Research & Insights */}
       <section className="py-12 px-4 md:py-16 md:px-6 ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
-            Research & Insights{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Research_&_Insights
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="space-y-8 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
             <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
@@ -367,20 +380,19 @@ const ServEase = () => {
       {/* User Personas Section */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
-            User Personas{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            User_Personas
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="grid  gap-12">
             {/* Customer Persona */}
@@ -415,20 +427,19 @@ const ServEase = () => {
       {/* Design Process Section */}
       <section className="py-12 px-4 md:py-16 md:px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
-            Design Process{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Design_Process
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="space-y-10 md:space-y-16">
             <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
@@ -545,20 +556,19 @@ const ServEase = () => {
       {/* Site map */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
-            Site Map{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Site_Map
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="grid  gap-12">
             {/* Customer */}
@@ -593,20 +603,19 @@ const ServEase = () => {
       {/* User Flow */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
-            User Flow{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            User_Flow
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="grid  gap-12">
             {/* Customer */}
@@ -641,20 +650,19 @@ const ServEase = () => {
       {/* Key Features Section */}
       <section className="py-12 px-4 md:py-16 md:px-6 ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
-            Key Features{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Key_Features
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm p-6 ">
@@ -704,20 +712,19 @@ const ServEase = () => {
       {/* wireframes */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
-            WireFrames{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            WireFrames
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="grid  gap-16">
             {/* Customer */}
@@ -751,20 +758,19 @@ const ServEase = () => {
       {/* Style guide */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
-            Style Guide{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Style_Guide
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div>
             <img
@@ -780,20 +786,19 @@ const ServEase = () => {
       {/*High Fidelity*/}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
-            High Fidelity{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            High_Fidelity
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="grid  gap-16">
             {/* Customer */}
@@ -828,20 +833,19 @@ const ServEase = () => {
       {/* Final UI & Prototype*/}
       <section className="py-12 px-4 md:py-16 md:px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
-            Final UI & Prototype{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Final_UI_&_Prototype
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
@@ -880,20 +884,19 @@ const ServEase = () => {
       {/* Sign up demo */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
-            Sign Up{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Sign_Up
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="flex flex-col md:flex-row gap-12">
             <div className="flex-1 p-4">
@@ -938,20 +941,19 @@ const ServEase = () => {
       {/* Task Flow demo video */}
       <section className="py-16 px-6  ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-12 relative">
-            Task Completion{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Task_Completion
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="flex flex-col md:flex-row gap-12">
             <div className="flex-1 p-4">
@@ -995,20 +997,19 @@ const ServEase = () => {
       {/* Results & Takeaways Section */}
       <section className="py-12 px-4 md:py-16 md:px-6 ">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
-            Results & Takeaways{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Results_&_Takeaways
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
@@ -1074,20 +1075,19 @@ const ServEase = () => {
       {/* Final Thoughts */}
       <section className="py-12 px-4 md:py-16 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl bg-md:text-3xl text-green-400  font-bold mb-8 md:mb-12 relative">
-            Final Thoughts{' '}
+          <motion.h2
+            className="text-2xl md:text-4xl font-bold  py-4 tracking-widest uppercase text-green-400 mb-8 md:mb-12  font-mono"
+            variants={textVariants}
+          >
+            Final_Thoughts
             <motion.span
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              className="inline-block text-4xl rounded-full text-cyan-400"
+              className="text-cyan-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
             >
-              ✴
+              |
             </motion.span>
-          </h2>
+          </motion.h2>
 
           <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm/30 backdrop-blur-sm  p-6 md:p-8">
             <p className="text-base md:text-lg text-gray-200 leading-relaxed">

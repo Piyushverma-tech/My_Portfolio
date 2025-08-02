@@ -525,10 +525,23 @@ const ContactForm = () => {
             >
               {/* Main heading with cyberpunk styling */}
               <motion.h2
-                className="text-3xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono"
+                className="text-3xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono max-sm:hidden"
                 variants={textVariants}
               >
                 &gt; establish_connection
+                <motion.span
+                  className="text-cyan-400"
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
+                >
+                  |
+                </motion.span>
+              </motion.h2>
+              <motion.h2
+                className="text-2xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono hidden max-sm:block"
+                variants={textVariants}
+              >
+                &gt; Contact
                 <motion.span
                   className="text-cyan-400"
                   animate={{ opacity: [1, 0, 1] }}
@@ -586,7 +599,7 @@ const ContactForm = () => {
           <div className="p-4 border-b border-green-400/20 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <Database className="w-4 h-4 text-green-400" />
-              <span className="text-green-400 font-mono text-sm">
+              <span className="text-green-400 font-mono text-xs sm:text-sm">
                 NEURAL_INTERFACE_v2.1
               </span>
               {terminalMode !== 'normal' && (
@@ -597,7 +610,7 @@ const ContactForm = () => {
             </div>
             <button
               onClick={() => setIsTerminalMode(!isTerminalMode)}
-              className="text-sm font-mono text-green-400 hover:text-cyan-400 transition-colors px-3 py-1 border border-green-400/30 hover:border-cyan-400/50"
+              className="text-xs sm:text-sm font-mono text-green-400 hover:text-cyan-400 transition-colors px-3 py-1 border border-green-400/30 hover:border-cyan-400/50"
             >
               {isTerminalMode ? 'GUI_MODE' : 'TERMINAL_MODE'}
             </button>
@@ -825,7 +838,7 @@ const ContactForm = () => {
           </AnimatePresence>
 
           {/* Status Bar */}
-          <div className="px-6 py-3 border-t border-green-400/20 flex justify-between items-center text-sm font-mono">
+          <div className="px-6 py-3 border-t border-green-400/20 flex justify-between items-center text-xs max-sm:flex-col max-sm:gap-y-3 sm:text-sm font-mono">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />

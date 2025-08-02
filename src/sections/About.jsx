@@ -420,7 +420,7 @@ const About = () => {
           >
             {/* Main heading with cyberpunk styling */}
             <motion.h2
-              className="text-3xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono"
+              className="text-2xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono"
               variants={textVariants}
             >
               &gt; ABOUT_ME_
@@ -473,13 +473,13 @@ const About = () => {
 
               <div className="flex items-center gap-4 mb-6">
                 <User className="text-green-400" size={24} />
-                <h2 className="text-2xl font-bold text-green-400 font-mono">
+                <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono">
                   INIT_PERSONAL
                 </h2>
               </div>
 
               <div className="space-y-4">
-                <p className="text-xl text-cyan-400 font-mono">
+                <p className="text-lg sm:text-xl text-cyan-400 font-mono">
                   Hello World, I&apos;m{' '}
                   <span className="text-green-400 font-bold">Piyush Verma</span>
                   ,
@@ -623,7 +623,7 @@ const About = () => {
           {/* Skills Header */}
           <div className="text-center mb-12">
             <motion.h2
-              className="text-3xl md:text-4xl font-bold text-cyan-400 font-mono tracking-wider mb-4"
+              className="text-2xl md:text-4xl font-bold text-cyan-400 font-mono tracking-wider mb-4"
               animate={{
                 textShadow: [
                   '0 0 10px #00ffff',
@@ -677,7 +677,7 @@ const About = () => {
                       }
                       whileTap={{ scale: 0.97 }}
                     >
-                      <IconComponent size={16} />
+                      <IconComponent className="max-sm:hidden" size={16} />
                       {category.label}
                     </motion.button>
                   </div>

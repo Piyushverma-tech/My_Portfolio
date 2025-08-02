@@ -155,7 +155,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex text-cyan-400 items-center">
+          <div className="md:hidden flex text-green-400 items-center">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.95 }}

@@ -233,7 +233,7 @@ const HomePage = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.8 }}
-                  className="font-mono text-sm sm:text-lg text-cyan-400 mb-4 tracking-wider text-left bg-black/30 px-3 py-2 border border-cyan-400/30 backdrop-blur-sm w-fit"
+                  className="max-sm:hidden font-mono text-sm sm:text-lg text-cyan-400 mb-4 tracking-wider text-left bg-black/30 px-3 py-2 border border-cyan-400/30 backdrop-blur-sm w-fit"
                 >
                   &gt; LOCATION: BHOPAL, INDIA
                 </motion.div>
