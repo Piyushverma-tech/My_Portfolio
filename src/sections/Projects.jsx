@@ -443,7 +443,7 @@ const Projects = () => {
                         whileHover={{
                           scale: 1.15,
 
-                          boxShadow: '0 0 20px rgba(34,211,238,0.8)',
+                          boxShadow: '0 0 20px rgba(34,211,238,0.5)',
                           transition: { type: 'spring', stiffness: 400 },
                         }}
                         whileTap={{ scale: 0.95 }}
@@ -591,13 +591,13 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-72 object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-72 opacity-85 fill-green-500/30 object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
                   />
 
                   {/* Cyberpunk Scanning Effect */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent w-8"
-                    animate={{ x: ['0%', '1000%'] }}
+                    animate={{ x: ['0%', '2000%'] }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
@@ -940,7 +940,6 @@ const Projects = () => {
                         ? 'text-green-400'
                         : 'text-gray-400 hover:text-cyan-400'
                     }`}
-                    whileHover={activeCategory !== category.id ? { y: -2 } : {}}
                     whileTap={{ scale: 0.97 }}
                   >
                     <IconComponent size={16} />

@@ -243,7 +243,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2 }}
-                  className="text-lg sm:text-xl text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-4 py-3 border-l-2 border-green-400/50 backdrop-blur-sm"
+                  className="text-base sm:text-xl text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-4 py-3 border-l-2 border-green-400/50 backdrop-blur-sm"
                 >
                   Blending design, code, and creativity
                 </motion.p>
@@ -356,10 +356,17 @@ const HomePage = () => {
                   >
                     {/* Cyberpunk profile frame */}
                     <div className="absolute inset-3 sm:inset-4 bg-gradient-to-br from-black to-gray-900 rounded-full overflow-hidden border-4 border-cyan-400/50 shadow-2xl backdrop-blur-sm">
-                      <img
+                      <motion.img
                         src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1754057347/CyberRobo_j4roxb.png"
                         alt="Piyush - Creative Developer"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover opacity-80"
+                        initial={{ y: 0 }}
+                        animate={{ y: [0, -6, 0] }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        }}
                       />
 
                       {/* Cyberpunk overlay gradient */}

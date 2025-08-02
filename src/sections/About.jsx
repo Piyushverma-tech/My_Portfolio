@@ -61,7 +61,7 @@ const About = () => {
         proficiency: 88,
         description:
           'Proficient in ES6+, async/await, closures, HOFs, DOM manipulation, and dynamic UI logic for interactive experiences.',
-        icon: <SiJavascript />,
+        icon: <SiJavascript size={35} />,
         color: 'from-yellow-500 to-orange-500',
       },
       {
@@ -70,7 +70,7 @@ const About = () => {
         proficiency: 95,
         description:
           'Expertise in responsive layouts, Flexbox, Grid, SCSS, animations, Tailwind CSS, and modern component-level styling.',
-        icon: <SiCss3 />,
+        icon: <SiCss3 size={35} />,
         color: 'from-pink-500 to-rose-500',
       },
       {
@@ -97,7 +97,7 @@ const About = () => {
         proficiency: 70,
         description:
           'Used for advanced timeline-based animations, scroll-triggered effects, and creating dynamic UI animations.',
-        icon: <FaSuperpowers />,
+        icon: <FaSuperpowers size={35} />,
         color: 'from-green-500 to-emerald-500',
       },
     ],
@@ -117,7 +117,7 @@ const About = () => {
         proficiency: 92,
         description:
           'Efficient with auto-layouts, components, design systems, interactive prototypes, and collaborative workflows.',
-        icon: <FiFigma />,
+        icon: <FiFigma size={35} />,
         color: 'from-red-500 to-pink-500',
       },
       {
@@ -126,7 +126,7 @@ const About = () => {
         proficiency: 85,
         description:
           'Designed high-fidelity mockups, interactive flows, and developer-ready assets for web and mobile projects.',
-        icon: <SiAdobexd />,
+        icon: <SiAdobexd size={35} />,
         color: 'from-blue-600 to-purple-600',
       },
       {
@@ -135,7 +135,7 @@ const About = () => {
         proficiency: 75,
         description:
           'Created vector graphics, logos, icons, and branding assets for both digital and print design needs.',
-        icon: <SiAdobeillustrator />,
+        icon: <SiAdobeillustrator size={35} />,
         color: 'from-orange-500 to-red-500',
       },
       {
@@ -144,7 +144,7 @@ const About = () => {
         proficiency: 88,
         description:
           'Edited images, designed layouts, UI assets, and creative visuals for marketing and product design.',
-        icon: <SiAdobephotoshop />,
+        icon: <SiAdobephotoshop size={35} />,
         color: 'from-blue-500 to-indigo-500',
       },
       {
@@ -173,7 +173,7 @@ const About = () => {
         proficiency: 70,
         description:
           'Implemented real-time communication using WebSocket for features like live chat and real-time notifications.',
-        icon: <SiSocketdotio />,
+        icon: <SiSocketdotio size={35} />,
         color: 'from-yellow-600 to-orange-500',
       },
       {
@@ -209,7 +209,7 @@ const About = () => {
         proficiency: 73,
         description:
           'Used for schema modeling, database migrations, and writing type-safe queries in full-stack apps.',
-        icon: <SiPrisma />,
+        icon: <SiPrisma size={35} />,
         color: 'from-indigo-500 to-purple-500',
       },
     ],
@@ -238,7 +238,7 @@ const About = () => {
         proficiency: 85,
         description:
           'Create AI-powered video content for storytelling, marketing and brand identity.',
-        icon: <BsPlayBtn />,
+        icon: <BsPlayBtn size={32} />,
         color: 'from-red-500 to-pink-500',
       },
       {
@@ -256,7 +256,7 @@ const About = () => {
         proficiency: 87,
         description:
           'Identify AI opportunities to cut costs, optimize work, and scale faster.',
-        icon: <BiTargetLock size={45} />,
+        icon: <BiTargetLock size={37} />,
         color: 'from-orange-500 to-red-500',
       },
       {
@@ -265,7 +265,7 @@ const About = () => {
         proficiency: 75,
         description:
           'Connect AI with CRMs, websites, and workflow automation tools.',
-        icon: <GrIntegration size={30} />,
+        icon: <GrIntegration size={28} />,
         color: 'from-cyan-500 to-purple-500',
       },
     ],
@@ -465,11 +465,11 @@ const About = () => {
             {/* Introduction Card */}
             <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
               {/* Scanning line */}
-              <motion.div
+              {/* <motion.div
                 className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
                 animate={{ x: ['-100%', '100%'] }}
                 transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-              />
+              /> */}
 
               <div className="flex items-center gap-4 mb-6">
                 <User className="text-green-400" size={24} />
@@ -495,7 +495,7 @@ const About = () => {
 
             {/* What I Do Card */}
             <div className="bg-black/50 border border-cyan-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
-              <motion.div
+              {/* <motion.div
                 className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400 to-transparent"
                 animate={{ x: ['-100%', '100%'] }}
                 transition={{
@@ -504,7 +504,7 @@ const About = () => {
                   repeatDelay: 1,
                   delay: 0.5,
                 }}
-              />
+              /> */}
 
               <div className="flex items-center gap-4 mb-6">
                 <Briefcase className="text-cyan-400" size={24} />
@@ -534,7 +534,7 @@ const About = () => {
           <motion.div variants={itemVariants} className="space-y-8">
             {/* My Approach Card */}
             <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
-              <motion.div
+              {/* <motion.div
                 className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
                 animate={{ x: ['-100%', '100%'] }}
                 transition={{
@@ -543,7 +543,7 @@ const About = () => {
                   repeatDelay: 1,
                   delay: 1,
                 }}
-              />
+              /> */}
 
               <div className="flex items-center gap-4 mb-6">
                 <Target className="text-green-400" size={24} />
@@ -570,7 +570,7 @@ const About = () => {
 
             {/* Download Resume Card */}
             <div className="bg-black/50 border border-cyan-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
-              <motion.div
+              {/* <motion.div
                 className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400 to-transparent"
                 animate={{ x: ['-100%', '100%'] }}
                 transition={{
@@ -579,7 +579,7 @@ const About = () => {
                   repeatDelay: 1,
                   delay: 1.5,
                 }}
-              />
+              /> */}
 
               <div className="text-center">
                 <h3 className="text-xl font-bold text-green-400 font-mono mb-6">
