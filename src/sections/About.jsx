@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Briefcase,
   ChevronRight,
   Code,
   Database,
@@ -35,8 +34,7 @@ import { BiChat, BiTargetLock } from 'react-icons/bi';
 import { TbWriting } from 'react-icons/tb';
 import { GrIntegration } from 'react-icons/gr';
 import { RiNextjsFill } from 'react-icons/ri';
-
-// Import skill icons (you'll need to add these imports based on your actual icon library)
+import Spline from '@splinetool/react-spline';
 
 const About = () => {
   const [activeSkillCategory, setActiveSkillCategory] = useState('Frontend');
@@ -278,12 +276,6 @@ const About = () => {
     { id: 'AI & Automation', label: 'AI & AUTO', icon: Zap },
   ];
 
-  const whatIDo = [
-    'UI/UX Design',
-    'Web Development',
-    'Graphic Design & Illustration',
-  ];
-
   const myApproach = [
     'Blend creativity with problem-solving',
     'Focus on simplicity and usability',
@@ -294,17 +286,17 @@ const About = () => {
   const containerVariants = {
     hidden: {
       opacity: 0,
-      scale: 0.9, // Less dramatic scale change
-      rotateX: -10, // Reduced rotation
+      scale: 0.9,
+      rotateX: -10,
     },
     visible: {
       opacity: 1,
       scale: 1,
       rotateX: 0,
       transition: {
-        duration: 0.5, // Reduced from 0.8s
+        duration: 0.5,
         ease: 'easeOut',
-        staggerChildren: 0.05, // Reduced from 0.1s
+        staggerChildren: 0.05,
       },
     },
   };
@@ -343,9 +335,9 @@ const About = () => {
       opacity: 1,
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
       transition: {
-        duration: 0.6, // Reduced from 1s
+        duration: 0.6,
         ease: 'easeInOut',
-        delay: 0.2, // Reduced from 0.6s
+        delay: 0.2,
       },
     },
   };
@@ -359,9 +351,9 @@ const About = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.2, // Reduced from 0.3s
+        duration: 0.2,
         ease: 'easeOut',
-        delay: 0.4, // Reduced from 1s
+        delay: 0.4,
       },
     },
   };
@@ -402,12 +394,12 @@ const About = () => {
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      <div className="container mx-auto px-4 max-w-7xl relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 15 }} // Reduced y offset from 20
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }} // Reduced from 0.6s
+          transition={{ duration: 0.4 }}
           className="mb-16 text-center relative"
         >
           {/* Cyberpunk-styled header container */}
@@ -427,7 +419,7 @@ const About = () => {
               <motion.span
                 className="text-cyan-400"
                 animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
+                transition={{ duration: 0.8, repeat: Infinity }}
               >
                 |
               </motion.span>
@@ -453,27 +445,49 @@ const About = () => {
           </motion.div>
         </motion.div>
 
-        {/* Main Content Grid */}
+        {/* Main Content Grid*/}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-20"
         >
-          {/* Left Column - Introduction */}
-          <motion.div variants={itemVariants} className="space-y-8">
-            {/* Introduction Card */}
-            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
-              {/* Scanning line */}
-              {/* <motion.div
-                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
-                animate={{ x: ['-100%', '100%'] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-              /> */}
+          {/* Left Column - Robot Avatar  */}
+          <motion.div variants={itemVariants}>
+            {/* Robot Avatar Section  */}
+            <motion.div className="flex justify-center">
+              <div className="relative w-full max-w-sm">
+                {/* Cyberpunk profile frame */}
+                <div className="relative w-full aspect-square overflow-hidden border border-green-400/30 bg-black/30 h-[400px] lg:h-[450px]">
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.03)_1px,transparent_2px)] bg-[size:50px_50px]"></div>
+                  <Spline
+                    className="scale-[1.3] mt-4 w-full h-full"
+                    scene="https://prod.spline.design/CQiUWRLV77SGOXG6/scene.splinecode"
+                  />
 
+                  {/* Frame corner accents */}
+                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-green-400"></div>
+                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-cyan-400"></div>
+                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-cyan-400"></div>
+                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-green-400"></div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column - Personal Info and Approach */}
+          <motion.div
+            variants={itemVariants}
+            className="lg:col-span-2 space-y-8"
+          >
+            {/* Introduction Card */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-6 md:p-8 relative overflow-hidden"
+            >
               <div className="flex items-center gap-4 mb-6">
                 <User className="text-green-400" size={24} />
-                <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono">
+                <h2 className="text-lg md:text-xl font-bold text-green-400 font-mono">
                   INIT_PERSONAL
                 </h2>
               </div>
@@ -484,131 +498,85 @@ const About = () => {
                   <span className="text-green-400 font-bold">Piyush Verma</span>
                   ,
                 </p>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed text-base md:text-lg">
                   I&apos;ve been working on web apps for about a year now—doing
                   the whole front-end, back-end, and even some design stuff.
                   I&apos;m hooked on making things dope and actually work for
                   people.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            {/* What I Do Card */}
-            <div className="bg-black/50 border border-cyan-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
-              {/* <motion.div
-                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400 to-transparent"
-                animate={{ x: ['-100%', '100%'] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatDelay: 1,
-                  delay: 0.5,
-                }}
-              /> */}
+            {/* Bottom Row - Approach and Resume */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* My Approach Card */}
+              <motion.div
+                variants={itemVariants}
+                className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-6 relative overflow-hidden"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <Target className="text-cyan-400" size={24} />
+                  <h3 className="text-lg font-bold text-cyan-400 font-mono">
+                    LOAD_APPROACH
+                  </h3>
+                </div>
 
-              <div className="flex items-center gap-4 mb-6">
-                <Briefcase className="text-cyan-400" size={24} />
-                <h3 className="text-xl font-bold text-cyan-400 font-mono">
-                  EXEC_SERVICES
-                </h3>
-              </div>
+                <div className="space-y-3">
+                  {myApproach.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 + 0.8 }}
+                      className="flex items-start gap-3"
+                    >
+                      <ChevronRight
+                        className="text-cyan-400 flex-shrink-0 mt-0.5"
+                        size={16}
+                      />
+                      <span className="text-gray-300 text-sm leading-relaxed">
+                        {item}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
 
-              <div className="space-y-3">
-                {whatIDo.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 + 0.5 }}
-                    className="flex items-center gap-3"
-                  >
-                    <ChevronRight className="text-green-400" size={16} />
-                    <span className="text-gray-300">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Approach & Resume */}
-          <motion.div variants={itemVariants} className="space-y-8">
-            {/* My Approach Card */}
-            <div className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
-              {/* <motion.div
-                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
-                animate={{ x: ['-100%', '100%'] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatDelay: 1,
-                  delay: 1,
-                }}
-              /> */}
-
-              <div className="flex items-center gap-4 mb-6">
-                <Target className="text-green-400" size={24} />
-                <h3 className="text-xl font-bold text-green-400 font-mono">
-                  LOAD_APPROACH
-                </h3>
-              </div>
-
-              <div className="space-y-3">
-                {myApproach.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 + 0.8 }}
-                    className="flex items-center gap-3"
-                  >
-                    <ChevronRight className="text-cyan-400" size={16} />
-                    <span className="text-gray-300">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Download Resume Card */}
-            <div className="bg-black/50 border border-cyan-400/30 backdrop-blur-sm p-8 relative overflow-hidden">
-              {/* <motion.div
-                className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400 to-transparent"
-                animate={{ x: ['-100%', '100%'] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatDelay: 1,
-                  delay: 1.5,
-                }}
-              /> */}
-
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-green-400 font-mono mb-6">
-                  ACCESS_RESUME
-                </h3>
-                <motion.button
-                  onClick={handleDownloadResume}
-                  className="group relative px-8 py-4 bg-gradient-to-r from-green-400/20 to-cyan-400/20 border border-green-400 text-green-400 font-mono font-bold tracking-wider hover:bg-gradient-to-r hover:from-green-400/30 hover:to-cyan-400/30 hover:border-cyan-400 transition-all duration-300 overflow-hidden"
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 0 25px rgba(34, 255, 0, 0.3)',
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
-                    animate={{ x: ['-100%', '100%'] }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      repeatDelay: 2,
+              {/* Download Resume Card */}
+              <motion.div
+                variants={itemVariants}
+                className="bg-black/50 border border-cyan-400/30 backdrop-blur-sm p-6 relative overflow-hidden flex flex-col justify-center"
+              >
+                <div className="text-center">
+                  <h3 className="text-lg font-bold text-green-400 font-mono mb-6">
+                    ACCESS_RESUME
+                  </h3>
+                  <motion.button
+                    onClick={handleDownloadResume}
+                    className="group relative px-6 py-3 bg-gradient-to-r from-green-400/20 to-cyan-400/20 border border-green-400 text-green-400 font-mono font-bold tracking-wider hover:bg-gradient-to-r hover:from-green-400/30 hover:to-cyan-400/30 hover:border-cyan-400 transition-all duration-300 overflow-hidden w-full"
+                    whileHover={{
+                      scale: 1.05,
                     }}
-                  />
-                  <div className="flex items-center gap-3 relative z-10">
-                    <Download size={20} />
-                    DOWNLOAD.RESUME
-                  </div>
-                </motion.button>
-              </div>
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+                      animate={{ x: ['-100%', '100%'] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        repeatDelay: 2,
+                      }}
+                    />
+                    <div className="flex items-center justify-center gap-3 relative z-10">
+                      <Download size={18} />
+                      <span className="text-sm md:text-base">
+                        DOWNLOAD.RESUME
+                      </span>
+                    </div>
+                  </motion.button>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </motion.div>
@@ -652,11 +620,11 @@ const About = () => {
                 return (
                   <div
                     key={category.id}
-                    className="relative flex-1 flex justify-center  overflow-hidden"
+                    className="relative flex-1 flex justify-center overflow-hidden"
                   >
                     {activeSkillCategory === category.id && (
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r  from-green-400/20 to-cyan-400/20 border border-green-400/50"
+                        className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-cyan-400/20 border border-green-400/50"
                         layoutId="activeSkillBackground"
                         transition={{
                           type: 'spring',
@@ -694,7 +662,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 max-w-6xl mx-auto md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {skillsData[activeSkillCategory].map((skill, index) => (
                 <motion.div

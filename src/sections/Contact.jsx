@@ -88,12 +88,11 @@ const ContactForm = () => {
     const messageValid = formData.message.trim().length >= 10;
 
     if (!requiredFields || !emailValid || !messageValid) {
-      return false; // Return false if validation fails
+      return false;
     }
 
     setIsSubmitting(true);
 
-    // Create a new object with form data and access key
     const submitData = {
       ...formData,
       access_key: 'a78f0286-8d52-4a42-8379-5812e7c41eb7',
@@ -118,7 +117,7 @@ const ContactForm = () => {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
 
-        // Add success message to terminal if in terminal mode
+        //success message to terminal if in terminal mode
         if (isTerminalMode) {
           addToHistory([
             'Transmission successful!',
@@ -132,7 +131,7 @@ const ContactForm = () => {
       } else {
         console.error('Form submission failed:', res.message);
 
-        // Add error message to terminal if in terminal mode
+        //error message to terminal if in terminal mode
         if (isTerminalMode) {
           addToHistory([
             'ERROR: Transmission failed - ' + (res.message || 'Unknown error'),
@@ -145,7 +144,7 @@ const ContactForm = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
 
-      // Add error message to terminal if in terminal mode
+      //error message to terminal if in terminal mode
       if (isTerminalMode) {
         addToHistory(['ERROR: Network error - ' + error.message]);
       }
@@ -444,17 +443,17 @@ const ContactForm = () => {
   const containerVariants = {
     hidden: {
       opacity: 0,
-      scale: 0.9, // Less dramatic scale change
-      rotateX: -10, // Reduced rotation
+      scale: 0.9,
+      rotateX: -10,
     },
     visible: {
       opacity: 1,
       scale: 1,
       rotateX: 0,
       transition: {
-        duration: 0.5, // Reduced from 0.8s
+        duration: 0.5,
         ease: 'easeOut',
-        staggerChildren: 0.05, // Reduced from 0.1s
+        staggerChildren: 0.05,
       },
     },
   };
@@ -468,9 +467,9 @@ const ContactForm = () => {
       opacity: 1,
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
       transition: {
-        duration: 0.6, // Reduced from 1s
+        duration: 0.6,
         ease: 'easeInOut',
-        delay: 0.2, // Reduced from 0.6s
+        delay: 0.2,
       },
     },
   };
@@ -515,7 +514,7 @@ const ContactForm = () => {
             transition={{ duration: 0.4 }}
             className="mb-16 text-center relative"
           >
-            {/* Cyberpunk-styled header container */}
+            {/*  header container */}
             <motion.div
               className="relative inline-block"
               variants={containerVariants}
@@ -523,7 +522,7 @@ const ContactForm = () => {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              {/* Main heading with cyberpunk styling */}
+              {/* Main heading*/}
               <motion.h2
                 className="text-3xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono max-sm:hidden"
                 variants={textVariants}

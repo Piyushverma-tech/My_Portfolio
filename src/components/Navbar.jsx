@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
-// import { disablePageScroll, enablePageScroll } from '@fluejs/noscroll';
 
 const Navbar = () => {
   const location = useLocation();
@@ -48,7 +47,7 @@ const Navbar = () => {
   // Detect active section
   useEffect(() => {
     if (location.pathname !== '/') {
-      setActiveSection(''); // Clear active section if not on homepage
+      setActiveSection('');
       return;
     }
     const observerOptions = {

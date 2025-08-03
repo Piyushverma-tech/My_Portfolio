@@ -298,7 +298,7 @@ const HomePage = () => {
                 className="flex justify-center lg:justify-end relative order-1 lg:order-2"
               >
                 <div className="relative">
-                  {/* Outer rotating ring with cyberpunk glow */}
+                  {/* Outer rotating ring with  glow */}
                   <motion.div
                     className="absolute -inset-6 sm:-inset-8 rounded-full border-2 border-green-400/30"
                     animate={{
@@ -323,7 +323,7 @@ const HomePage = () => {
                     }}
                   />
 
-                  {/* Inner rotating ring with cyberpunk glow */}
+                  {/* Inner rotating ring with  glow */}
                   <motion.div
                     className="absolute -inset-3 sm:-inset-4 rounded-full border border-cyan-400/50"
                     animate={{
@@ -354,7 +354,7 @@ const HomePage = () => {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {/* Cyberpunk profile frame */}
+                    {/*  profile frame */}
                     <div className="absolute inset-3 sm:inset-4 bg-gradient-to-br from-black to-gray-900 rounded-full overflow-hidden border-4 border-cyan-400/50 shadow-2xl backdrop-blur-sm">
                       <motion.img
                         src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1754057347/CyberRobo_j4roxb.png"
@@ -369,7 +369,7 @@ const HomePage = () => {
                         }}
                       />
 
-                      {/* Cyberpunk overlay gradient */}
+                      {/*  overlay gradient */}
                       <div className="absolute inset-0 bg-gradient-to-t from-cyan-400/20 via-transparent to-green-400/10" />
 
                       {/* Scanning effect */}
@@ -473,7 +473,7 @@ const HomePage = () => {
           </div>
         </main>
       </div>
-      {/* Cyberpunk Skills Banner */}
+      {/*  Skills Banner */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

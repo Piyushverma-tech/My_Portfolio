@@ -336,7 +336,7 @@ const Projects = () => {
                     y: -5,
                     rotateY: 2,
                     boxShadow:
-                      '0 0 30px rgba(34,211,238,0.5), 0 0 60px rgba(34,255,0,0.2)',
+                      '0 0 30px rgba(34,211,238,0.3), 0 0 60px rgba(34,255,0,0.1)',
                     transition: { type: 'spring', stiffness: 300 },
                   }}
                   className="relative overflow-hidden border border-green-400/30 bg-black/50 backdrop-blur-sm"
@@ -594,7 +594,7 @@ const Projects = () => {
                     className="w-full h-72 opacity-85 fill-green-500/30 object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Cyberpunk Scanning Effect */}
+                  {/*Scanning Effect */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent w-8"
                     animate={{ x: ['0%', '2000%'] }}
@@ -605,7 +605,7 @@ const Projects = () => {
                     }}
                   />
 
-                  {/* Cyberpunk Hover Content Overlay */}
+                  {/* Hover Content Overlay */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{
@@ -781,21 +781,21 @@ const Projects = () => {
     </motion.div>
   );
 
-  // Cyberpunk Animation variants for the heading
+  //Animation variants for the heading
   const containerVariants = {
     hidden: {
       opacity: 0,
-      scale: 0.9, // Less dramatic scale change
-      rotateX: -10, // Reduced rotation
+      scale: 0.9,
+      rotateX: -10,
     },
     visible: {
       opacity: 1,
       scale: 1,
       rotateX: 0,
       transition: {
-        duration: 0.5, // Reduced from 0.8s
+        duration: 0.5,
         ease: 'easeOut',
-        staggerChildren: 0.05, // Reduced from 0.1s
+        staggerChildren: 0.05,
       },
     },
   };
@@ -809,9 +809,9 @@ const Projects = () => {
       opacity: 1,
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
       transition: {
-        duration: 0.6, // Reduced from 1s
+        duration: 0.6,
         ease: 'easeInOut',
-        delay: 0.2, // Reduced from 0.6s
+        delay: 0.2,
       },
     },
   };
@@ -825,9 +825,9 @@ const Projects = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.2, // Reduced from 0.3s
+        duration: 0.2,
         ease: 'easeOut',
-        delay: 0.4, // Reduced from 1s
+        delay: 0.4,
       },
     },
   };
@@ -863,10 +863,10 @@ const Projects = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 15 }} // Reduced y offset from 20
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }} // Reduced from 0.6s
+          transition={{ duration: 0.4 }}
           className="mb-16 text-center relative"
         >
           {/* Cyberpunk-styled header container */}
@@ -886,7 +886,7 @@ const Projects = () => {
               <motion.span
                 className="text-cyan-400"
                 animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
+                transition={{ duration: 0.8, repeat: Infinity }}
               >
                 |
               </motion.span>
