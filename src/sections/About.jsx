@@ -455,22 +455,58 @@ const About = () => {
           {/* Left Column - Robot Avatar  */}
           <motion.div variants={itemVariants}>
             {/* Robot Avatar Section  */}
-            <motion.div className="flex justify-center">
-              <div className="relative w-full max-w-sm">
-                {/* Cyberpunk profile frame */}
-                <div className="relative w-full aspect-square overflow-hidden border border-green-400/30 bg-black/30 h-[400px] lg:h-[450px]">
-                  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.03)_1px,transparent_2px)] bg-[size:50px_50px]"></div>
+            <motion.div className="flex justify-center perspective-1000">
+              <div className="relative w-full max-w-sm transform-gpu">
+                {/* 3D Container with depth */}
+                <motion.div className="relative w-full aspect-square overflow-hidden border border-green-400/30 bg-black/30 h-[400px] lg:h-[445px] shadow-2xl">
+                  {/* Depth layers */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 via-transparent to-cyan-400/10"></div>
+
+                  {/* Inner glow effect */}
+                  <div className="absolute inset-2 bg-gradient-to-br from-green-400/5 to-cyan-400/10 backdrop-blur-sm"></div>
+
+                  {/* Holographic scan lines */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-b from-transparent via-green-400/10 to-transparent opacity-50"
+                    animate={{ y: ['-100%', '100%'] }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: 'linear',
+                    }}
+                  />
+
                   <Spline
-                    className="scale-[1.3] mt-4 w-full h-full"
+                    className="scale-[1.4] mt-4 w-full h-full relative z-10"
                     scene="https://prod.spline.design/CQiUWRLV77SGOXG6/scene.splinecode"
                   />
 
-                  {/* Frame corner accents */}
-                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-green-400"></div>
-                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-cyan-400"></div>
-                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-cyan-400"></div>
-                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-green-400"></div>
-                </div>
+                  {/* Enhanced corner accents with glow */}
+                  <motion.div
+                    className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-green-400"
+                    style={{ filter: 'drop-shadow(0 0 4px #22ff00)' }}
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                  <motion.div
+                    className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-cyan-400"
+                    style={{ filter: 'drop-shadow(0 0 4px #00ffff)' }}
+                    animate={{ opacity: [1, 0.7, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                  />
+                  <motion.div
+                    className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-cyan-400"
+                    style={{ filter: 'drop-shadow(0 0 4px #00ffff)' }}
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                  />
+                  <motion.div
+                    className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-green-400"
+                    style={{ filter: 'drop-shadow(0 0 4px #22ff00)' }}
+                    animate={{ opacity: [1, 0.7, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
+                  />
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>
