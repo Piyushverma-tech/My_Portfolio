@@ -5,17 +5,12 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
   const [showEntryStar, setShowEntryStar] = useState(true);
   const [titleStarPosition, setTitleStarPosition] = useState({ x: 0, y: 0 });
-  const [currentTime, setCurrentTime] = useState(new Date());
+
   const titleStarRef = useRef(null);
   const containerRef = useRef(null);
 
   useEffect(() => {
     document.title = 'Piyush Verma | Designer & Developer';
-
-    // Update time every second for futuristic touch
-    const timeInterval = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
 
     // Calculate title star position after render
     const calculateStarPosition = () => {
@@ -42,7 +37,6 @@ const HomePage = () => {
     return () => {
       window.removeEventListener('resize', calculateStarPosition);
       clearTimeout(timer);
-      clearInterval(timeInterval);
     };
   }, []);
 
@@ -87,23 +81,6 @@ const HomePage = () => {
         <div className="absolute top-10 left-10 w-20 h-20 border-2 border-green-400/20 transform rotate-45 animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-16 h-16 border border-cyan-400/30"></div>
         <div className="absolute top-1/3 right-10 w-1 h-40 bg-green-400/20"></div>
-
-        {/* Top Status Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="absolute top-2 sm:top-4 right-2 sm:right-4 z-20 font-mono text-xs sm:text-xs text-green-400 bg-black/50 px-3 py-1 border border-green-400/30 backdrop-blur-sm"
-        >
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="hidden sm:inline">SYSTEM_ONLINE</span>
-            <span className="sm:hidden">ONLINE</span>
-            <span className="text-xs text-cyan-400">
-              {currentTime.toLocaleTimeString()}
-            </span>
-          </div>
-        </motion.div>
 
         {/* Entry Star Animation */}
         <AnimatePresence>
@@ -243,7 +220,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2 }}
-                  className="text-base sm:text-xl text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-4 py-3 border-l-2 border-green-400/50 backdrop-blur-sm"
+                  className="text-base sm:text-xl text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-2 py-1 sm:px-4 sm:py-3 border-l-2 border-green-400/50 backdrop-blur-sm"
                 >
                   Blending design, code, and creativity
                 </motion.p>
@@ -261,7 +238,7 @@ const HomePage = () => {
                       boxShadow: '0 0 30px rgba(34,211,238,0.5)',
                     }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-green-400 to-cyan-400 text-black px-6 sm:px-8 py-4 sm:py-[18px] font-semibold tracking-wider relative overflow-hidden group w-full sm:w-auto font-mono border border-cyan-400/50"
+                    className="bg-gradient-to-r from-green-400 to-cyan-400 text-black px-4 sm:px-8 py-3 sm:py-[18px] font-semibold tracking-wider relative overflow-hidden group w-full sm:w-auto font-mono border border-cyan-400/50"
                     onClick={() => handleScrollTo('projects')}
                   >
                     <motion.div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
@@ -279,7 +256,7 @@ const HomePage = () => {
                         boxShadow: '0 0 20px rgba(34,211,238,0.3)',
                       }}
                       whileTap={{ scale: 0.95 }}
-                      className="border-2 border-green-400 text-green-400 font-semibold px-6 sm:px-8 py-3 sm:py-4 tracking-wider hover:border-cyan-400 transition-all duration-300 relative overflow-hidden group w-full sm:w-auto font-mono backdrop-blur-sm"
+                      className="border-2 border-green-400 text-green-400 font-semibold px-8  py-3 sm:py-4 tracking-wider hover:border-cyan-400 transition-all duration-300 relative overflow-hidden group w-full sm:w-auto font-mono backdrop-blur-sm"
                     >
                       <motion.div className="absolute inset-0 bg-gradient-to-r from-green-400 to-cyan-400 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                       <span className="relative z-10 group-hover:text-black transition-colors duration-300 text-sm sm:text-base">
