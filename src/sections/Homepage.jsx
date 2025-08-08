@@ -80,7 +80,6 @@ const HomePage = () => {
         {/* Tech Corner Elements */}
         <div className="absolute top-10 left-10 w-20 h-20 border-2 border-green-400/20 transform rotate-45 animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-16 h-16 border border-cyan-400/30"></div>
-        <div className="absolute top-1/3 right-10 w-1 h-40 bg-green-400/20"></div>
 
         {/* Entry Star Animation */}
         <AnimatePresence>
@@ -144,7 +143,7 @@ const HomePage = () => {
                 </motion.div>
 
                 {/* Main Title */}
-                <div className="mb-4 space-y-2 sm:mb-8">
+                <div className="mb-4 space-y-2 sm:mb-6">
                   <motion.h1
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -409,10 +408,10 @@ const HomePage = () => {
                       {[...Array(3)].map((_, i) => (
                         <motion.div
                           key={i}
-                          className="absolute max-sm:hidden bg-cyan-400/30 mix-blend-screen"
+                          className="absolute  bg-cyan-400/30 mix-blend-screen"
                           style={{
                             width: '100%',
-                            height: '16px',
+                            height: '8px',
                             top: `${20 + i * 30}%`,
                             left: 0,
                           }}
