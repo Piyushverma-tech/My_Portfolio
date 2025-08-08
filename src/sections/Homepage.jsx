@@ -275,7 +275,7 @@ const HomePage = () => {
                 className="flex justify-center lg:justify-end relative order-1 lg:order-2"
               >
                 <div className="relative">
-                  {/* Outer rotating ring with  glow */}
+                  {/* Outer rotating ring with glow */}
                   <motion.div
                     className="absolute -inset-6 sm:-inset-8 rounded-full border-2 border-green-400/30"
                     animate={{
@@ -300,7 +300,7 @@ const HomePage = () => {
                     }}
                   />
 
-                  {/* Inner rotating ring with  glow */}
+                  {/* Inner rotating ring with glow */}
                   <motion.div
                     className="absolute -inset-3 sm:-inset-4 rounded-full border border-cyan-400/50"
                     animate={{
@@ -331,32 +331,136 @@ const HomePage = () => {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {/*  profile frame */}
+                    {/* Profile frame */}
                     <div className="absolute inset-3 sm:inset-4 bg-gradient-to-br from-black to-gray-900 rounded-full overflow-hidden border-4 border-cyan-400/50 shadow-2xl backdrop-blur-sm">
                       <motion.img
                         src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1754057347/CyberRobo_j4roxb.png"
                         alt="Piyush - Creative Developer"
                         className="w-full h-full object-cover opacity-80"
-                        initial={{ y: 0 }}
-                        animate={{ y: [0, -6, 0] }}
+                        animate={{
+                          y: [0, -6, 0],
+                          // Digital glitch effect
+                          x: [0, 2, -1, 0],
+                          filter: [
+                            'hue-rotate(0deg) saturate(1)',
+                            'hue-rotate(5deg) saturate(1.2)',
+                            'hue-rotate(-3deg) saturate(0.8)',
+                            'hue-rotate(0deg) saturate(1)',
+                          ],
+                        }}
                         transition={{
-                          duration: 4,
+                          y: {
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                          },
+                          x: {
+                            duration: 0.3,
+                            repeat: Infinity,
+                            repeatDelay: 3,
+                            ease: 'easeInOut',
+                          },
+                          filter: {
+                            duration: 0.2,
+                            repeat: Infinity,
+                            repeatDelay: 4,
+                            ease: 'easeInOut',
+                          },
+                        }}
+                      />
+
+                      {/* Cyberpunk overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-cyan-400/20 via-transparent to-green-400/10" />
+
+                      {/* RGB Split Glitch Effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-transparent to-blue-500/20 mix-blend-screen"
+                        animate={{
+                          x: [0, -2, 2, 0],
+                          opacity: [0, 0.6, 0],
+                        }}
+                        transition={{
+                          duration: 0.15,
                           repeat: Infinity,
+                          repeatDelay: 2,
                           ease: 'easeInOut',
                         }}
                       />
 
-                      {/*  overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-cyan-400/20 via-transparent to-green-400/10" />
-
-                      {/* Scanning effect */}
+                      {/* Digital noise overlay */}
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/30 to-transparent h-8"
-                        animate={{ y: ['0%', '1000%'] }}
+                        className="absolute inset-0 opacity-20"
+                        animate={{
+                          backgroundImage: [
+                            'radial-gradient(circle at 20% 30%, rgba(34,255,0,0.1) 1px, transparent 4px)',
+                            'radial-gradient(circle at 80% 70%, rgba(34,211,238,0.1) 1px, transparent 4px)',
+                            'radial-gradient(circle at 40% 90%, rgba(255,0,100,0.1) 1px, transparent 4px)',
+                            'radial-gradient(circle at 60% 10%, rgba(34,255,0,0.1) 1px, transparent 4px)',
+                          ],
+                        }}
                         transition={{
-                          duration: 2,
+                          duration: 0.05,
                           repeat: Infinity,
+                          repeatDelay: 1.5,
+                        }}
+                      />
+
+                      {/* Glitch blocks */}
+                      {[...Array(3)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute max-sm:hidden bg-cyan-400/30 mix-blend-screen"
+                          style={{
+                            width: '100%',
+                            height: '16px',
+                            top: `${20 + i * 30}%`,
+                            left: 0,
+                          }}
+                          animate={{
+                            x: [0, -100, 50, 0],
+                            opacity: [0, 1, 0.5, 0],
+                            scaleX: [1, 0.3, 0.8, 1],
+                          }}
+                          transition={{
+                            duration: 0.2,
+                            repeat: Infinity,
+                            repeatDelay: 2 + i * 0.5,
+                            delay: i * 0.1,
+                            ease: 'easeInOut',
+                          }}
+                        />
+                      ))}
+
+                      {/* Data corruption effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/10 to-transparent"
+                        animate={{
+                          x: ['-100%', '100%'],
+                          opacity: [0, 0.8, 0],
+                        }}
+                        transition={{
+                          duration: 0.3,
+                          repeat: Infinity,
+                          repeatDelay: 4,
                           ease: 'linear',
+                        }}
+                      />
+
+                      {/* Static interference */}
+                      <motion.div
+                        className="absolute inset-0"
+                        animate={{
+                          backgroundColor: [
+                            'transparent',
+                            'rgba(34,255,0,0.05)',
+                            'rgba(255,0,100,0.03)',
+                            'transparent',
+                          ],
+                        }}
+                        transition={{
+                          duration: 0.05,
+                          repeat: Infinity,
+                          repeatDelay: 2.5,
                         }}
                       />
                     </div>
@@ -394,8 +498,18 @@ const HomePage = () => {
                             i % 2 === 0
                               ? '0 0 10px rgba(34,255,0,0.5)'
                               : '0 0 10px rgba(34,211,238,0.5)',
+                          // Glitch the corner accents too
+                          x: [0, 1, -1, 0],
                         }}
-                        transition={{ delay: 2.5 + i * 0.1 }}
+                        transition={{
+                          opacity: { delay: 2.5 + i * 0.1 },
+                          scale: { delay: 2.5 + i * 0.1 },
+                          x: {
+                            duration: 0.1,
+                            repeat: Infinity,
+                            repeatDelay: 3 + i * 0.5,
+                          },
+                        }}
                       />
                     ))}
                   </motion.div>
@@ -420,6 +534,8 @@ const HomePage = () => {
                             '0 0 15px rgba(34,211,238,0.5)',
                             '0 0 5px rgba(34,255,0,0.3)',
                           ],
+                          // Add glitch to data points
+                          filter: ['blur(0px)', 'blur(0.5px)', 'blur(0px)'],
                         }}
                         transition={{
                           opacity: { delay: 3 + i * 0.2 },
@@ -433,6 +549,11 @@ const HomePage = () => {
                             duration: 2,
                             repeat: Infinity,
                             ease: 'easeInOut',
+                          },
+                          filter: {
+                            duration: 0.1,
+                            repeat: Infinity,
+                            repeatDelay: 2 + i * 0.3,
                           },
                         }}
                         whileHover={{
