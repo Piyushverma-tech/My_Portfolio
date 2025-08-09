@@ -405,13 +405,13 @@ const HomePage = () => {
                       />
 
                       {/* Glitch blocks */}
-                      {[...Array(3)].map((_, i) => (
+                      {/* {[...Array(3)].map((_, i) => (
                         <motion.div
                           key={i}
-                          className="absolute  bg-cyan-400/30 mix-blend-screen"
+                          className="absolute  bg-cyan-400/50 mix-blend-screen"
                           style={{
                             width: '100%',
-                            height: '8px',
+                            height: '2px',
                             top: `${20 + i * 30}%`,
                             left: 0,
                           }}
@@ -428,7 +428,7 @@ const HomePage = () => {
                             ease: 'easeInOut',
                           }}
                         />
-                      ))}
+                      ))} */}
 
                       {/* Data corruption effect */}
                       <motion.div
@@ -467,25 +467,25 @@ const HomePage = () => {
                     {/* Tech corner accents */}
                     {[
                       {
-                        borders: 'border-l-2 border-t-2 border-green-400',
+                        borders: 'border-l-4 border-t-4 border-green-400',
                         position: { top: '0', left: '0' },
                       },
                       {
-                        borders: 'border-r-2 border-t-2 border-cyan-400',
+                        borders: 'border-r-4 border-t-4 border-cyan-400',
                         position: { top: '0', right: '0' },
                       },
                       {
-                        borders: 'border-r-2 border-b-2 border-green-400',
+                        borders: 'border-r-4 border-b-4 border-green-400',
                         position: { bottom: '0', right: '0' },
                       },
                       {
-                        borders: 'border-l-2 border-b-2 border-cyan-400',
+                        borders: 'border-l-4 border-b-4 border-cyan-400',
                         position: { bottom: '0', left: '0' },
                       },
                     ].map((corner, i) => (
                       <motion.div
                         key={i}
-                        className={`absolute w-6 h-6 sm:w-8 sm:h-8 ${corner.borders}`}
+                        className={`absolute w-6 h-6 sm:w-10 sm:h-10 ${corner.borders}`}
                         style={{
                           ...corner.position,
                         }}
