@@ -326,20 +326,17 @@ const HomePage = () => {
 
                   {/* Profile container */}
                   <motion.div
-                    className="relative w-40 h-40 sm:w-80 sm:h-80 md:w-96 md:h-96"
+                    className="relative w-52 h-52 sm:w-80 sm:h-80 md:w-96 md:h-96"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
                     {/* Profile frame */}
                     <div className="absolute inset-3 sm:inset-4 bg-gradient-to-br from-black to-gray-900 rounded-full overflow-hidden border-4 border-cyan-400/50 shadow-2xl backdrop-blur-sm">
                       <motion.img
-                        src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1754057347/CyberRobo_j4roxb.png"
+                        src="avatar.jpg"
                         alt="Piyush - Creative Developer"
                         className="w-full h-full object-cover opacity-80"
                         animate={{
-                          y: [0, -6, 0],
-                          // Digital glitch effect
-                          x: [0, 2, -1, 0],
                           filter: [
                             'hue-rotate(0deg) saturate(1)',
                             'hue-rotate(5deg) saturate(1.2)',
