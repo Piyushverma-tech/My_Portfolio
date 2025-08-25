@@ -76,7 +76,7 @@ const Projects = () => {
           'A social platform to share posts, connect, and chat in real-time.',
         image:
           'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034253/Portfolio/pewq5cmcud6isui9gfr2.png',
-        tags: ['React', 'Node.js', 'MongoDB', 'Context API'],
+        tags: ['React', 'Node.js', 'MongoDB', 'Express'],
         videoUrl:
           'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747730306/0518_xsussh.mp4',
         links: {

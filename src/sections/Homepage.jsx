@@ -53,10 +53,11 @@ const HomePage = () => {
     'FIGMA',
     'REACT',
     'PHOTOSHOP',
-    'WEBFLOW',
+    'Express.js',
     'PostgreSQL',
     'NODE.JS',
     'DSA',
+    'MongoDB',
     'AI & Automation',
     'UI/UX',
   ];
