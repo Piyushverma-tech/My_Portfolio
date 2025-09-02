@@ -594,6 +594,10 @@ const About = () => {
                       scale: 1.05,
                     }}
                     whileTap={{ scale: 0.95 }}
+                    style={{
+                      clipPath:
+                        'polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
+                    }}
                   >
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"

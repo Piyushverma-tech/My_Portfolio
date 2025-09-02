@@ -79,8 +79,8 @@ const HomePage = () => {
         </div>
 
         {/* Tech Corner Elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 border-2 border-green-400/20 transform rotate-45 animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-16 h-16 border border-cyan-400/30"></div>
+        <div className="absolute top-10 left-10 w-20 h-20 border-2 max-sm:hidden border-green-400/20 transform rotate-45 animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-16 h-16 border max-sm:hidden border-cyan-400/30"></div>
 
         {/* Entry Star Animation */}
         <AnimatePresence>
@@ -135,9 +135,9 @@ const HomePage = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
-                  className="flex items-center space-x-2 sm:space-x-3 font-mono text-xs sm:text-sm mb-4 bg-black/50 px-3 py-2 border-l-2 border-green-400 backdrop-blur-sm w-fit"
+                  className="flex items-center space-x-2 sm:space-x-3 font-mono text-xs sm:text-sm mb-4 bg-black/50 px-3 py-1 border-l-2 border-green-400 backdrop-blur-sm w-fit"
                 >
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-pulse" />
+                  <div className="w-2 h-2  bg-green-400 rounded-full animate-pulse" />
                   <span className="text-green-400 tracking-wider sm:tracking-widest text-xs sm:text-sm">
                     STATUS: AVAILABLE
                   </span>
@@ -166,6 +166,10 @@ const HomePage = () => {
                         initial={{ y: 100 }}
                         animate={{ y: 0 }}
                         transition={{ duration: 0.8, delay: 1.2 }}
+                        style={{
+                          clipPath:
+                            'polygon(0px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
+                        }}
                         className="bg-gradient-to-r from-green-400 via-cyan-400 to-green-400 bg-clip-text text-transparent relative drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]"
                       >
                         PIYUSH
@@ -186,7 +190,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
-                    className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 flex items-center justify-start space-x-2 sm:space-x-4 font-mono"
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 flex items-center justify-start space-x-2 sm:space-x-4 font-mono"
                   >
                     <span className="text-green-400">DESIGNER</span>
                     <motion.span
@@ -220,7 +224,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2 }}
-                  className="text-base sm:text-xl text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-2 py-1 sm:px-4 sm:py-3 border-l-2 border-green-400/50 backdrop-blur-sm"
+                  className="text-sm sm:text-lg italic text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-2 py-1 sm:px-4 sm:py-2 border-l-2 border-green-400/50 backdrop-blur-sm"
                 >
                   Blending design, code, and creativity
                 </motion.p>
@@ -230,38 +234,82 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2.2 }}
-                  className="flex flex-col sm:flex-row gap-4 pt-6 sm:pt-8 items-center lg:items-start"
+                  className="flex flex-col sm:flex-row gap-4 pt-8  items-center lg:items-start"
                 >
+                  {/* Primary Button - VIEW_PROJECTS */}
                   <motion.button
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: '0 0 30px rgba(34,211,238,0.5)',
+                    style={{
+                      clipPath:
+                        'polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
                     }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-green-400 to-cyan-400 text-black px-4 sm:px-8 py-3 sm:py-[18px] font-semibold tracking-wider relative overflow-hidden group w-full sm:w-auto font-mono border border-cyan-400/50"
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative w-full sm:w-auto overflow-hidden"
                     onClick={() => handleScrollTo('projects')}
                   >
-                    <motion.div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-                    <span className="relative z-10 flex items-center justify-center space-x-2">
-                      <span className="text-sm sm:text-base">
+                    {/* Minimal wireframe design */}
+                    <div className="relative  py-2 sm:px-10 sm:py-4 border border-cyan-400/20 group-hover:border-cyan-400/50 transition-all duration-500 bg-cyan-400/5 group-hover:bg-cyan-400/10">
+                      {/* Corner brackets - matching your UI style */}
+                      <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute bottom-0 left-0 w-4 h-4 border-l-2 border-b-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      {/* Subtle pulse effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-cyan-400/10 opacity-0 group-hover:opacity-100"
+                        animate={{
+                          opacity: [0, 0.3, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        }}
+                      />
+
+                      {/* Content */}
+                      <motion.span className="relative z-10 text-cyan-400/80 font-mono text-sm tracking-[0.2em] font-medium group-hover:text-cyan-400 transition-colors duration-300">
                         VIEW_PROJECTS
-                      </span>
-                    </span>
+                      </motion.span>
+                    </div>
                   </motion.button>
+
+                  {/* Secondary Button - ABOUT_ME */}
                   <Link to={'/about'}>
                     <motion.button
-                      whileHover={{
-                        scale: 1.05,
-                        borderColor: '#22d3ee',
-                        boxShadow: '0 0 20px rgba(34,211,238,0.3)',
+                      style={{
+                        clipPath:
+                          'polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
                       }}
-                      whileTap={{ scale: 0.95 }}
-                      className="border-2 border-green-400 text-green-400 font-semibold px-8  py-3 sm:py-4 tracking-wider hover:border-cyan-400 transition-all duration-300 relative overflow-hidden group w-full sm:w-auto font-mono backdrop-blur-sm"
+                      whileTap={{ scale: 0.98 }}
+                      className="group relative w-full sm:w-auto overflow-hidden"
                     >
-                      <motion.div className="absolute inset-0 bg-gradient-to-r from-green-400 to-cyan-400 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                      <span className="relative z-10 group-hover:text-black transition-colors duration-300 text-sm sm:text-base">
-                        ABOUT_ME
-                      </span>
+                      {/* Minimal wireframe design */}
+                      <div className="relative px-10 py-2 sm:px-10 sm:py-4 border border-green-400/20 group-hover:border-green-400/50 transition-all duration-500 bg-green-400/5 group-hover:bg-green-400/10">
+                        {/* Corner brackets - matching your UI style */}
+                        <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-green-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-green-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute bottom-0 left-0 w-4 h-4 border-l-2 border-b-2 border-green-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-green-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                        {/* Subtle pulse effect */}
+                        <motion.div
+                          className="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100"
+                          animate={{
+                            opacity: [0, 0.3, 0],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                          }}
+                        />
+
+                        {/* Content */}
+                        <motion.span className="relative z-10 text-green-400/80 font-mono text-sm tracking-[0.2em] font-medium group-hover:text-green-400 transition-colors duration-300">
+                          ABOUT_ME
+                        </motion.span>
+                      </div>
                     </motion.button>
                   </Link>
                 </motion.div>
