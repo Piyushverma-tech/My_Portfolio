@@ -55,7 +55,7 @@ const NextStudyBtn = ({ title, slug }) => {
                 <div className="relative w-12 h-12 flex items-center justify-center">
                   {/* Background Circle */}
                   <motion.div
-                    className="absolute inset-0 bg-white/20 rounded-full"
+                    className="absolute inset-0 bg-green-600/40 rounded-full"
                     whileHover={{ scale: 1.1, rotate: 90 }}
                     transition={{ duration: 0.3 }}
                   />
