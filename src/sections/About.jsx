@@ -10,7 +10,6 @@ import {
   Target,
   Terminal,
   User,
-  Zap,
 } from 'lucide-react';
 import { DiNodejsSmall } from 'react-icons/di';
 import {
@@ -27,12 +26,10 @@ import {
 } from 'react-icons/si';
 import { PiFramerLogo } from 'react-icons/pi';
 import { FaSuperpowers } from 'react-icons/fa';
-import { BsPlayBtn, BsRobot } from 'react-icons/bs';
+
 import { CgUiKit } from 'react-icons/cg';
 import { FiFigma } from 'react-icons/fi';
-import { BiChat, BiTargetLock } from 'react-icons/bi';
-import { TbWriting } from 'react-icons/tb';
-import { GrIntegration } from 'react-icons/gr';
+
 import { RiNextjsFill } from 'react-icons/ri';
 import Spline from '@splinetool/react-spline';
 
@@ -211,69 +208,12 @@ const About = () => {
         color: 'from-indigo-500 to-purple-500',
       },
     ],
-    'AI & Automation': [
-      {
-        name: 'Workflow Automation',
-        level: 'Advanced',
-        proficiency: 90,
-        description:
-          'Streamline daily operations, reduce manual work and boost business efficiency.',
-        icon: <BsRobot className="text-3xl sm:text-4xl" />,
-        color: 'from-purple-600 to-pink-600',
-      },
-      {
-        name: 'AI Chatbots',
-        level: 'Advanced',
-        proficiency: 88,
-        description:
-          'Automate customer support, lead generation and real-time communication.',
-        icon: <BiChat className="text-3xl sm:text-4xl" />,
-        color: 'from-blue-500 to-purple-500',
-      },
-      {
-        name: 'AI Video',
-        level: 'Advanced',
-        proficiency: 85,
-        description:
-          'Create AI-powered video content for storytelling, marketing and brand identity.',
-        icon: <BsPlayBtn size={32} />,
-        color: 'from-red-500 to-pink-500',
-      },
-      {
-        name: 'AI Content',
-        level: 'Advanced',
-        proficiency: 92,
-        description:
-          'Automate copywriting, social media posts, ad creatives and blog content.',
-        icon: <TbWriting className="text-3xl sm:text-4xl" />,
-        color: 'from-green-500 to-blue-500',
-      },
-      {
-        name: 'AI Strategy',
-        level: 'Advanced',
-        proficiency: 87,
-        description:
-          'Identify AI opportunities to cut costs, optimize work, and scale faster.',
-        icon: <BiTargetLock size={37} />,
-        color: 'from-orange-500 to-red-500',
-      },
-      {
-        name: 'AI Integrations',
-        level: 'Intermediate',
-        proficiency: 75,
-        description:
-          'Connect AI with CRMs, websites, and workflow automation tools.',
-        icon: <GrIntegration size={28} />,
-        color: 'from-cyan-500 to-purple-500',
-      },
-    ],
   };
 
   const skillCategories = [
     { id: 'Frontend', label: 'FRONTEND', icon: Code },
     { id: 'Design', label: 'DESIGN', icon: Terminal },
     { id: 'Backend', label: 'BACKEND', icon: Database },
-    { id: 'AI & Automation', label: 'AI & AUTO', icon: Zap },
   ];
 
   const myApproach = [
@@ -675,7 +615,7 @@ const About = () => {
                     )}
                     <motion.button
                       onClick={() => setActiveSkillCategory(category.id)}
-                      className={`relative z-10 px-4 md:px-8 py-2 text-sm font-mono font-medium tracking-wider transition-colors duration-300 flex items-center gap-2 ${
+                      className={`relative z-10 px-4 md:px-8 py-4 text-sm font-mono font-medium tracking-wider transition-colors duration-300 flex items-center gap-2 ${
                         activeSkillCategory === category.id
                           ? 'text-green-400'
                           : 'text-gray-400 hover:text-cyan-400'

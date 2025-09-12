@@ -1,14 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  ExternalLink,
-  Github,
-  Camera,
-  Youtube,
-  Terminal,
-  Database,
-  Code,
-} from 'lucide-react';
+import { ExternalLink, Github, Camera, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MatrixRain } from '../components/Martrix';
 
@@ -16,9 +8,9 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('development');
 
   const categories = [
-    { id: 'development', label: 'DEVELOPMENT', icon: Code },
-    { id: 'design', label: 'DESIGN', icon: Database },
-    { id: 'hobby', label: 'HOBBY', icon: Terminal },
+    { id: 'development', label: 'DEVELOPMENT' },
+    { id: 'design', label: 'DESIGN' },
+    { id: 'hobby', label: 'HOBBY' },
   ];
 
   //Projects data
@@ -916,7 +908,6 @@ const Projects = () => {
         <div className="flex justify-center mb-16 md:mb-24">
           <div className="inline-flex bg-black/50 border border-green-400/30 backdrop-blur-sm w-full max-w-md overflow-hidden">
             {categories.map((category) => {
-              const IconComponent = category.icon;
               return (
                 <div
                   key={category.id}
@@ -942,7 +933,6 @@ const Projects = () => {
                     }`}
                     whileTap={{ scale: 0.97 }}
                   >
-                    <IconComponent size={16} />
                     {category.label}
                   </motion.button>
                   {/* Cyberpunk shine effect */}

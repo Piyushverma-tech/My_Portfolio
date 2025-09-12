@@ -48,18 +48,39 @@ const HomePage = () => {
   };
 
   const skills = [
-    'NEXT.JS',
-    'ILLUSTRATOR',
-    'FIGMA',
-    'REACT',
-    'PHOTOSHOP',
+    'JavaScript',
+    'Node.js',
     'Express.js',
-    'PostgreSQL',
-    'NODE.JS',
-    'DSA',
-    'MongoDB',
-    'AI & Automation',
+    'NEXT.js',
+    'React',
+    'Vue.js',
+    'TypeScript',
+    'CSS',
+    'HTML',
+    'Tailwind',
+    'Bootstrap',
     'UI/UX',
+    'Illustrator',
+    'Figma',
+    'Photoshop',
+    'PostgreSQL',
+    'MongoDB',
+    'MySQL',
+    'SQL',
+    'Docker',
+    'Kubernetes',
+    'Git',
+    'GitHub',
+    'CI/CD',
+    'Deployment',
+    'Agile',
+    'Scrum',
+    'Data Structures and Algorithms',
+    'Optimization',
+    'Security',
+    'Design Patterns',
+    'Networking',
+    'Operating Systems',
   ];
 
   return (
@@ -621,7 +642,7 @@ const HomePage = () => {
         <motion.div
           animate={{ x: ['0%', '-50%'] }}
           transition={{
-            duration: 25,
+            duration: 70,
             repeat: Infinity,
             ease: 'linear',
             repeatType: 'loop',
