@@ -115,16 +115,17 @@ const Projects = () => {
       },
       {
         id: 2,
-        title: 'Animated Film for Startup',
+        title: 'Client Work: EcoSphere',
         description:
-          'Created an AI-driven short film for a startup internship project.',
+          'Delivered 15+ social media designs and brand-focused promotional visuals.',
         image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746127261/Portfolio/gvtymjgj5zxqihcmlqqg.png',
-        tags: ['AI Animation', 'Storytelling'],
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1758379244/Empowering_Change_for_a_Sustainable_Tomorrow_20240806_182935_0000_xuw1hm.png',
+        tags: ['Creative Design', 'Brand Identity'],
         links: {
-          youtube: 'https://youtu.be/ue92My3ozrU?si=71JHX-YmleFD8huE',
+          instagram: 'https://www.instagram.com/ecosphere.foundation/',
         },
       },
+
       {
         id: 3,
         title: 'Client Work: Trophy House',
@@ -140,6 +141,54 @@ const Projects = () => {
       },
       {
         id: 4,
+        title: 'Art & Sketches',
+        description:
+          'Traditional pencil and ink sketches capturing emotions and everyday life.',
+        image:
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1758378524/Art2_qxx81s.jpg',
+        tags: ['Traditional Art', 'Sketching'],
+        links: {
+          instagram: 'https://www.instagram.com/piyushverma.art/',
+        },
+      },
+
+      {
+        id: 5,
+        title: 'Logo design: Emerge Creations',
+        description:
+          'Designed Logos for Creative agency. Delivered 30+ social media designs.',
+        image:
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1758378305/Untitled_design_12_bs4fgk.png',
+        tags: ['Logo Design', 'Brand Identity'],
+        links: {
+          instagram: 'https://www.instagram.com/emerge.creation/',
+        },
+      },
+      {
+        id: 6,
+        title: 'Animated Film for Startup',
+        description:
+          'Created an AI-driven short film for a startup internship project.',
+        image:
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746127261/Portfolio/gvtymjgj5zxqihcmlqqg.png',
+        tags: ['AI Animation', 'Storytelling'],
+        links: {
+          youtube: 'https://youtu.be/ue92My3ozrU?si=71JHX-YmleFD8huE',
+        },
+      },
+      {
+        id: 7,
+        title: 'Logo Design: Recipick',
+        description: 'Designed Logo and UI/UX for a smart recipe app.',
+        image:
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1758378305/Untitled_design_13_rbvbhm.png',
+        tags: ['Logo Design', 'Brand Identity'],
+        links: {
+          instagram: '',
+        },
+      },
+      {
+        id: 8,
         title: 'Client Work: Kanco Raymond',
         description:
           'Delivered 15+ social media designs and brand-focused promotional visuals.',
@@ -321,17 +370,16 @@ const Projects = () => {
                 },
               }}
             >
-              {/* Project Image/Video with Cyberpunk Hover Effect */}
-              <div className="mb-6 relative transform perspective-1000 group">
+              {/* Project Image/Video with Hover Effect */}
+              <div className="mb-6 relative transform perspective-1000 group ">
                 <motion.div
                   whileHover={{
                     y: -5,
                     rotateY: 2,
-                    boxShadow:
-                      '0 0 30px rgba(34,211,238,0.3), 0 0 60px rgba(34,255,0,0.1)',
+
                     transition: { type: 'spring', stiffness: 300 },
                   }}
-                  className="relative overflow-hidden border border-green-400/30 bg-black/50 backdrop-blur-sm"
+                  className="relative overflow-hidden border border-green-400/30 bg-black/50 backdrop-blur-sm "
                   onMouseEnter={(e) => {
                     const video = e.currentTarget.querySelector('video');
                     if (video) {
@@ -418,7 +466,7 @@ const Projects = () => {
                     )}
                   </motion.div>
 
-                  {/* Cyberpunk Action Overlay */}
+                  {/* Action Overlay */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-all duration-500 flex items-end justify-end gap-4 p-4 z-10"
                     style={{
@@ -463,7 +511,7 @@ const Projects = () => {
                   </motion.div>
                 </motion.div>
 
-                {/* Cyberpunk decorative elements */}
+                {/* decorative elements */}
                 <motion.div
                   className="absolute -bottom-3 -left-3 w-16 h-16 border-2 border-green-400/30 z-10"
                   initial={{ scale: 0, opacity: 0 }}
@@ -520,7 +568,7 @@ const Projects = () => {
                 {project.description}
               </motion.p>
 
-              {/* Cyberpunk tags */}
+              {/* tags */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag, index) => (
                   <motion.span
@@ -576,7 +624,7 @@ const Projects = () => {
               <motion.div
                 key={project.id}
                 variants={item}
-                className="group relative aspect-w-16 aspect-h-12"
+                className="group relative aspect-w-16 aspect-h-12 hover:shadow-xl hover:shadow-green-400/20"
               >
                 {/* Main Image Container with cyberpunk styling */}
                 <div className="relative w-full h-full border border-green-400/30 bg-black/20 backdrop-blur-sm overflow-hidden">
@@ -637,7 +685,7 @@ const Projects = () => {
                   </motion.div>
                 </div>
 
-                {/* Cyberpunk decorative elements */}
+                {/* decorative elements */}
                 <motion.div
                   className="absolute -bottom-3 -left-3 w-16 h-16 border-2 border-green-400/30 z-10"
                   initial={{ scale: 0, opacity: 0 }}
@@ -688,13 +736,15 @@ const Projects = () => {
       layout
     >
       <AnimatePresence>
-        <div className="grid grid-cols md:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols md:grid-cols-4 gap-3 md:gap-4 ">
           {projectsData.hobby.map((project, index) => (
             <motion.div
               key={project.id}
               variants={item}
               custom={index}
-              className="group relative aspect-square overflow-hidden border border-green-400/30 bg-black/20 backdrop-blur-sm"
+              className="group relative aspect-square overflow-hidden border border-green-400/30 bg-black/20 backdrop-blur-sm
+                shadow-lg shadow-green-400/10 
+                transition-all duration-500 hover:scale-105`"
             >
               {/* Background Image */}
               <motion.div variants={imageReveal} className="w-full h-full">
@@ -705,20 +755,30 @@ const Projects = () => {
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                 />
 
-                {/* Cyberpunk Scanning Effect */}
+                {/* Scanning Effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-b from-transparent via-green-400/20 to-transparent h-8"
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-green-400/30 to-transparent h-6"
                   animate={{ y: ['0%', '1000%'] }}
                   transition={{
-                    duration: 2.5 + index * 0.3,
+                    duration: 3 + index * 0.5,
                     repeat: Infinity,
                     ease: 'linear',
+                    delay: index * 0.2,
                   }}
                 />
               </motion.div>
 
-              {/* Cyberpunk Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 flex flex-col justify-end p-4 -translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-500">
+              {/*Hover Overlay */}
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent 
+                opacity-0 group-hover:opacity-100 flex flex-col justify-end p-4 
+                translate-y-full group-hover:translate-y-0 transition-all duration-500"
+              >
+                {/* Glitch Effect Border */}
+                <div
+                  className="absolute inset-0 border border-cyan-400/50 opacity-0 group-hover:opacity-100 
+                  transition-opacity duration-300 animate-pulse"
+                ></div>
                 {/* Link Icons */}
                 {project.links.instagram && (
                   <a
@@ -747,24 +807,50 @@ const Projects = () => {
                   </a>
                 )}
 
-                <h3 className="text-green-400 text-lg font-bold mb-1 font-mono tracking-wider">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 text-sm mb-3 line-clamp-2 bg-black/30 p-2 border-l-2 border-cyan-400/50 backdrop-blur-sm">
-                  {project.description}
-                </p>
+                <motion.h3
+                  className="text-green-400 text-lg font-bold mb-2 font-mono tracking-wider
+                      drop-shadow-lg"
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  &gt; {project.title}
+                </motion.h3>
 
-                {/* Cyberpunk Tags */}
-                <div className="hidden md:flex flex-wrap gap-1 mb-3">
-                  {project.tags.slice(0, 2).map((tag, index) => (
+                <motion.p
+                  className="text-gray-300 text-sm mb-3 bg-black/50 p-3 
+                      border-l-2 border-cyan-400/50 backdrop-blur-sm
+                      font-monoleading-relaxed"
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {project.description}
+                </motion.p>
+
+                {/*Tags */}
+
+                <motion.div
+                  className="flex flex-wrap gap-1"
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  {project.tags.slice(0, 3).map((tag, tagIndex) => (
                     <span
-                      key={index}
-                      className="text-xs px-1.5 py-0.5 bg-black/50 text-green-400 border border-green-400/30 font-mono backdrop-blur-sm"
+                      key={tagIndex}
+                      className="text-xs px-2 py-1 bg-gradient-to-r from-green-400/20 to-cyan-400/20 
+                          text-green-400 border border-green-400/30 font-mono backdrop-blur-sm
+                          hover:border-cyan-400/50 transition-colors duration-300
+                          shadow-sm hover:shadow-md"
+                      style={{
+                        animationDelay: `${tagIndex * 0.1}s`,
+                      }}
                     >
-                      {tag}
+                      #{tag}
                     </span>
                   ))}
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
