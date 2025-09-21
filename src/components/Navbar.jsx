@@ -122,7 +122,7 @@ const Navbar = () => {
           >
             <div className="h-8 w-full overflow-hidden">
               <img
-                src="/logo.png"
+                src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1758477618/a-digital-illustration-of-a-sleek-modern_7Yh7WxrAQ9mJjsOgFlbnmg_z3nHenADTHm3hKOv3tyt1g-removebg-preview_euifkp.png"
                 alt="Piyush - Creative Developer"
                 className="h-full w-full object-cover"
               />
