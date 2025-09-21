@@ -481,9 +481,9 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="text-black bg-green-400 p-2 border border-green-400/50   transition-colors backdrop-blur-sm"
                         whileHover={{
-                          scale: 1.15,
+                          scale: 1,
 
-                          boxShadow: '0 0 20px rgba(34,211,238,0.5)',
+                          boxShadow: '0 0 20px rgba(34,211,238,0.8)',
                           transition: { type: 'spring', stiffness: 400 },
                         }}
                         whileTap={{ scale: 0.95 }}
@@ -498,7 +498,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="text-green-400 bg-black/80 border border-green-400/50 p-2 hover:bg-gray-900 hover:border-cyan-400 transition-colors backdrop-blur-sm"
                         whileHover={{
-                          scale: 1.15,
+                          scale: 1,
 
                           boxShadow: '0 0 20px rgba(34,255,0,0.8)',
                           transition: { type: 'spring', stiffness: 400 },

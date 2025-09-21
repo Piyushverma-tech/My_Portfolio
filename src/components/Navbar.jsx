@@ -104,7 +104,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed w-full  bg-gray-900  z-50 px-4 sm:px-6 lg:px-12 py-3"
+      className="fixed w-full  bg-gray-900/80  z-50 px-4 sm:px-6 lg:px-12 py-3"
       initial={{ y: -60 }}
       animate={{ y: 0 }}
       viewport={{ once: true }}
@@ -122,7 +122,7 @@ const Navbar = () => {
           >
             <div className="h-8 w-full overflow-hidden">
               <img
-                src="/Logo.png"
+                src="/logo.png"
                 alt="Piyush - Creative Developer"
                 className="h-full w-full object-cover"
               />

@@ -398,7 +398,7 @@ const HomePage = () => {
                     {/* Profile frame */}
                     <div className="absolute inset-3 sm:inset-4 bg-gradient-to-br from-black to-gray-900 rounded-full overflow-hidden border-4 border-cyan-400/50 shadow-2xl backdrop-blur-sm">
                       <motion.img
-                        src="avatar.jpg"
+                        src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1755376102/avatar_syrwoj.jpg"
                         alt="Piyush - Creative Developer"
                         className="w-full h-full object-cover opacity-80"
                         animate={{
