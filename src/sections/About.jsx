@@ -23,9 +23,9 @@ import {
   SiPrisma,
   SiReact,
   SiSocketdotio,
+  SiTypescript,
 } from 'react-icons/si';
 import { PiFramerLogo } from 'react-icons/pi';
-import { FaSuperpowers } from 'react-icons/fa';
 
 import { CgUiKit } from 'react-icons/cg';
 import { FiFigma } from 'react-icons/fi';
@@ -51,6 +51,15 @@ const About = () => {
         color: 'from-gray-500 to-cyan-500',
       },
       {
+        name: 'Next.js',
+        level: 'Advanced',
+        proficiency: 85,
+        description:
+          'Used for SSR, static generation, API routes, dynamic routing, SEO, and building fast, production-grade apps.',
+        icon: <RiNextjsFill size={50} />,
+        color: 'from-gray-800 to-gray-600',
+      },
+      {
         name: 'JavaScript',
         level: 'Advanced',
         proficiency: 88,
@@ -58,6 +67,15 @@ const About = () => {
           'Proficient in ES6+, async/await, closures, HOFs, DOM manipulation, and dynamic UI logic for interactive experiences.',
         icon: <SiJavascript size={35} />,
         color: 'from-yellow-500 to-orange-500',
+      },
+      {
+        name: 'TypeScript',
+        level: 'Intermediate',
+        proficiency: 80,
+        description:
+          'Used for building type-safe, scalable JavaScript applications, enhancing code maintainability and catching errors early.',
+        icon: <SiTypescript size={35} />,
+        color: 'from-blue-500 to-blue-700',
       },
       {
         name: 'CSS/SCSS',
@@ -69,15 +87,6 @@ const About = () => {
         color: 'from-pink-500 to-rose-500',
       },
       {
-        name: 'Next.js',
-        level: 'Advanced',
-        proficiency: 85,
-        description:
-          'Used for SSR, static generation, API routes, dynamic routing, SEO, and building fast, production-grade apps.',
-        icon: <RiNextjsFill size={50} />,
-        color: 'from-gray-800 to-gray-600',
-      },
-      {
         name: 'Framer Motion',
         level: 'Intermediate',
         proficiency: 75,
@@ -85,15 +94,6 @@ const About = () => {
           'Created smooth animations, transitions, layout shifts, and micro-interactions to elevate user experience.',
         icon: <PiFramerLogo size={40} />,
         color: 'from-purple-500 to-indigo-500',
-      },
-      {
-        name: 'GSAP',
-        level: 'Intermediate',
-        proficiency: 70,
-        description:
-          'Used for advanced timeline-based animations, scroll-triggered effects, and creating dynamic UI animations.',
-        icon: <FaSuperpowers size={35} />,
-        color: 'from-green-500 to-emerald-500',
       },
     ],
     Design: [
