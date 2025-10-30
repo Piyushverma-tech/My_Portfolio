@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'CyberpunkH1';
+  src: local('CyberpunkH1'), url('./fonts/Arkcon-5yzLZ.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CyberpunkH3';
+  src: local('CyberpunkH3'),
+    url('./fonts/CyberwayRiders-lg97d.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CyberpunkH4';
+  src: local('CyberpunkH4'),
+    url('./fonts/KaderaRegular-m2G2V.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Section-Heading';
+  src: local('Section-Heading'),
+    url('./fonts/Nautica-E4BVW.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: 'Manrope', serif;
   font-optical-sizing: auto;
@@ -34,4 +63,18 @@ body {
 
 ::-webkit-scrollbar-track {
   background-color: #fff;
+}
+
+.Hero-text-Heading {
+  font-family: 'CyberpunkH1', sans-serif;
+}
+.Hero-text-sub {
+  font-family: 'CyberpunkH3', sans-serif;
+}
+
+.Sub-text {
+  font-family: 'CyberpunkH4', sans-serif;
+}
+.Section-Heading {
+  font-family: 'Section-Heading', sans-serif;
 }

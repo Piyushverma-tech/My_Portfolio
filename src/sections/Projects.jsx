@@ -957,10 +957,10 @@ const Projects = () => {
           >
             {/* Main heading with cyberpunk styling */}
             <motion.h2
-              className="text-2xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono"
+              className="text-2xl md:text-4xl Section-Heading px-8 py-4 tracking-widest uppercase text-green-400"
               variants={textVariants}
             >
-              &gt; Projects_
+              Projects
               <motion.span
                 className="text-cyan-400"
                 animate={{ opacity: [1, 0, 1] }}

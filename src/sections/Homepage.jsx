@@ -165,14 +165,14 @@ const HomePage = () => {
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.8 }}
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-[65px] leading-tight"
                   >
                     <div className="overflow-hidden text-sm sm:text-xl">
                       <motion.div
                         initial={{ y: 100 }}
                         animate={{ y: 0 }}
                         transition={{ duration: 0.8, delay: 1 }}
-                        className="text-cyan-400 font-mono tracking-wider"
+                        className="text-cyan-400 font-mono Hero-text-sub tracking-wider"
                       >
                         HI, I&apos;M
                       </motion.div>
@@ -186,7 +186,7 @@ const HomePage = () => {
                           clipPath:
                             'polygon(0px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
                         }}
-                        className="bg-gradient-to-r from-green-400 via-cyan-400 to-green-400 bg-clip-text text-transparent relative drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]"
+                        className="bg-gradient-to-r from-green-400 via-cyan-400 to-green-400 bg-clip-text text-transparent Hero-text-Heading pt-2 sm:pt-4 relative drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]"
                       >
                         PIYUSH
                         <motion.div
@@ -206,7 +206,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
-                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 flex items-center justify-start space-x-2 sm:space-x-4 font-mono"
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light Hero-text-sub text-gray-300 flex items-center justify-start space-x-2 sm:space-x-4 font-mono"
                   >
                     <span className="text-green-400">DESIGNER</span>
                     <motion.span
@@ -230,7 +230,7 @@ const HomePage = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.8 }}
-                  className="max-sm:hidden font-mono text-sm sm:text-lg text-cyan-400 mb-4 tracking-wider text-left bg-black/30 px-3 py-2 border border-cyan-400/30 backdrop-blur-sm w-fit"
+                  className="max-sm:hidden font-mono text-sm sm:text-[16px] text-cyan-400 mb-4 tracking-wider text-left bg-black/30 px-3 py-2 border border-cyan-400/30 backdrop-blur-sm w-fit"
                 >
                   &gt; LOCATION: BHOPAL, INDIA
                 </motion.div>
@@ -240,7 +240,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2 }}
-                  className="text-sm sm:text-lg italic text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-2 py-1 sm:px-4 sm:py-2 border-l-2 border-green-400/50 backdrop-blur-sm"
+                  className="text-sm sm:text-lg italic Sub-text text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-2 py-1 sm:px-4 sm:py-2 border-l-2 border-green-400/50 backdrop-blur-sm"
                 >
                   Blending design, code, and creativity
                 </motion.p>

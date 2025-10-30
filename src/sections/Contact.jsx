@@ -1,15 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Send,
-  Check,
-  Terminal,
-  User,
-  Mail,
-  MessageSquare,
-  Zap,
-  Code,
-  Database,
-} from 'lucide-react';
+import { Send, User, Mail, MessageSquare, Code, Database } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 const ContactForm = () => {
@@ -524,7 +514,7 @@ const ContactForm = () => {
             >
               {/* Main heading*/}
               <motion.h2
-                className="text-3xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono max-sm:hidden"
+                className="text-3xl md:text-[26px] Section-Heading px-8 py-4 tracking-widest uppercase text-green-400 font-mono max-sm:hidden"
                 variants={textVariants}
               >
                 &gt; establish_connection
@@ -537,7 +527,7 @@ const ContactForm = () => {
                 </motion.span>
               </motion.h2>
               <motion.h2
-                className="text-2xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono hidden max-sm:block"
+                className="text-2xl Section-Heading md:text-4xl px-8 py-4 tracking-widest uppercase text-green-400 font-mono hidden max-sm:block"
                 variants={textVariants}
               >
                 &gt; Contact
@@ -570,8 +560,7 @@ const ContactForm = () => {
             </motion.div>
           </motion.div>
           <div className="inline-flex items-center gap-3 bg-black/50 border border-green-400/30 px-6 py-3 backdrop-blur-sm">
-            <Terminal className="w-5 h-5 text-green-400" />
-            <span className="text-green-400 font-mono text-sm">
+            <span className="text-green-400 Sub-text  text-sm">
               CONTACT_PROTOCOL_ACTIVE
             </span>
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -786,7 +775,7 @@ const ContactForm = () => {
                     isSubmitted ||
                     !Object.values(formData).every((v) => v.trim())
                   }
-                  className={`w-full p-4 font-mono text-sm flex items-center justify-center gap-3 transition-all duration-300 ${
+                  className={`w-full px-4 py-2 Hero-text-sub text-lg tracking-widest flex items-center justify-center gap-3 transition-all duration-300 ${
                     isSubmitted
                       ? 'bg-green-400/20 border-green-400 text-green-400'
                       : Object.values(formData).every((v) => v.trim())
@@ -820,14 +809,10 @@ const ContactForm = () => {
                       TRANSMITTING...
                     </>
                   ) : isSubmitted ? (
-                    <>
-                      <Check className="w-4 h-4" />
-                      TRANSMISSION_COMPLETE
-                    </>
+                    <>TRANSMISSION COMPLETE</>
                   ) : (
                     <>
-                      <Zap className="w-4 h-4" />
-                      INITIATE_TRANSMISSION
+                      INITIATE TRANSMISSION
                       <Send className="w-4 h-4" />
                     </>
                   )}

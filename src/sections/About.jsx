@@ -352,10 +352,10 @@ const About = () => {
           >
             {/* Main heading with cyberpunk styling */}
             <motion.h2
-              className="text-2xl md:text-4xl font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono"
+              className="text-2xl md:text-3xl Section-Heading font-bold px-8 py-4 tracking-widest uppercase text-green-400 font-mono"
               variants={textVariants}
             >
-              &gt; ABOUT_ME_
+              &gt; ABOUT_ME
               <motion.span
                 className="text-cyan-400"
                 animate={{ opacity: [1, 0, 1] }}
@@ -571,24 +571,17 @@ const About = () => {
           {/* Skills Header */}
           <div className="text-center mb-12">
             <motion.h2
-              className="text-2xl md:text-4xl font-bold text-cyan-400 font-mono tracking-wider mb-4"
+              className="text-2xl md:text-4xl Hero-text-sub font-bold text-cyan-400 tracking-widest mb-4"
               animate={{
                 textShadow: [
                   '0 0 10px #00ffff',
-                  '0 0 20px #00ffff',
+                  '0 0 25px #00ffff',
                   '0 0 10px #00ffff',
                 ],
               }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              &gt; SKILLS_MATRIX
-              <motion.span
-                className="text-green-400"
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 1, repeat: Infinity }}
-              >
-                |
-              </motion.span>
+              SKILLS MATRIX
             </motion.h2>
           </div>
 
@@ -596,7 +589,6 @@ const About = () => {
           <div className="flex justify-center mb-12">
             <div className="inline-flex bg-black/50 border border-green-400/30 backdrop-blur-sm overflow-hidden">
               {skillCategories.map((category) => {
-                const IconComponent = category.icon;
                 return (
                   <div
                     key={category.id}
@@ -615,7 +607,7 @@ const About = () => {
                     )}
                     <motion.button
                       onClick={() => setActiveSkillCategory(category.id)}
-                      className={`relative z-10 px-4 md:px-8 py-4 text-sm font-mono font-medium tracking-wider transition-colors duration-300 flex items-center gap-2 ${
+                      className={`relative z-10 px-4 md:px-8 py-3 text-base Sub-text font-medium tracking-wider transition-colors duration-300 flex items-center gap-2 ${
                         activeSkillCategory === category.id
                           ? 'text-green-400'
                           : 'text-gray-400 hover:text-cyan-400'
@@ -625,7 +617,6 @@ const About = () => {
                       }
                       whileTap={{ scale: 0.97 }}
                     >
-                      <IconComponent className="max-sm:hidden" size={16} />
                       {category.label}
                     </motion.button>
                   </div>
@@ -669,7 +660,7 @@ const About = () => {
                       {skill.icon}
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-green-400 font-mono group-hover:text-cyan-400 transition-colors">
+                      <h3 className="text-lg Sub-text font-bold text-green-400 tracking-wide group-hover:text-cyan-400 transition-colors">
                         {skill.name}
                       </h3>
                       <span className="text-sm text-gray-400 font-mono">
