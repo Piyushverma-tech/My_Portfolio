@@ -301,7 +301,7 @@ const About = () => {
   const handleDownloadResume = () => {
     const link = document.createElement('a');
     link.href =
-      'https://drive.google.com/uc?export=download&id=19IrEky5Ugj4jZkNGN7ZaM9spWdQkrNNG';
+      'https://drive.google.com/uc?export=download&id=1ZuC8xJbbBcNR7IOlAJFcd6EyvEVV_xMh';
 
     link.download = 'Piyush_Verma_Resume.pdf';
     document.body.appendChild(link);
