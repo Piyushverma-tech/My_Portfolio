@@ -5,7 +5,6 @@ import {
   Code,
   Database,
   Download,
-  Folder,
   Leaf,
   Target,
   Terminal,
@@ -32,6 +31,7 @@ import { FiFigma } from 'react-icons/fi';
 
 import { RiNextjsFill } from 'react-icons/ri';
 import Spline from '@splinetool/react-spline';
+import { GrGraphQl } from 'react-icons/gr';
 
 const About = () => {
   const [activeSkillCategory, setActiveSkillCategory] = useState('Frontend');
@@ -172,13 +172,13 @@ const About = () => {
         color: 'from-yellow-600 to-orange-500',
       },
       {
-        name: 'File Handling',
+        name: 'GraphQL',
         level: 'Intermediate',
         proficiency: 72,
         description:
-          'Handled file uploads using Multer, integrated AWS S3 for storage, and implemented optimization techniques.',
-        icon: <Folder className="w-7 h-7 sm:w-8 sm:h-8" />,
-        color: 'from-gray-600 to-gray-500',
+          'Implemented GraphQL APIs with Apollo Server and integrated them with React using Apollo Client for efficient data fetching and state management.',
+        icon: <GrGraphQl className="w-7 h-7 sm:w-8 sm:h-8" />,
+        color: 'from-pink-600 to-purple-500',
       },
       {
         name: 'MongoDB',
