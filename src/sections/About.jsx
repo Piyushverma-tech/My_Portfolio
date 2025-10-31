@@ -126,7 +126,7 @@ const About = () => {
       },
       {
         name: 'Adobe Illustrator',
-        level: 'Intermediate',
+        level: 'Advanced',
         proficiency: 75,
         description:
           'Created vector graphics, logos, icons, and branding assets for both digital and print design needs.',
@@ -155,7 +155,7 @@ const About = () => {
     Backend: [
       {
         name: 'Node.js',
-        level: 'Intermediate',
+        level: 'Advanced',
         proficiency: 75,
         description:
           'Built REST APIs with Express.js, handled JWT auth, middleware, routing, and integrated third-party APIs.',
@@ -173,7 +173,7 @@ const About = () => {
       },
       {
         name: 'GraphQL',
-        level: 'Intermediate',
+        level: 'Advanced',
         proficiency: 72,
         description:
           'Implemented GraphQL APIs with Apollo Server and integrated them with React using Apollo Client for efficient data fetching and state management.',
@@ -182,7 +182,7 @@ const About = () => {
       },
       {
         name: 'MongoDB',
-        level: 'Intermediate',
+        level: 'Advanced',
         proficiency: 78,
         description:
           'Worked with Mongoose for schema design, CRUD operations, data modeling, and using aggregation pipelines.',
@@ -191,7 +191,7 @@ const About = () => {
       },
       {
         name: 'PostgreSQL',
-        level: 'Basic',
+        level: 'Intermediate',
         proficiency: 60,
         description:
           'Familiar with writing SQL queries, creating normalized schemas, managing relationships, and indexing.',
