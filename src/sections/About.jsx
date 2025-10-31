@@ -475,9 +475,9 @@ const About = () => {
                   ,
                 </p>
                 <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                  I&apos;ve been working on web apps for about a year now—doing
-                  the whole front-end, back-end, and even some design stuff.
-                  I&apos;m hooked on making things dope and actually work for
+                  I build web apps from front to back, turning ideas into fast,
+                  functional, and well-designed products. I love crafting
+                  interfaces that look sharp and actually make life easier for
                   people.
                 </p>
               </div>
