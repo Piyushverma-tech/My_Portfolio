@@ -17,7 +17,7 @@ export const MatrixRain = ({ opacity }) => {
     window.addEventListener('resize', resizeCanvas);
 
     const characters =
-      'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      '01010101010101010101010101010101010101010101010101010101010101010101010101010';
     const fontSize = 24;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = Array(columns).fill(0);
