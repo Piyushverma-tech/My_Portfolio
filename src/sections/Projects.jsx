@@ -86,7 +86,7 @@ const Projects = () => {
         image:
           'https://res.cloudinary.com/dsrmecb5y/image/upload/v1762870727/300e2d87-9edc-4e57-af94-e4a7c8bd15bb_putrzu.jpg',
         tags: ['Figma', 'UI/UX', 'Prototyping', 'User Research'],
-        slug: '/Drakon',
+        slug: '/drakon',
       },
       {
         id: 2,
