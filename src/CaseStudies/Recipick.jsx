@@ -1018,7 +1018,7 @@ const Recipick = () => {
             </p>
           </div>
         </div>
-        <NextStudyBtn title={'ServEase'} slug={'/servease'} />
+        <NextStudyBtn title={'DRAKON'} slug={'/drakon'} />
       </section>
     </div>
   );

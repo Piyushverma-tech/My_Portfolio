@@ -330,7 +330,7 @@ const ServEase = () => {
               <h3 className="text-xl text-cyan-400  md:text-2xl font-semibold mb-3 md:mb-6">
                 Competitor Gaps
               </h3>
-              <ul className="list-disc text-base md:text-lg pl-5 text-gray-200 space-y-4">
+              <ul className="list-disc text-sm md:text-lg pl-5 text-gray-200 space-y-4">
                 <li>
                   Cluttered flows with too many steps before booking or
                   accepting a job.
@@ -346,10 +346,10 @@ const ServEase = () => {
               <h3 className="text-xl text-cyan-400 md:text-2xl font-semibold mb-3 md:mb-6">
                 Key User Pain Points
               </h3>
-              <p className="text-gray-100 border-b border-gray-100 text-base md:text-xl font-medium mb-2">
+              <p className="text-gray-100 text-base md:text-xl font-medium mb-2">
                 Customer Users:
               </p>
-              <ul className="list-disc pl-5 text-base md:text-lg text-gray-200 space-y-4 mb-4">
+              <ul className="list-disc pl-5 text-sm md:text-lg text-gray-200 space-y-4 mb-4">
                 <li>
                   &quot;I just want to find someone nearby I can trust without
                   scrolling endlessly.&quot;
@@ -359,10 +359,10 @@ const ServEase = () => {
                   forms.&quot;
                 </li>
               </ul>
-              <p className="text-gray-50 border-b border-gray-100 text-base md:text-xl font-medium mb-2">
+              <p className="text-gray-50 text-base md:text-xl font-medium mb-2">
                 Service Providers:
               </p>
-              <ul className="list-disc pl-5 text-base md:text-lg text-gray-200 space-y-2">
+              <ul className="list-disc pl-5 text-sm md:text-lg text-gray-200 space-y-2">
                 <li>
                   &quot;It takes too long to get verified and start receiving
                   work.&quot;

@@ -7,6 +7,7 @@ import HomePage from './sections/Homepage';
 import Projects from './sections/Projects';
 import ServEase from './CaseStudies/ServEase';
 import Recipick from './CaseStudies/Recipick';
+import Drakon from './CaseStudies/Drakon';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/servease" element={<ServEase />} />
         <Route path="/recipick" element={<Recipick />} />
+        <Route path="/drakon" element={<Drakon />} />
       </Routes>
       <Footer />
     </>

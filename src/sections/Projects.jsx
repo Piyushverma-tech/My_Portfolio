@@ -80,13 +80,13 @@ const Projects = () => {
     design: [
       {
         id: 1,
-        title: 'Recipick - Personalized Recipe App',
+        title: 'DRAKON - satellite tracking and visualization',
         description:
-          'A UI/UX case study for a smart app that curates personalized recipes.',
+          'A design solution to monitor satellites, screen potential collisions, and plan maneuvers.',
         image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034358/Portfolio/ha0vcakprxxlw08x5c8o.png',
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1762870727/300e2d87-9edc-4e57-af94-e4a7c8bd15bb_putrzu.jpg',
         tags: ['Figma', 'UI/UX', 'Prototyping', 'User Research'],
-        slug: '/recipick',
+        slug: '/Drakon',
       },
       {
         id: 2,
@@ -97,6 +97,16 @@ const Projects = () => {
           'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034277/Portfolio/mwso8jbwpsnbhvdqvnyb.png',
         tags: ['Figma', 'UI/UX', 'Prototyping', 'User Research'],
         slug: '/Servease',
+      },
+      {
+        id: 3,
+        title: 'Recipick - Personalized Recipe App',
+        description:
+          'A UI/UX case study for a smart app that curates personalized recipes.',
+        image:
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034358/Portfolio/ha0vcakprxxlw08x5c8o.png',
+        tags: ['Figma', 'UI/UX', 'Prototyping', 'User Research'],
+        slug: '/recipick',
       },
     ],
 
@@ -617,10 +627,14 @@ const Projects = () => {
           animate="animate"
           exit="exit"
           key="design-section"
-          className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-8"
+          className="flex flex-wrap justify-center gap-16 mt-8"
         >
           {projectsData.design.map((project, index) => (
-            <Link to={project.slug} key={index}>
+            <Link
+              to={project.slug}
+              key={index}
+              className="w-full md:w-[calc(50%-2rem)]"
+            >
               <motion.div
                 key={project.id}
                 variants={item}
