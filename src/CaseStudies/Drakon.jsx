@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { FiFigma } from 'react-icons/fi';
 import { SiAdobeillustrator } from 'react-icons/si';
-import { Lightbulb, User } from 'lucide-react';
+import { ExternalLink, Lightbulb, User } from 'lucide-react';
 import {
   collision_screening,
   dashboard,
@@ -82,6 +82,23 @@ const Drakon = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
+              {/* In Development Badge */}
+              <motion.a
+                href="https://github.com/Piyushverma-tech/drakon"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-gradient-to-r from-cyan-500/20 to-green-500/20 border border-cyan-400/50 rounded-full text-cyan-300 text-sm font-medium hover:border-cyan-400 transition-all duration-300 cursor-pointer"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                </span>
+                In Development
+                <ExternalLink size={16} />
+              </motion.a>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-100 mb-6 tracking-wide">
                 <span className="text-cyan-400 font-medium">DRAKON</span> –
                 Satellite Tracking & Visualization Platform
