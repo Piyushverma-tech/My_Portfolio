@@ -84,7 +84,7 @@ const Projects = () => {
         description:
           'A design solution to monitor satellites, screen potential collisions, and plan maneuvers.',
         image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1762870727/300e2d87-9edc-4e57-af94-e4a7c8bd15bb_putrzu.jpg',
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1762938923/Desktop_-_1_e1v8nk.png',
         tags: ['Figma', 'UI/UX', 'Prototyping', 'User Research'],
         slug: '/drakon',
       },
@@ -188,13 +188,14 @@ const Projects = () => {
       },
       {
         id: 7,
-        title: 'Logo Design: Recipick',
-        description: 'Designed Logo and UI/UX for a smart recipe app.',
+        title: 'Art & Sketches',
+        description:
+          'Traditional pencil and ink sketches capturing emotions and everyday life.',
         image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1758378305/Untitled_design_13_rbvbhm.png',
-        tags: ['Logo Design', 'Brand Identity'],
+          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1762939437/Art4_o92l9g.jpg',
+        tags: ['Traditional Art', 'Sketching'],
         links: {
-          instagram: '',
+          instagram: 'https://www.instagram.com/piyushverma.art/',
         },
       },
       {

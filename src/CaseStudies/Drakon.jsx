@@ -16,7 +16,7 @@ import {
 } from './data';
 import NextStudyBtn from '../components/NextStudyBtn';
 
-const Recipick = () => {
+const Drakon = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -121,7 +121,6 @@ const Recipick = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-green-500 text-black font-bold rounded-lg px-8 py-3 shadow-lg hover:shadow-cyan-400/30 transition-all"
-                whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <svg
@@ -1047,4 +1046,4 @@ const Recipick = () => {
   );
 };
 
-export default Recipick;
+export default Drakon;
