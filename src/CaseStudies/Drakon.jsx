@@ -122,7 +122,7 @@ const Drakon = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <div className="flex items-center justify-center gap-4 bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm px-6 py-3 rounded-lg">
                 <div className="text-cyan-400">
@@ -155,13 +155,12 @@ const Drakon = () => {
           </div>
 
           {/* Carousel Slider */}
-          <div className="relative h-[500px] flex items-center justify-center overflow-hidden">
+          <div className="relative h-[250px] sm:h-[500px] flex items-center justify-center overflow-hidden">
             {images.map((img, index) => (
               <div
                 key={index}
-                className="absolute rounded-2xl overflow-hidden shadow-xl shadow-cyan-300/5"
+                className="absolute rounded-2xl sm:w-[900px] w-[400px] overflow-hidden shadow-xl shadow-cyan-300/5"
                 style={{
-                  width: '900px',
                   ...getImageStyle(index),
                 }}
                 onClick={() => setCurrentIndex(index)}
@@ -934,7 +933,7 @@ const Drakon = () => {
         <section className=" py-20 px-6">
           <div className="max-w-6xl mx-auto">
             {/* Outcome Section */}
-            <div className="mb-24">
+            <div className="mb-28">
               <motion.h2
                 initial="hidden"
                 whileInView="visible"
@@ -1049,7 +1048,7 @@ const Drakon = () => {
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400/20 to-green-400/20 border-2 border-cyan-400/50 flex items-center justify-center text-cyan-400">
                   <Lightbulb className="w-6 h-6" />
                 </div>
-                <p className="text-xl text-white leading-relaxed italic">
+                <p className="text-lg sm:text-xl text-white leading-relaxed italic">
                   &quot;Good UX is not about knowing the industry beforehand —
                   it&apos;s about research, empathy, and problem-solving.&quot;
                 </p>
