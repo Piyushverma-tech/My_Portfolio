@@ -21,9 +21,8 @@ const Projects = () => {
         title: 'Codebin - AI-Powered Code Management App',
         description:
           'A personal code library to save, generate, and manage code snippets efficiently.',
-        image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034309/Portfolio/jppxrchyxo3p8zgxmb4v.png',
-        tags: ['Next.js', ' Zustand', 'MongoDB', ' Tailwind CSS'],
+
+        tags: ['Next.js', ' TypeScript', ' Zustand', 'MongoDB', 'Ace Editor'],
         videoUrl:
           'https://res.cloudinary.com/dsrmecb5y/video/upload/v1749838244/Codebin_tngddk.mp4',
         links: {
@@ -36,9 +35,8 @@ const Projects = () => {
         title: 'iWitness - AI-Powered Crime Reporting App',
         description:
           'A platform for users to anonymously report incidents or crimes with evidence.',
-        image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1747671768/Mockup_Ribbon_2_1_cbbako.png',
-        tags: ['Next.js', 'Prisma', 'Tailwind CSS', 'BCrypt'],
+
+        tags: ['Next.js', 'TypeScript', 'Prisma', 'jwt', 'BCrypt'],
         videoUrl:
           'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747663953/nipfgf39zfrs2vez3uy5.mp4',
         links: {
@@ -51,9 +49,8 @@ const Projects = () => {
         title: 'Salex - Sales Management App (SaaS)',
         description:
           'A SaaS web app to manage sales data, sales insights, team and customer tracking.',
-        image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1747671757/Mockup_Ribbon_10_1_wfbbzy.png',
-        tags: ['Next.js', 'ShadCN UI', 'MongoDB', 'Razorpay'],
+
+        tags: ['Next.js', 'ShadCN UI', 'MongoDB', 'Razorpay', 'tanstack'],
         videoUrl:
           'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747581601/0518_1_jncepy.mp4',
         links: {
@@ -63,17 +60,16 @@ const Projects = () => {
       },
       {
         id: 4,
-        title: 'Taggle - Social Media App & Messenger',
+        title: 'DRAKON - Satellite Tracking & Visualization',
         description:
-          'A social platform to share posts, connect, and chat in real-time.',
-        image:
-          'https://res.cloudinary.com/dsrmecb5y/image/upload/v1746034253/Portfolio/pewq5cmcud6isui9gfr2.png',
-        tags: ['React', 'Node.js', 'MongoDB', 'Express'],
+          'A platform for real-time satellite monitoring, collision screening, and maneuver planning',
+
+        tags: ['Next.js ', 'deck.gl', 'Mapbox', 'satellite.js', 'PostgreSQL'],
         videoUrl:
-          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747730306/0518_xsussh.mp4',
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1763313231/DRAKON-11925_vlmfnc.mp4',
         links: {
-          live: 'https://taggle-social-media.onrender.com/',
-          github: 'https://github.com/Piyushverma-tech/Taggle---social-media',
+          live: 'https://drakon-01a.vercel.app/',
+          github: 'https://github.com/Piyushverma-tech/drakon',
         },
       },
     ],
@@ -535,7 +531,7 @@ const Projects = () => {
                     rotate: -5,
                     x: -2,
                     borderColor: '#22d3ee',
-                    boxShadow: '0 0 15px rgba(34,211,238,0.5)',
+
                     transition: { duration: 0.3 },
                   }}
                 ></motion.div>
@@ -551,7 +547,7 @@ const Projects = () => {
                     rotate: 5,
                     x: 2,
                     borderColor: '#22ff00',
-                    boxShadow: '0 0 15px rgba(34,255,0,0.5)',
+
                     transition: { duration: 0.3 },
                   }}
                 ></motion.div>
