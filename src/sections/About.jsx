@@ -311,6 +311,9 @@ const About = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-16 md:py-24 relative overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.04)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      </div>
       {/* Cyberpunk Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div

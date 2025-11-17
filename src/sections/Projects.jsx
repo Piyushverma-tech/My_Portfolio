@@ -929,7 +929,7 @@ const Projects = () => {
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
         {/* Animated Background Grid */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.04)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </div>
         {/* Cyberpunk Background Effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

@@ -69,7 +69,7 @@ const Drakon = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-black  min-h-screen">
+    <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-black min-h-screen">
       <div className="pb-8 pt-28 px-6 relative overflow-hidden">
         {/* Radial gradient background */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] bg-gradient-radial from-blue-500/20 via-transparent to-transparent rounded-full blur-3xl" />
