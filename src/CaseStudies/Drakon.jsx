@@ -84,7 +84,7 @@ const Drakon = () => {
             >
               {/* In Development Badge */}
               <motion.a
-                href="https://github.com/Piyushverma-tech/drakon"
+                href="https://github.com/Piyushverma-tech/drakon-ssa"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.8 }}

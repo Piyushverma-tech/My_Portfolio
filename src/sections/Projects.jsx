@@ -62,14 +62,14 @@ const Projects = () => {
         id: 4,
         title: 'DRAKON - Satellite Tracking & Visualization',
         description:
-          'A platform for real-time satellite monitoring, collision screening, and maneuver planning',
+          'Real-time satellite monitoring, collision screening, and maneuver planning platform.',
 
-        tags: ['Next.js ', 'deck.gl', 'Mapbox', 'satellite.js', 'PostgreSQL'],
+        tags: ['Next.js ', 'deck.gl', 'Mapbox', 'satellite.js', 'SGP4'],
         videoUrl:
           'https://res.cloudinary.com/dsrmecb5y/video/upload/v1763313231/DRAKON-11925_vlmfnc.mp4',
         links: {
           live: 'https://drakon-01a.vercel.app/',
-          github: 'https://github.com/Piyushverma-tech/drakon',
+          github: 'https://github.com/Piyushverma-tech/drakon-ssa',
         },
       },
     ],
