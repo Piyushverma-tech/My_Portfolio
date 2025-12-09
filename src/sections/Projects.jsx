@@ -18,6 +18,20 @@ const Projects = () => {
     development: [
       {
         id: 1,
+        title: 'DRAKON - Satellite Tracking & Visualization',
+        description:
+          'Visualizes live orbital objects (15k+ satellites & debris), detects high-risk conjunctions.',
+
+        tags: ['Next.js ', 'deck.gl', 'Mapbox', 'satellite.js', 'SGP4'],
+        videoUrl:
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1765298287/1202_1_std2jr.mp4',
+        links: {
+          live: 'https://drakon-01a.vercel.app/',
+          github: 'https://github.com/Piyushverma-tech/drakon-ssa',
+        },
+      },
+      {
+        id: 2,
         title: 'Codebin - AI-Powered Code Management App',
         description:
           'A personal code library to save, generate, and manage code snippets efficiently.',
@@ -30,20 +44,7 @@ const Projects = () => {
           github: 'https://github.com/Piyushverma-tech/codebin',
         },
       },
-      {
-        id: 2,
-        title: 'iWitness - AI-Powered Crime Reporting App',
-        description:
-          'A platform for users to anonymously report incidents or crimes with evidence.',
 
-        tags: ['Next.js', 'TypeScript', 'Prisma', 'jwt', 'BCrypt'],
-        videoUrl:
-          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747663953/nipfgf39zfrs2vez3uy5.mp4',
-        links: {
-          live: 'https://iwitness-report.vercel.app/',
-          github: 'https://github.com/Piyushverma-tech/iwitness',
-        },
-      },
       {
         id: 3,
         title: 'Salex - Sales Management App (SaaS)',
@@ -60,16 +61,16 @@ const Projects = () => {
       },
       {
         id: 4,
-        title: 'DRAKON - Satellite Tracking & Visualization',
+        title: 'iWitness - AI-Powered Crime Reporting App',
         description:
-          'Real-time satellite monitoring, collision screening, and maneuver planning platform.',
+          'A platform for users to anonymously report incidents or crimes with evidence.',
 
-        tags: ['Next.js ', 'deck.gl', 'Mapbox', 'satellite.js', 'SGP4'],
+        tags: ['Next.js', 'TypeScript', 'Prisma', 'jwt', 'BCrypt'],
         videoUrl:
-          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1763313231/DRAKON-11925_vlmfnc.mp4',
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747663953/nipfgf39zfrs2vez3uy5.mp4',
         links: {
-          live: 'https://drakon-01a.vercel.app/',
-          github: 'https://github.com/Piyushverma-tech/drakon-ssa',
+          live: 'https://iwitness-report.vercel.app/',
+          github: 'https://github.com/Piyushverma-tech/iwitness',
         },
       },
     ],
