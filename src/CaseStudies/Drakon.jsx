@@ -101,7 +101,7 @@ const Drakon = () => {
               </motion.a>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-100 mb-6 tracking-wide">
                 <span className="text-cyan-400 font-medium">DRAKON</span> –
-                Satellite Tracking & Visualization Platform
+                Space Situational Awareness & Collision Avoidance Platform
               </h1>
             </motion.div>
 
