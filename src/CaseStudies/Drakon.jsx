@@ -474,7 +474,7 @@ const Drakon = () => {
               variants={fadeInUp}
               className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed"
             >
-              To achieve this, we structured the platform with:
+              To achieve this, i structured the platform with:
             </motion.p>
 
             {/* Platform Structure Grid */}
