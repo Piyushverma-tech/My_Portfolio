@@ -626,16 +626,16 @@ const ContactForm = () => {
                           line.startsWith('ERROR:')
                             ? 'text-red-400'
                             : line.startsWith('✓')
-                            ? 'text-green-400'
-                            : line.startsWith('✗')
-                            ? 'text-red-400'
-                            : line.startsWith('===')
-                            ? 'text-cyan-400'
-                            : line.startsWith('STATUS:')
-                            ? 'text-yellow-400'
-                            : line.startsWith('VALIDATION:')
-                            ? 'text-cyan-400'
-                            : 'text-green-400'
+                              ? 'text-green-400'
+                              : line.startsWith('✗')
+                                ? 'text-red-400'
+                                : line.startsWith('===')
+                                  ? 'text-cyan-400'
+                                  : line.startsWith('STATUS:')
+                                    ? 'text-yellow-400'
+                                    : line.startsWith('VALIDATION:')
+                                      ? 'text-cyan-400'
+                                      : 'text-green-400'
                         }`}
                       >
                         {line}
@@ -649,13 +649,13 @@ const ContactForm = () => {
                       value={terminalInput}
                       onChange={(e) => setTerminalInput(e.target.value)}
                       onKeyPress={handleTerminalCommand}
-                      className="flex-1 bg-transparent text-green-400 outline-none font-mono"
+                      className="flex-1 bg-transparent text-cyan-400 outline-none font-mono"
                       placeholder={
                         terminalMode === 'edit'
                           ? 'Enter new value...'
                           : terminalMode === 'multiline'
-                          ? 'Enter content (use .end to save)...'
-                          : 'Enter command...'
+                            ? 'Enter content (use .end to save)...'
+                            : 'Enter command...'
                       }
                       autoFocus
                     />
@@ -677,7 +677,7 @@ const ContactForm = () => {
                 className="p-6"
               >
                 {/* Compact Form Grid */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="grid sm:grid-cols-2 grid-cols-1 gap-3 mb-6">
                   {fields.map((field, index) => {
                     const Icon = field.icon;
                     const isActive = currentField === field.key;
@@ -690,8 +690,8 @@ const ContactForm = () => {
                           isActive
                             ? 'border-cyan-400 bg-cyan-400/5'
                             : isFilled
-                            ? 'border-green-400/50 bg-green-400/5'
-                            : 'border-green-400/20 hover:border-green-400/40'
+                              ? 'border-green-400/50 bg-green-400/5'
+                              : 'border-green-400/20 hover:border-green-400/40'
                         }`}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -704,8 +704,8 @@ const ContactForm = () => {
                                 isActive
                                   ? 'text-cyan-400'
                                   : isFilled
-                                  ? 'text-green-400'
-                                  : 'text-gray-400'
+                                    ? 'text-green-400'
+                                    : 'text-gray-400'
                               }`}
                             />
                             <span
@@ -713,8 +713,8 @@ const ContactForm = () => {
                                 isActive
                                   ? 'text-cyan-400'
                                   : isFilled
-                                  ? 'text-green-400'
-                                  : 'text-gray-400'
+                                    ? 'text-green-400'
+                                    : 'text-gray-400'
                               }`}
                             >
                               {field.label}
@@ -779,8 +779,8 @@ const ContactForm = () => {
                     isSubmitted
                       ? 'bg-green-400/20 border-green-400 text-green-400'
                       : Object.values(formData).every((v) => v.trim())
-                      ? 'bg-gradient-to-r from-green-400/10 to-cyan-400/10 border-gradient-to-r border-cyan-400 text-cyan-400 hover:from-green-400/20 hover:to-cyan-400/20'
-                      : 'bg-gray-800/50 border-gray-600 text-gray-500 cursor-not-allowed'
+                        ? 'bg-gradient-to-r from-green-400/10 to-cyan-400/10 border-gradient-to-r border-cyan-400 text-cyan-400 hover:from-green-400/20 hover:to-cyan-400/20'
+                        : 'bg-gray-800/50 border-gray-600 text-gray-500 cursor-not-allowed'
                   } border`}
                   whileHover={
                     Object.values(formData).every((v) => v.trim()) &&

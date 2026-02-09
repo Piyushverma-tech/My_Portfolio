@@ -392,7 +392,7 @@ const HomePage = () => {
                   {/* Profile container */}
                   <motion.div
                     className="relative w-52 h-52 sm:w-80 sm:h-80 md:w-96 md:h-96"
-                    whileHover={{ scale: 1.02 }}
+                    // whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
                     {/* Profile frame */}
