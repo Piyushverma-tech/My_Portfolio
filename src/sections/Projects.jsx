@@ -18,7 +18,21 @@ const Projects = () => {
     development: [
       {
         id: 1,
-        title: 'DRAKON - Satellite Tracking & Visualization',
+        title: 'SaleX (SaaS) - Track Sales, Teams & Customers',
+        description:
+          'A SaaS web app to manage sales data, sales insights, team and customer tracking.',
+
+        tags: ['Next.js', 'ShadCN UI', 'MongoDB', 'Razorpay', 'tanstack'],
+        videoUrl:
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747581601/0518_1_jncepy.mp4',
+        links: {
+          live: 'https://salex-deals.vercel.app/',
+          github: 'https://github.com/Piyushverma-tech/sales-management-app',
+        },
+      },
+      {
+        id: 2,
+        title: 'DRAKON - Orbital Intelligence Platform',
         description:
           'Visualizes live orbital objects (15k+ satellites & debris), detects high-risk conjunctions.',
 
@@ -31,8 +45,8 @@ const Projects = () => {
         },
       },
       {
-        id: 2,
-        title: 'Codebin - AI-Powered Code Management App',
+        id: 3,
+        title: 'Codebin - AI-Powered Code Manager',
         description:
           'A personal code library to save, generate, and manage code snippets efficiently.',
 
@@ -46,22 +60,8 @@ const Projects = () => {
       },
 
       {
-        id: 3,
-        title: 'Salex - Sales Management App (SaaS)',
-        description:
-          'A SaaS web app to manage sales data, sales insights, team and customer tracking.',
-
-        tags: ['Next.js', 'ShadCN UI', 'MongoDB', 'Razorpay', 'tanstack'],
-        videoUrl:
-          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1747581601/0518_1_jncepy.mp4',
-        links: {
-          live: 'https://salex-deals.vercel.app/',
-          github: 'https://github.com/Piyushverma-tech/sales-management-app',
-        },
-      },
-      {
         id: 4,
-        title: 'iWitness - AI-Powered Crime Reporting App',
+        title: 'iWitness - Anonymous Reporting Platform',
         description:
           'A platform for users to anonymously report incidents or crimes with evidence.',
 
