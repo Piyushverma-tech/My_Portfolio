@@ -151,7 +151,7 @@ const HomePage = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
-                  className="hidden sm:flex items-center space-x-2 sm:space-x-3 font-mono text-xs sm:text-sm mb-4 bg-black/50 px-3 py-1 border-l-2 border-green-400 backdrop-blur-sm w-fit"
+                  className="flex items-center space-x-2 sm:space-x-3 font-mono text-xs sm:text-sm mb-4 bg-black/50 px-3 py-1 border-l-2 border-green-400 backdrop-blur-sm w-fit"
                 >
                   <div className="w-2 h-2  bg-green-400 rounded-full animate-pulse" />
                   <span className="text-green-400 tracking-wider sm:tracking-widest text-xs sm:text-sm">
@@ -640,7 +640,7 @@ const HomePage = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="w-full overflow-hidden bg-gradient-to-r from-black via-gray-900 to-black -rotate-3 text-green-400 py-2 sm:py-3 md:py-5 absolute bottom-0 border-t border-green-400/30"
+        className="hidden sm:flex w-full overflow-hidden bg-gradient-to-r from-black via-gray-900 to-black -rotate-3 text-green-400 py-2 sm:py-3 md:py-5 absolute bottom-0 border-t border-green-400/30"
       >
         <motion.div
           animate={{ x: ['0%', '-50%'] }}
