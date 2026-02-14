@@ -556,7 +556,7 @@ const Projects = () => {
 
               {/* Project Details with cyberpunk styling */}
               <motion.h3
-                className="sm:text-xl text-lg font-bold text-green-400 mb-2 font-mono tracking-wider"
+                className="sm:text-xl text-base font-bold text-green-400 mb-2 font-mono tracking-wider"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -1024,7 +1024,7 @@ const Projects = () => {
                   )}
                   <motion.button
                     onClick={() => setActiveCategory(category.id)}
-                    className={`relative z-10 px-2 md:px-8 py-3 w-full text-center text-sm md:text-base font-medium font-mono tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 ${
+                    className={`relative z-10 px-2 md:px-8 py-3 w-full text-center text-xs md:text-base font-medium font-mono tracking-wider transition-colors duration-300 flex items-center justify-center gap-2 ${
                       activeCategory === category.id
                         ? 'text-green-400'
                         : 'text-gray-400 hover:text-cyan-400'

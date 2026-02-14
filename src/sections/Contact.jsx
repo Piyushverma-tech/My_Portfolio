@@ -502,7 +502,7 @@ const ContactForm = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="mb-16 text-center relative"
+            className="mb-10 sm:mb-16 text-center relative"
           >
             {/*  header container */}
             <motion.div
@@ -527,7 +527,7 @@ const ContactForm = () => {
                 </motion.span>
               </motion.h2>
               <motion.h2
-                className="text-2xl Section-Heading md:text-4xl px-8 py-4 tracking-widest uppercase text-green-400 font-mono hidden max-sm:block"
+                className="text-2xl Section-Heading md:text-4xl px-4 py-4 tracking-widest uppercase text-green-400 font-mono hidden max-sm:block"
                 variants={textVariants}
               >
                 &gt; Contact
@@ -559,8 +559,8 @@ const ContactForm = () => {
               />
             </motion.div>
           </motion.div>
-          <div className="inline-flex items-center gap-3 bg-black/50 border border-green-400/30 px-6 py-3 backdrop-blur-sm">
-            <span className="text-green-400 Sub-text  text-sm">
+          <div className="inline-flex items-center gap-3 bg-black/50 border border-green-400/30 px-4 py-2 sm:px-6 sm:py-3 backdrop-blur-sm">
+            <span className="text-green-400 Sub-text text-xs sm:text-sm">
               CONTACT_PROTOCOL_ACTIVE
             </span>
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
