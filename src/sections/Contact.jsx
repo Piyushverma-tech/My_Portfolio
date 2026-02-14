@@ -487,7 +487,7 @@ const ContactForm = () => {
     >
       {/* Animated Background Grid */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.04)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       </div>
 
       <div className="container mx-auto px-4 max-w-2xl  relative z-10">
@@ -514,7 +514,7 @@ const ContactForm = () => {
             >
               {/* Main heading*/}
               <motion.h2
-                className="text-3xl md:text-[26px] Section-Heading px-8 py-4 tracking-widest uppercase text-green-400 font-mono max-sm:hidden"
+                className="text-3xl md:text-[28px] Section-Heading px-8 py-4 tracking-widest uppercase text-green-400 font-mono max-sm:hidden"
                 variants={textVariants}
               >
                 &gt; establish_connection
@@ -584,17 +584,12 @@ const ContactForm = () => {
           </div>
 
           {/* Mode Toggle */}
-          <div className="p-4 border-b border-green-400/20 flex justify-between items-center">
+          <div className="p-2 max-sm:py-3 sm:p-4 border-b border-green-400/20 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <Database className="w-4 h-4 text-green-400" />
-              <span className="text-green-400 font-mono text-xs sm:text-sm">
+              <span className="hidden sm:inline-block text-green-400 font-mono text-xs sm:text-sm">
                 NEURAL_INTERFACE_v2.1
               </span>
-              {terminalMode !== 'normal' && (
-                <span className="text-cyan-400 font-mono text-sm ml-2">
-                  [{terminalMode.toUpperCase()}_MODE]
-                </span>
-              )}
             </div>
             <button
               onClick={() => setIsTerminalMode(!isTerminalMode)}
@@ -674,7 +669,7 @@ const ContactForm = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="p-6"
+                className="p-4 sm:p-6"
               >
                 {/* Compact Form Grid */}
                 <div className="grid sm:grid-cols-2 grid-cols-1 gap-3 mb-6">
@@ -775,7 +770,7 @@ const ContactForm = () => {
                     isSubmitted ||
                     !Object.values(formData).every((v) => v.trim())
                   }
-                  className={`w-full px-4 py-2 Hero-text-sub text-lg tracking-widest flex items-center justify-center gap-3 transition-all duration-300 ${
+                  className={`w-full px-2 sm:px-4 py-2 font-bold text-sm sm:text-lg tracking-widest flex items-center justify-center gap-3 transition-all duration-300 ${
                     isSubmitted
                       ? 'bg-green-400/20 border-green-400 text-green-400'
                       : Object.values(formData).every((v) => v.trim())
@@ -813,7 +808,7 @@ const ContactForm = () => {
                   ) : (
                     <>
                       INITIATE TRANSMISSION
-                      <Send className="w-4 h-4" />
+                      <Send className="w-3 sm:w-5 h-3 sm:h-5" />
                     </>
                   )}
                 </motion.button>

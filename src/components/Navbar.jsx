@@ -142,8 +142,8 @@ const Navbar = () => {
                   !item.isRoute
                     ? 'text-green-500'
                     : location.pathname === item.href && item.isRoute
-                    ? 'text-green-500'
-                    : 'text-gray-200 hover:text-gray-100'
+                      ? 'text-green-500'
+                      : 'text-gray-200 hover:text-gray-100'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -200,7 +200,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
         <motion.div
-          className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-400 to-transparent"
+          className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-400/70 to-transparent"
           animate={{ x: ['-100%', '100%'] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
         />

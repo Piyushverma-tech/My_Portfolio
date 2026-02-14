@@ -87,7 +87,7 @@ const HomePage = () => {
     <>
       <div
         ref={containerRef}
-        className="bg-gradient-to-br from-gray-900 via-black to-gray-800 w-full min-h-screen relative overflow-hidden"
+        className="bg-gradient-to-br from-gray-900 via-black to-gray-800 w-full min-h-screen max-sm:pt-6 relative overflow-hidden"
       >
         {/* Animated Background Grid */}
         <div className="absolute inset-0">
@@ -151,7 +151,7 @@ const HomePage = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
-                  className="flex items-center space-x-2 sm:space-x-3 font-mono text-xs sm:text-sm mb-4 bg-black/50 px-3 py-1 border-l-2 border-green-400 backdrop-blur-sm w-fit"
+                  className="hidden sm:flex items-center space-x-2 sm:space-x-3 font-mono text-xs sm:text-sm mb-4 bg-black/50 px-3 py-1 border-l-2 border-green-400 backdrop-blur-sm w-fit"
                 >
                   <div className="w-2 h-2  bg-green-400 rounded-full animate-pulse" />
                   <span className="text-green-400 tracking-wider sm:tracking-widest text-xs sm:text-sm">
@@ -167,7 +167,7 @@ const HomePage = () => {
                     transition={{ duration: 0.6, delay: 0.8 }}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-[65px] leading-tight"
                   >
-                    <div className="overflow-hidden text-sm sm:text-xl">
+                    <div className="overflow-hidden text-xs sm:text-xl">
                       <motion.div
                         initial={{ y: 100 }}
                         animate={{ y: 0 }}
@@ -186,7 +186,7 @@ const HomePage = () => {
                           clipPath:
                             'polygon(0px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%)',
                         }}
-                        className="bg-gradient-to-r from-green-400 via-cyan-400 to-green-400 bg-clip-text text-transparent Hero-text-Heading pt-2 sm:pt-4 relative drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]"
+                        className="max-sm:text-2xl bg-gradient-to-r from-green-400 via-cyan-400 to-green-400 bg-clip-text text-transparent Hero-text-Heading pt-2 sm:pt-4 relative drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]"
                       >
                         PIYUSH
                         <motion.div
@@ -206,7 +206,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
-                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light Hero-text-sub text-gray-300 flex items-center justify-start space-x-2 sm:space-x-4 font-mono"
+                    className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light Hero-text-sub text-gray-300 flex items-center justify-start space-x-2 sm:space-x-4 font-mono"
                   >
                     <span className="text-green-400">DESIGNER</span>
                     <motion.span
@@ -240,7 +240,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2 }}
-                  className="text-sm sm:text-lg italic Sub-text text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-2 py-1 sm:px-4 sm:py-2 border-l-2 border-green-400/50 backdrop-blur-sm"
+                  className="text-xs sm:text-lg italic Sub-text text-gray-300 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-2 py-1 sm:px-4 sm:py-2 border-l-2 border-green-400/50 backdrop-blur-sm"
                 >
                   Blending design, code, and creativity
                 </motion.p>
@@ -263,7 +263,7 @@ const HomePage = () => {
                     onClick={() => handleScrollTo('projects')}
                   >
                     {/* Minimal wireframe design */}
-                    <div className="relative  py-2 sm:px-10 sm:py-4 border border-cyan-400/20 group-hover:border-cyan-400/50 transition-all duration-500 bg-cyan-400/5 group-hover:bg-cyan-400/10">
+                    <div className="relative  py-[6px] sm:px-10 sm:py-4 border border-cyan-400/20 group-hover:border-cyan-400/50 transition-all duration-500 bg-cyan-400/5 group-hover:bg-cyan-400/10">
                       {/* Corner brackets - matching your UI style */}
                       <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -284,8 +284,11 @@ const HomePage = () => {
                       />
 
                       {/* Content */}
-                      <motion.span className="relative z-10 text-cyan-400/80 font-mono text-sm tracking-[0.2em] font-medium group-hover:text-cyan-400 transition-colors duration-300">
+                      <motion.span className="hidden sm:inline-block relative z-10 text-cyan-400/80 font-mono text-sm tracking-[0.2em] font-medium group-hover:text-cyan-400 transition-colors duration-300">
                         VIEW_PROJECTS
+                      </motion.span>
+                      <motion.span className="hidden max-sm:inline-block relative z-10 text-cyan-400/80 font-mono text-sm tracking-[0.2em] font-medium group-hover:text-cyan-400 transition-colors duration-300">
+                        PROJECTS
                       </motion.span>
                     </div>
                   </motion.button>
@@ -301,7 +304,7 @@ const HomePage = () => {
                       className="group relative w-full sm:w-auto overflow-hidden"
                     >
                       {/* Minimal wireframe design */}
-                      <div className="relative px-10 py-2 sm:px-10 sm:py-4 border border-green-400/20 group-hover:border-green-400/50 transition-all duration-500 bg-green-400/5 group-hover:bg-green-400/10">
+                      <div className="relative px-24 py-[6px] sm:px-10 sm:py-4 border border-green-400/20 group-hover:border-green-400/50 transition-all duration-500 bg-green-400/5 group-hover:bg-green-400/10">
                         {/* Corner brackets - matching your UI style */}
                         <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-green-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-green-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -391,14 +394,14 @@ const HomePage = () => {
 
                   {/* Profile container */}
                   <motion.div
-                    className="relative w-52 h-52 sm:w-80 sm:h-80 md:w-96 md:h-96"
+                    className="relative w-48 h-48 sm:w-80 sm:h-80 md:w-96 md:h-96"
                     // whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
                     {/* Profile frame */}
                     <div className="absolute inset-3 sm:inset-4 bg-gradient-to-br from-black to-gray-900 rounded-full overflow-hidden border-4 border-cyan-400/50 shadow-2xl backdrop-blur-sm">
                       <motion.img
-                        src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1755376102/avatar_syrwoj.jpg"
+                        src="https://res.cloudinary.com/dsrmecb5y/image/upload/v1771090091/Portfolio_pic_qkuzgk.jpg"
                         alt="Piyush - Creative Developer"
                         className="w-full h-full object-cover opacity-80"
                         animate={{
@@ -637,7 +640,7 @@ const HomePage = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="w-full overflow-hidden bg-gradient-to-r from-black via-gray-900 to-black -rotate-1 sm:-rotate-3 text-green-400 py-2 sm:py-3 md:py-5 absolute bottom-0 border-t border-green-400/30"
+        className="w-full overflow-hidden bg-gradient-to-r from-black via-gray-900 to-black -rotate-3 text-green-400 py-2 sm:py-3 md:py-5 absolute bottom-0 border-t border-green-400/30"
       >
         <motion.div
           animate={{ x: ['0%', '-50%'] }}
