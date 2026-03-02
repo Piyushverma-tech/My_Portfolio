@@ -77,7 +77,7 @@ const Projects = () => {
     design: [
       {
         id: 1,
-        title: 'DRAKON - satellite tracking and visualization',
+        title: 'DRAKON - Space Situational Awareness',
         description:
           'A design solution to monitor satellites, screen potential collisions, and plan maneuvers.',
         image:
@@ -441,7 +441,7 @@ const Projects = () => {
                       }}
                     /> */}
 
-                    <MatrixRain opacity={0.5} />
+                    <MatrixRain opacity={0.4} />
 
                     {/* Cyberpunk Scanning Effect */}
                     {/* <motion.div
@@ -648,7 +648,7 @@ const Projects = () => {
 
                   {/*Scanning Effect */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent w-8"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/15 to-transparent w-8"
                     animate={{ x: ['0%', '2000%'] }}
                     transition={{
                       duration: 2,

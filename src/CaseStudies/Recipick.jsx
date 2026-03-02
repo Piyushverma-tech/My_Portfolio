@@ -103,7 +103,6 @@ const Recipick = () => {
                 <motion.div
                   className="flex items-center justify-center gap-4 bg-black/50 border border-cyan-400/30 backdrop-blur-sm px-6 py-3 rounded-lg shadow-lg shadow-cyan-400/10"
                   whileHover={{
-                    scale: 1.05,
                     boxShadow: '0 0 20px rgba(0, 255, 157, 0.3)',
                     borderColor: 'rgba(0, 255, 157, 0.6)',
                   }}
@@ -123,9 +122,8 @@ const Recipick = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-green-500 text-black font-bold rounded-lg px-8 py-3 shadow-lg shadow-cyan-400/25 group relative overflow-hidden"
                   whileHover={{
-                    y: -3,
                     boxShadow:
-                      '0 0 30px rgba(0, 255, 157, 0.4), 0 0 60px rgba(0, 255, 255, 0.2)',
+                      '0 0 30px rgba(0, 255, 157, 0.2), 0 0 60px rgba(0, 255, 255, 0.2)',
                     scale: 1,
                   }}
                   whileTap={{ scale: 0.98 }}
