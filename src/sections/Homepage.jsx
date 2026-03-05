@@ -394,7 +394,7 @@ const HomePage = () => {
 
                   {/* Profile container */}
                   <motion.div
-                    className="relative w-48 h-48 sm:w-80 sm:h-80 md:w-96 md:h-96"
+                    className="relative w-48 h-48 sm:w-80 sm:h-80 md:w-96 md:h-96 group"
                     // whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -509,48 +509,34 @@ const HomePage = () => {
                           ease: 'linear',
                         }}
                       />
-
-                      {/* Static interference */}
-                      <motion.div
-                        className="absolute inset-0"
-                        animate={{
-                          backgroundColor: [
-                            'transparent',
-                            'rgba(34,255,0,0.05)',
-                            'rgba(255,0,100,0.03)',
-                            'transparent',
-                          ],
-                        }}
-                        transition={{
-                          duration: 0.05,
-                          repeat: Infinity,
-                          repeatDelay: 2.5,
-                        }}
-                      />
                     </div>
 
                     {/* Tech corner accents */}
                     {[
                       {
-                        borders: 'border-l-4 border-t-4 border-green-400',
+                        borders:
+                          'border-l-4 border-t-4 border-green-400 group-hover:border-l-[6px] group-hover:border-t-[6px]',
                         position: { top: '0', left: '0' },
                       },
                       {
-                        borders: 'border-r-4 border-t-4 border-cyan-400',
+                        borders:
+                          'border-r-4 border-t-4 border-cyan-400 group-hover:border-r-[5px] group-hover:border-t-[5px]',
                         position: { top: '0', right: '0' },
                       },
                       {
-                        borders: 'border-r-4 border-b-4 border-green-400',
+                        borders:
+                          'border-r-4 border-b-4 border-green-400 group-hover:border-r-[5px] group-hover:border-b-[5px]',
                         position: { bottom: '0', right: '0' },
                       },
                       {
-                        borders: 'border-l-4 border-b-4 border-cyan-400',
+                        borders:
+                          'border-l-4 border-b-4 border-cyan-400 group-hover:border-l-[5px] group-hover:border-b-[5px]',
                         position: { bottom: '0', left: '0' },
                       },
                     ].map((corner, i) => (
                       <motion.div
                         key={i}
-                        className={`absolute w-6 h-6 sm:w-10 sm:h-10 ${corner.borders}`}
+                        className={`absolute w-6 h-6 sm:w-10 sm:h-10`}
                         style={{
                           ...corner.position,
                         }}
@@ -562,7 +548,7 @@ const HomePage = () => {
                             i % 2 === 0
                               ? '0 0 10px rgba(34,255,0,0.5)'
                               : '0 0 10px rgba(34,211,238,0.5)',
-                          // Glitch the corner accents too
+                          // Glitch the corner accents too (x movement)
                           x: [0, 1, -1, 0],
                         }}
                         transition={{
@@ -574,7 +560,11 @@ const HomePage = () => {
                             repeatDelay: 3 + i * 0.5,
                           },
                         }}
-                      />
+                      >
+                        <div
+                          className={`${corner.borders} w-full h-full transform transition-transform duration-300 ease-out origin-center group-hover:scale-110`}
+                        />
+                      </motion.div>
                     ))}
                   </motion.div>
 
