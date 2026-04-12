@@ -834,7 +834,7 @@ const ContactForm = () => {
                 href="mailto:Piyush626480@gmail.com"
                 className="text-cyan-400 hover:underline"
               >
-                Piyush626480@gmail.com
+                contact@piyushverma.dev
               </a>
             </div>
           </div>

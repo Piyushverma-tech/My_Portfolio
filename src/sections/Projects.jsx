@@ -36,12 +36,12 @@ const Projects = () => {
         description:
           'Visualizes live orbital objects (15k+ satellites & debris), detects high-risk conjunctions.',
 
-        tags: ['Next.js ', 'deck.gl', 'Mapbox', 'satellite.js', 'SGP4'],
+        tags: ['Next.js ', ' TypeScript', 'deck.gl', 'Redux', 'Comlink'],
         videoUrl:
           'https://res.cloudinary.com/dsrmecb5y/video/upload/v1765298287/1202_1_std2jr.mp4',
         links: {
           live: 'https://drakon-01a.vercel.app/',
-          github: 'https://github.com/Piyushverma-tech/drakon-ssa',
+          github: 'https://github.com/Piyushverma-tech/drakon',
         },
       },
       {
