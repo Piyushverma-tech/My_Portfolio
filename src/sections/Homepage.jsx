@@ -208,7 +208,7 @@ const HomePage = () => {
                     transition={{ duration: 0.8, delay: 1.2 }}
                     className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light Hero-text-sub text-gray-300 flex items-center justify-start space-x-2 sm:space-x-4 font-mono"
                   >
-                    <span className="text-green-400">DESIGNER</span>
+                    <span className="text-green-400">FRONTEND</span>
                     <motion.span
                       ref={titleStarRef}
                       animate={{ rotate: 360 }}
