@@ -18,6 +18,27 @@ const Projects = () => {
     development: [
       {
         id: 1,
+        title: 'DRAKON - Orbital Intelligence Platform',
+        description:
+          'Visualizes live orbital objects (15k+ satellites & debris), analyzes conjunctions and high-risk events.',
+
+        tags: [
+          'Next.js ',
+          ' TypeScript',
+          'deck.gl',
+          'Redux',
+          'Comlink',
+          'Redis',
+        ],
+        videoUrl:
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1765298287/1202_1_std2jr.mp4',
+        links: {
+          live: 'https://drakon-01a.vercel.app/',
+          github: 'https://github.com/Piyushverma-tech/drakon',
+        },
+      },
+      {
+        id: 2,
         title: 'SaleX (SaaS) - Track Sales, Teams & Customers',
         description:
           'A SaaS web app to manage sales data, sales insights, team and customer tracking.',
@@ -30,20 +51,7 @@ const Projects = () => {
           github: 'https://github.com/Piyushverma-tech/sales-management-app',
         },
       },
-      {
-        id: 2,
-        title: 'DRAKON - Orbital Intelligence Platform',
-        description:
-          'Visualizes live orbital objects (15k+ satellites & debris), detects high-risk conjunctions.',
 
-        tags: ['Next.js ', ' TypeScript', 'deck.gl', 'Redux', 'Comlink'],
-        videoUrl:
-          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1765298287/1202_1_std2jr.mp4',
-        links: {
-          live: 'https://drakon-01a.vercel.app/',
-          github: 'https://github.com/Piyushverma-tech/drakon',
-        },
-      },
       {
         id: 3,
         title: 'Codebin - AI-Powered Code Manager',
