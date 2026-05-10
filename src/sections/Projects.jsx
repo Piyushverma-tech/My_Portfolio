@@ -20,18 +20,11 @@ const Projects = () => {
         id: 1,
         title: 'DRAKON - Orbital Intelligence Platform',
         description:
-          'Visualizes live orbital objects (15k+ satellites & debris), analyzes conjunctions and high-risk events.',
+          'Visualizes live orbital objects (~20k satellites + debris), analyzes conjunctions and high-risk events.',
 
-        tags: [
-          'Next.js ',
-          ' TypeScript',
-          'deck.gl',
-          'Redux',
-          'Comlink',
-          'Redis',
-        ],
+        tags: ['Next.js', 'TypeScript', 'deck.gl', 'Redux', 'Comlink', 'Redis'],
         videoUrl:
-          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1765298287/1202_1_std2jr.mp4',
+          'https://res.cloudinary.com/dsrmecb5y/video/upload/v1778443936/0510_gkndg9.mp4',
         links: {
           live: 'https://drakon-01a.vercel.app/',
           github: 'https://github.com/Piyushverma-tech/drakon',
@@ -71,7 +64,7 @@ const Projects = () => {
         id: 4,
         title: 'iWitness - Anonymous Reporting Platform',
         description:
-          'A platform for users to anonymously report incidents or crimes with evidence.',
+          'A platform for users to anonymously report incidents or crimes with evidence, and get real-time updates.',
 
         tags: ['Next.js', 'TypeScript', 'Prisma', 'jwt', 'BCrypt'],
         videoUrl:
