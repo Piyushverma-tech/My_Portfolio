@@ -1,18 +1,14 @@
-# Piyush Verma | Product Designer & Full-Stack Developer
+# Piyush Verma | Portfolio
 
-Hi, I’m **Piyush Verma**, a Product Designer and Full-Stack Developer passionate about building meaningful digital products.  
-I focus on creating interfaces that are both visually refined and technically solid, using modern tools and clean architecture.
+Frontend Engineer focused on building high-performance interfaces, real-time visualization systems, and data-intensive web applications with React, Next.js, and TypeScript.
+
+Currently building DRAKON — an orbital visualization and space situational awareness platform focused on real-time satellite tracking, collision screening, and operator-centric workflows.
 
 ---
 
 ## About Me
 
-- B.Sc. in Computer Science
-- Specialized in **Frontend Development (React, Next.js)** and **UI/UX Design**
-- Experienced in building **end-to-end MERN applications**
-- Focused on **scalable, human-centered web experiences**
-- Short-term goal: Contribute to a product-focused tech startup as a Front-End or Full-Stack Developer
-- Long-term goal: Build AI-powered SaaS products that solve real-world problems
+I’m a product-focused engineer and designer who enjoys solving complex interface and system-level problems. My work sits at the intersection of frontend engineering, UI/UX design, visualization, and performance optimization.
 
 ---
 
@@ -25,7 +21,7 @@ JavaScript • React.js • Vue.js • Next.js • HTML • CSS • Tailwind •
 Node.js • Express.js • MongoDB • Prisma • PostgreSQL • MySQL • REST APIs • GraphQL
 
 **Design:**  
-Figma • Adobe Photoshop • Adobe Illustrator • Design Systems • Wireframing
+Figma • Design Systems • Wireframing
 
 **Tools & Deployment:**  
 Git • GitHub • Vercel • Postman • VS Code Docker • Kubernetes • Redis • RabbitMQ • AWS S3
@@ -33,6 +29,18 @@ Git • GitHub • Vercel • Postman • VS Code Docker • Kubernetes • Redi
 ---
 
 ## Featured Projects
+
+### DRAKON
+
+Real-time Orbital Visualization and intelligence platform designed for space situational awareness workflows.
+
+- Real-time rendering of 20,000+ satellites
+- SGP4 orbit propagation running inside Web Workers
+- Collision risk analysis system
+- Advanced globe visualization using Deck.gl
+- Performance-focused architecture maintaining 60fps
+
+---
 
 ### SaleX
 
@@ -88,7 +96,7 @@ Each project highlights my ability to:
 **Portfolio:** [piyushverma.dev](https://piyushverma.dev)  
 **GitHub:** [github.com/Piyushverma-tech](https://github.com/Piyushverma-tech)  
 **LinkedIn:** [linkedin.com/in/piyush-verma-dev](https://linkedin.com/in/piyush-verma-dev)  
-**Email:** piyush626480@gmail.com
+**Email:** contact@piyushverma.dev
 
 ---
 
