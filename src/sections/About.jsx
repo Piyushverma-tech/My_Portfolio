@@ -35,6 +35,10 @@ import { GrGraphQl } from 'react-icons/gr';
 
 const About = () => {
   const [activeSkillCategory, setActiveSkillCategory] = useState('Frontend');
+  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
+  const splineSceneUrl =
+    'https://prod.spline.design/CQiUWRLV77SGOXG6/scene.splinecode';
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -217,9 +221,9 @@ const About = () => {
   ];
 
   const myApproach = [
-    'Blend creativity with problem-solving',
-    'Focus on simplicity and usability',
-    'Design interfaces that speak for themselves',
+    'Turn complex problems into structured systems',
+    'Prioritize clarity, scalability, and maintainability',
+    'Balance user needs with technical constraints',
   ];
 
   // Animation variants
@@ -419,9 +423,21 @@ const About = () => {
                     }}
                   />
 
+                  {!isSplineLoaded && (
+                    <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                      <div className="flex flex-col items-center gap-6">
+                        <div className="h-10 w-10 rounded-full border-2 border-cyan-600/50 border-t-cyan-400 animate-spin" />
+                        <span className="text-sm tracking-[0.2em] text-cyan-600 font-mono">
+                          LOADING_AVATAR
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
                   <Spline
-                    className="scale-[1.4] mt-4 w-full h-full relative z-10"
-                    scene="https://prod.spline.design/CQiUWRLV77SGOXG6/scene.splinecode"
+                    className={`scale-[1.4] mt-4 w-full h-full relative z-10`}
+                    scene={splineSceneUrl}
+                    onLoad={() => setIsSplineLoaded(true)}
                   />
 
                   {/* Enhanced corner accents with glow */}
@@ -457,14 +473,14 @@ const About = () => {
           {/* Right Column - Personal Info and Approach */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-2 space-y-8"
+            className="lg:col-span-2 space-y-6"
           >
             {/* Introduction Card */}
             <motion.div
               variants={itemVariants}
-              className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-6 md:p-8 relative overflow-hidden"
+              className="bg-black/50 border border-green-400/30 backdrop-blur-sm p-6 sm:p-8 relative overflow-hidden"
             >
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-4 mb-4">
                 <User className="text-green-400" size={24} />
                 <h2 className="text-lg md:text-xl font-bold text-green-400 font-mono">
                   INIT_PERSONAL
@@ -477,11 +493,12 @@ const About = () => {
                   <span className="text-green-400 font-bold">Piyush Verma</span>
                   ,
                 </p>
-                <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                  I build web apps from front to back, turning ideas into fast,
-                  functional, and well-designed products. I love crafting
-                  interfaces that look sharp and actually make life easier for
-                  people.
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                  Product Engineer blending UI/UX, frontend engineering, and
+                  systems thinking to build data-intensive, real-time systems.
+                  Built full-stack platforms ranging from AI-powered SaaS tools
+                  to space situational awareness platform focused on satellite
+                  visualization and orbital intelligence
                 </p>
               </div>
             </motion.div>

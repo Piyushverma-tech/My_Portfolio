@@ -10,7 +10,7 @@ const HomePage = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    document.title = 'Piyush Verma | Designer & Developer';
+    document.title = 'Piyush Verma | Frontend Developer';
 
     // Calculate title star position after render
     const calculateStarPosition = () => {
@@ -287,7 +287,7 @@ const HomePage = () => {
                       <motion.span className="hidden sm:inline-block relative z-10 text-cyan-400/80 font-mono text-sm tracking-[0.2em] font-medium group-hover:text-cyan-400 transition-colors duration-300">
                         VIEW_PROJECTS
                       </motion.span>
-                      <motion.span className="hidden max-sm:inline-block relative z-10 text-cyan-400/80 font-mono text-sm tracking-[0.2em] font-medium group-hover:text-cyan-400 transition-colors duration-300">
+                      <motion.span className="hidden max-sm:inline-block relative z-10 text-cyan-400/80 font-mono text-[12px] tracking-[0.2em] font-medium group-hover:text-cyan-400 transition-colors duration-300">
                         PROJECTS
                       </motion.span>
                     </div>
@@ -325,7 +325,7 @@ const HomePage = () => {
                         />
 
                         {/* Content */}
-                        <motion.span className="relative z-10 text-green-400/80 font-mono text-sm tracking-[0.2em] font-medium group-hover:text-green-400 transition-colors duration-300">
+                        <motion.span className="relative z-10 text-green-400/80 font-mono text-[12px] sm:text-sm tracking-[0.2em] font-medium group-hover:text-green-400 transition-colors duration-300">
                           ABOUT_ME
                         </motion.span>
                       </div>
