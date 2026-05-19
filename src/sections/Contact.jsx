@@ -13,7 +13,7 @@ const ContactForm = () => {
   const [currentField, setCurrentField] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isTerminalMode, setIsTerminalMode] = useState(false);
+  const [isTerminalMode, setIsTerminalMode] = useState(true);
   const [terminalInput, setTerminalInput] = useState('');
   const [terminalHistory, setTerminalHistory] = useState([
     '> System initialized...',
@@ -24,11 +24,25 @@ const ContactForm = () => {
   const [editingField, setEditingField] = useState('');
   const [multilineBuffer, setMultilineBuffer] = useState('');
   const terminalRef = useRef(null);
+  const terminalInputRef = useRef(null);
+  const skipTerminalAutofocusRef = useRef(true);
+
   useEffect(() => {
     if (terminalRef.current && isTerminalMode) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   }, [terminalHistory, isTerminalMode]);
+
+  useEffect(() => {
+    if (!isTerminalMode || !terminalInputRef.current) return;
+
+    if (skipTerminalAutofocusRef.current) {
+      skipTerminalAutofocusRef.current = false;
+      return;
+    }
+
+    terminalInputRef.current.focus({ preventScroll: true });
+  }, [isTerminalMode]);
 
   const fields = [
     {
@@ -482,7 +496,7 @@ const ContactForm = () => {
 
   return (
     <section
-      className=" min-h-screen pt-8 pb-12  relative overflow-hidden"
+      className=" min-h-screen pt-8 pb-24  relative overflow-hidden"
       id="contact"
     >
       {/* Animated Background Grid */}
@@ -640,6 +654,7 @@ const ContactForm = () => {
                   <div className="flex items-center gap-2">
                     <span className="text-cyan-400">{getTerminalPrompt()}</span>
                     <input
+                      ref={terminalInputRef}
                       type="text"
                       value={terminalInput}
                       onChange={(e) => setTerminalInput(e.target.value)}
@@ -652,7 +667,6 @@ const ContactForm = () => {
                             ? 'Enter content (use .end to save)...'
                             : 'Enter command...'
                       }
-                      autoFocus
                     />
                     <motion.div
                       className="w-2 h-4 bg-green-400"
