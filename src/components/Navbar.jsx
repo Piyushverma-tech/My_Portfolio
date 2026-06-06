@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -9,12 +9,16 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
-  const menuItems = [
-    { title: 'Home', href: '#home', id: 'home' },
-    { title: 'Projects', href: '#projects', id: 'projects' },
-    { title: 'Contact', href: '#contact', id: 'contact' },
-    { title: 'About me', href: '/about', id: 'about', isRoute: true },
-  ];
+  const menuItems = useMemo(
+    () => [
+      { title: 'Home', href: '#home', id: 'home' },
+      { title: 'Projects', href: '#projects', id: 'projects' },
+      { title: 'Contact', href: '#contact', id: 'contact' },
+      { title: 'About me', href: '/about', id: 'about', isRoute: true },
+      { title: 'Blog', href: '/blog', id: 'blog', isRoute: true },
+    ],
+    []
+  );
 
   // Handle smooth scrolling
   const handleNavClick = (e, href, isRoute = false) => {
@@ -75,7 +79,10 @@ const Navbar = () => {
     });
 
     return () => observer.disconnect();
-  }, [location.pathname]);
+  }, [location.pathname, menuItems]);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   const navVariants = {
     open: {
@@ -199,10 +206,14 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
-        <motion.div
+        {/* <motion.div
           className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-400/70 to-transparent"
           animate={{ x: ['-100%', '100%'] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+        /> */}
+        <motion.div
+          style={{ scaleX, transformOrigin: '0%' }}
+          className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-green-400 via-cyan-400 to-green-400 z-50"
         />
       </div>
     </motion.nav>

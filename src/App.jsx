@@ -8,6 +8,8 @@ import Projects from './sections/Projects';
 import ServEase from './CaseStudies/ServEase';
 import Recipick from './CaseStudies/Recipick';
 import Drakon from './CaseStudies/Drakon';
+import Blog from './sections/Blog';
+import OrbitalTemporalPost from './BlogPosts/OrbitalTemporalPost';
 
 function App() {
   return (
@@ -30,6 +32,12 @@ function App() {
         <Route path="/servease" element={<ServEase />} />
         <Route path="/recipick" element={<Recipick />} />
         <Route path="/drakon" element={<Drakon />} />
+        <Route path="/blog" element={<Blog />} />
+        {/* <Route path="/blog/:slug" element={<BlogPost />} /> */}
+        <Route
+          path="/blog/orbital-systems-temporal"
+          element={<OrbitalTemporalPost />}
+        />
       </Routes>
       <Footer />
     </>

@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const NextStudyBtn = ({ title, slug }) => {
@@ -85,8 +84,3 @@ const NextStudyBtn = ({ title, slug }) => {
 };
 
 export default NextStudyBtn;
-
-NextStudyBtn.propTypes = {
-  title: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-};

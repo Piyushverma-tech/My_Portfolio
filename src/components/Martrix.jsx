@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 
 export const MatrixRain = ({ opacity }) => {
   const canvasRef = useRef(null);
@@ -55,8 +54,4 @@ export const MatrixRain = ({ opacity }) => {
       style={{ zIndex: 1 }}
     />
   );
-};
-
-MatrixRain.propTypes = {
-  opacity: PropTypes.number,
 };

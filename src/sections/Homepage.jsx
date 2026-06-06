@@ -94,10 +94,6 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.04)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </div>
 
-        {/* Tech Corner Elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 border-2 max-sm:hidden border-green-400/20 transform rotate-45 animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-16 h-16 border max-sm:hidden border-cyan-400/30"></div>
-
         {/* Entry Star Animation */}
         <AnimatePresence>
           {showEntryStar && (
