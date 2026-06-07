@@ -10,7 +10,7 @@ const HomePage = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    document.title = 'Piyush Verma | Frontend Developer';
+    document.title = 'Piyush Verma | Product Engineer';
 
     // Calculate title star position after render
     const calculateStarPosition = () => {
