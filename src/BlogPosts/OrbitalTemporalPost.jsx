@@ -114,7 +114,7 @@ const Hr = () => (
         repeat: Infinity,
         ease: 'linear',
       }}
-      className="text-cyan-400 text-sm sm:text-xl font-normal drop-shadow-[0_0_20px_rgba(34,211,238,0.8)]"
+      className="text-cyan-400 text-xl sm:text-2xl font-normal drop-shadow-[0_0_20px_rgba(34,211,238,0.8)]"
     >
       ✴
     </motion.span>
@@ -291,7 +291,7 @@ const OrbitalTemporalPost = () => {
           >
             <span className="flex items-center gap-1.5">
               <Calendar size={10} />
-              28 Jan 2025
+              04 Jun 2026
             </span>
             <span>·</span>
             <span className="flex items-center gap-1.5">
@@ -303,6 +303,7 @@ const OrbitalTemporalPost = () => {
         </div>
       </header>
 
+      {/* ── Article ─────────────────────────────────────────────────────────── */}
       {/* ── Article ─────────────────────────────────────────────────────────── */}
       <article className="relative z-10 px-4 sm:px-6 py-16">
         <div className="max-w-2xl mx-auto">
@@ -350,7 +351,7 @@ const OrbitalTemporalPost = () => {
             </Callout>
             <P>
               What actually exists in an orbital system is a set of{' '}
-              <em className="text-gray-300">trajectories</em> —
+              <em className="text-gray-300">trajectories</em>:
               time-parameterised functions <C>r(t)</C> and <C>v(t)</C> that
               describe where objects are for every possible <C>t</C>. The
               &ldquo;state&rdquo; stored in a TLE is just a compact encoding of
@@ -387,17 +388,17 @@ const OrbitalTemporalPost = () => {
             </P>
             <P>
               When I built re-entry risk screening for DRAKON, I ran straight
-              into this. <C>BSTAR</C> — a drag coefficient encoded in TLEs —
-              tells you how quickly an object is currently losing altitude. From
-              that, you compute a decay rate. From the decay rate, you estimate
-              a lifetime. The entire output is a future statement derived from a
+              into this. <C>BSTAR</C> (a drag coefficient encoded in TLEs) tells
+              you how quickly an object is currently losing altitude. From that,
+              you compute a decay rate. From the decay rate, you estimate a
+              lifetime. The entire output is a future statement derived from a
               current measurement. The &ldquo;state&rdquo; is simply a
               compressed representation of a trajectory.
             </P>
             <P>
               Collision density has the same problem. A voxel-based density map
               shows where objects cluster <em>right now</em>. But operational
-              density is about encounter frequency over time — how often
+              density is about encounter frequency over time: how often
               trajectories pass through the same region. Static crowding and
               dynamic encounter probability can diverge significantly. A busy
               corridor in terms of current positions can have low actual
@@ -432,8 +433,8 @@ const OrbitalTemporalPost = () => {
                 <>
                   Your data structures, query patterns, state management, and
                   rendering pipeline all carry temporal semantics. A satellite
-                  isn&apos;t a point in space — it&apos;s a trajectory. A
-                  conjunction risk isn&apos;t a distance — it&apos;s a distance
+                  isn&apos;t a point in space; it&apos;s a trajectory. A
+                  conjunction risk isn&apos;t a distance; it&apos;s a distance
                   plus a covariance ellipsoid plus remaining decision time
                   before the manoeuvre window closes.
                 </>
@@ -451,9 +452,9 @@ const OrbitalTemporalPost = () => {
           <Section id="hidden">
             <H2>The Hidden Engineering Problems</H2>
             <P>
-              Building DRAKON&apos;s simulation mode — where users can scrub
+              Building DRAKON&apos;s simulation mode, where users can scrub
               forward to <C>T+72h</C> and see the projected state of the entire
-              orbital environment — looked like an additive feature. Add an
+              orbital environment, looked like an additive feature. Add an
               offset, re-propagate, render. It turned out to be architecturally
               invasive in ways I didn&apos;t anticipate.
             </P>
@@ -462,7 +463,7 @@ const OrbitalTemporalPost = () => {
                 When propagating 20,000+ satellites, every object must be
                 evaluated at the same epoch. A 500ms spread across the batch
                 creates positions that are inconsistent with each other. In LEO,
-                satellites move at roughly <C>7.8 km/s</C> — half a second is
+                satellites move at roughly <C>7.8 km/s</C>, so half a second is
                 nearly <C>4 km</C> of position error. The entire batch has to be
                 stamped with the same target epoch before propagation starts.
               </ProblemCard>
@@ -473,25 +474,25 @@ const OrbitalTemporalPost = () => {
                 wall clock time. Collision density computation has to use
                 projected positions. Nearly every feature that touched satellite
                 data had to become epoch-aware. That wasn&apos;t a scope
-                addition — it was a consequence of the architecture not treating
+                addition. It was a consequence of the architecture not treating
                 time as first-class from the start.
               </ProblemCard>
               <ProblemCard number={3} title="Ground tracks aren't geometry">
-                They <em>look</em> like geometry — paths drawn on a map. But the
-                past portion is a historical record and the future portion is a
-                prediction. Both are functions of time encoded spatially. When
-                the simulation offset changes, the entire track has to be
+                They <em>look</em> like geometry, just paths drawn on a map. But
+                the past portion is a historical record and the future portion
+                is a prediction. Both are functions of time encoded spatially.
+                When the simulation offset changes, the entire track has to be
                 regenerated because what counts as &ldquo;past&rdquo; and
                 &ldquo;future&rdquo; shifts relative to the new reference epoch.
                 Getting that wrong produces tracks that show future positions in
-                past-track styling — subtly broken in ways that are hard to
-                debug.
+                past-track styling, which is subtly broken in ways that are hard
+                to debug.
               </ProblemCard>
               <ProblemCard
                 number={4}
                 title="Density as encounter probability, not crowding"
               >
-                The first version counted satellite density in grid cells — a
+                The first version counted satellite density in grid cells: a
                 purely spatial aggregation. Two Starlink satellites in the same
                 cell, moving in the same direction at nearly identical
                 velocities, showed up as high density even though their actual
@@ -519,7 +520,7 @@ const OrbitalTemporalPost = () => {
               <em>grows with time</em>. A conjunction 6 hours out has tighter
               position bounds than one 48 hours out. The covariance matrix
               propagates forward using the same orbital mechanics as the state.
-              As the prediction horizon extends, it expands — often
+              As the prediction horizon extends, it expands, often
               anisotropically.
             </P>
             <Terminal caption="collision-risk.txt">
@@ -557,7 +558,7 @@ const OrbitalTemporalPost = () => {
             <P>
               What they actually need to know: how does the risk estimate evolve
               as TCA approaches? Are new TLE updates shifting it up or down? If
-              they wait 12 hours for better tracking data, does that help — or
+              they wait 12 hours for better tracking data, does that help, or
               does the manoeuvre window close? Those are all temporal questions,
               and a system that answers only the static version of each is only
               partly useful.
@@ -582,24 +583,57 @@ const OrbitalTemporalPost = () => {
             >
               {[
                 {
-                  label: 'Urgent',
+                  label: 'Act now',
                   labelColor: 'text-red-400/70',
                   borderColor: 'border-red-400/20',
                   bg: 'bg-red-950/20',
-                  tca: 'T+6h',
-                  tcaColor: 'text-red-400',
-                  window: '~2h window',
-                  windowColor: 'text-red-400',
+                  rows: [
+                    {
+                      key: 'P(collision)',
+                      val: '1 / 50,000',
+                      valClass: 'text-white',
+                    },
+                    { key: 'TCA', val: 'T+9h', valClass: 'text-red-400' },
+                    {
+                      key: 'Manoeuvre prep',
+                      val: '6h',
+                      valClass: 'text-white',
+                    },
+                    {
+                      key: 'Last burn window',
+                      val: 'T+3h',
+                      valClass: 'text-red-400',
+                    },
+                  ],
+                  verdict: '→ 3h to decide. Low probability, no time.',
+                  verdictClass: 'text-red-400',
                 },
                 {
-                  label: 'Manageable',
+                  label: 'Watch and wait',
                   labelColor: 'text-green-400/70',
                   borderColor: 'border-green-400/20',
                   bg: 'bg-green-950/20',
-                  tca: 'T+72h',
-                  tcaColor: 'text-green-400',
-                  window: '~68h window',
-                  windowColor: 'text-green-400',
+                  rows: [
+                    {
+                      key: 'P(collision)',
+                      val: '1 / 800',
+                      valClass: 'text-white',
+                    },
+                    { key: 'TCA', val: 'T+54h', valClass: 'text-green-400' },
+                    {
+                      key: 'Manoeuvre prep',
+                      val: '6h',
+                      valClass: 'text-white',
+                    },
+                    {
+                      key: 'Last burn window',
+                      val: 'T+48h',
+                      valClass: 'text-green-400',
+                    },
+                  ],
+                  verdict:
+                    '→ 48h to decide. Higher risk, but time to get better data.',
+                  verdictClass: 'text-green-400',
                 },
               ].map(
                 ({
@@ -607,33 +641,29 @@ const OrbitalTemporalPost = () => {
                   labelColor,
                   borderColor,
                   bg,
-                  tca,
-                  tcaColor,
-                  window,
-                  windowColor,
+                  rows,
+                  verdict,
+                  verdictClass,
                 }) => (
                   <div
                     key={label}
                     className={`border ${borderColor} ${bg} rounded-lg p-5`}
                   >
                     <p
-                      className={`text-[10px] font-mono uppercase tracking-widest mb-4 ${labelColor}`}
+                      className={`text-[11px] uppercase tracking-widest mb-4 ${labelColor}`}
                     >
                       {label}
                     </p>
                     <div className="space-y-1.5 font-mono text-sm text-gray-400">
-                      <div>
-                        P(collision) ={' '}
-                        <span className="text-white">1 / 10,000</span>
-                      </div>
-                      <div>
-                        TCA = <span className={tcaColor}>{tca}</span>
-                      </div>
-                      <div>
-                        Burn prep = <span className="text-white">4h</span>
-                      </div>
-                      <div className={`mt-3 font-semibold ${windowColor}`}>
-                        → {window}
+                      {rows.map(({ key, val, valClass }) => (
+                        <div key={key}>
+                          {key} = <span className={valClass}>{val}</span>
+                        </div>
+                      ))}
+                      <div
+                        className={`mt-3 text-xs leading-snug ${verdictClass}`}
+                      >
+                        {verdict}
                       </div>
                     </div>
                   </div>
@@ -641,13 +671,14 @@ const OrbitalTemporalPost = () => {
               )}
             </motion.div>
             <P>
-              The number is identical. The urgency is completely different. A
-              system that surfaces the risk without surfacing the timeline
-              communicates half the story.
+              The lower-probability event demands immediate action. The
+              higher-probability one can wait. A system that ranks by
+              P(collision) alone and ignores decision time will consistently
+              surface the wrong priority.
             </P>
             <P>
-              This is where orbital software gets genuinely hard to design well
-              — not at the physics layer, but at the information design layer.
+              This is where orbital software gets genuinely hard to design well:
+              not at the physics layer, but at the information design layer.
               Operators are making irreversible decisions under time pressure,
               with uncertain data, about events that haven&apos;t happened yet.
               The software needs to communicate not just state, but the{' '}
@@ -667,7 +698,7 @@ const OrbitalTemporalPost = () => {
             <H2>Lessons From Building DRAKON</H2>
             <P>
               The simulation mode taught me the most. I started building it as
-              an overlay — keep the existing architecture, add a time offset,
+              an overlay: keep the existing architecture, add a time offset,
               show projected positions. That lasted about two days before the
               problems compounded: selected satellite metadata didn&apos;t
               update with the simulated epoch, ground tracks were computing
@@ -679,7 +710,7 @@ const OrbitalTemporalPost = () => {
               The real fix wasn&apos;t patching each component. It was threading
               epoch as an explicit, first-class value through the state
               management layer. Everything that reads satellite data needs to
-              know what &ldquo;now&rdquo; means in the current session — whether
+              know what &ldquo;now&rdquo; means in the current session, whether
               it&apos;s wall clock time or <C>T+offset</C>. Once that was in
               Redux as a single source of truth, the individual component fixes
               became straightforward.
@@ -689,11 +720,8 @@ const OrbitalTemporalPost = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5 }}
-              className="my-8 bg-gradient-to-br from-slate-800/40 to-black/40 border border-white/8 rounded-xl p-6"
+              className="my-8 bg-slate-800/40 border border-white/5 rounded-xl p-6"
             >
-              <p className="text-[10px] font-mono text-green-400/50 uppercase tracking-widest mb-3">
-                The durable lesson
-              </p>
               <p className="text-gray-300 text-sm md:text-[15px] leading-relaxed">
                 Static snapshots break faster than you expect. Features that
                 seem complete against static data reveal time-related
@@ -717,8 +745,8 @@ const OrbitalTemporalPost = () => {
               The hard part of orbital software is rarely the propagation math.
               SGP4 is well documented, portable, and there are good libraries
               for it. The hard part is building systems where every layer of the
-              stack — from the data model and state management to rendering and
-              the interface — understands that the thing it&apos;s operating on
+              stack, from the data model and state management to rendering and
+              the interface, understands that the thing it&apos;s operating on
               is a <em className="text-gray-200">trajectory</em>, not a point.
             </P>
             <P>
@@ -730,8 +758,8 @@ const OrbitalTemporalPost = () => {
               either don&apos;t appear or become manageable.
             </P>
             <Callout>
-              Space is dynamic by default. The software either reflects that —
-              or it lies.
+              Space is dynamic by default. The software either reflects that, or
+              it lies.
             </Callout>
           </Section>
 
@@ -744,7 +772,7 @@ const OrbitalTemporalPost = () => {
             className="mt-20 pt-10 border-t border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
           >
             <div>
-              <p className="text-[10px] font-mono text-gray-600 mb-1 uppercase tracking-widest">
+              <p className="text-[10px] font-mono text-gray-700 mb-1 uppercase tracking-widest">
                 Written by
               </p>
               <p className="text-sm font-semibold text-white">Piyush Verma</p>
@@ -765,14 +793,14 @@ const OrbitalTemporalPost = () => {
           </motion.footer>
 
           {/* Next post */}
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="mt-8"
           >
-            <Link to="/blog/sgp4-comlink-web-workers">
+            {/* <Link to="/blog/sgp4-comlink-web-workers">
               <div className="group border border-white/6 bg-white/2 hover:border-cyan-400/25 hover:bg-cyan-400/3 rounded-lg p-5 transition-all duration-300">
                 <p className="text-[10px] font-mono text-gray-700 uppercase tracking-widest mb-2">
                   Next post
@@ -787,8 +815,8 @@ const OrbitalTemporalPost = () => {
                   />
                 </div>
               </div>
-            </Link>
-          </motion.div> */}
+            </Link> */}
+          </motion.div>
         </div>
       </article>
     </div>
