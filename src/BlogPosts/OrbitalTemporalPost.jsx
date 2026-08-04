@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Calendar, Tag } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Tag, ChevronRight } from 'lucide-react';
 
 // ─── Table of contents ─────────────────────────────────────────────────────────
 const sections = [
@@ -243,7 +243,7 @@ const OrbitalTemporalPost = () => {
           >
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-sm font-mono text-gray-600 hover:text-green-400 transition-colors group"
+              className="inline-flex items-center gap-2 text-sm font-mono text-gray-500 hover:text-green-400 transition-colors group"
             >
               <ArrowLeft
                 size={12}
@@ -772,11 +772,11 @@ const OrbitalTemporalPost = () => {
             className="mt-20 pt-10 border-t border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
           >
             <div>
-              <p className="text-[10px] font-mono text-gray-700 mb-1 uppercase tracking-widest">
+              <p className="text-[10px] font-mono text-gray-400 mb-1 uppercase tracking-widest">
                 Written by
               </p>
               <p className="text-sm font-semibold text-white">Piyush Verma</p>
-              <p className="text-xs text-gray-600 font-mono mt-0.5">
+              <p className="text-xs text-gray-400 font-mono mt-0.5">
                 Product Engineer · building DRAKON
               </p>
             </div>
@@ -800,22 +800,22 @@ const OrbitalTemporalPost = () => {
             transition={{ duration: 0.5 }}
             className="mt-8"
           >
-            {/* <Link to="/blog/sgp4-comlink-web-workers">
-              <div className="group border border-white/6 bg-white/2 hover:border-cyan-400/25 hover:bg-cyan-400/3 rounded-lg p-5 transition-all duration-300">
-                <p className="text-[10px] font-mono text-gray-700 uppercase tracking-widest mb-2">
+            <Link to="/blog/tracking-million-space-objects">
+              <div className="group border border-white/10 hover:border-cyan-400/25 hover:bg-cyan-400/3 rounded-lg p-5 transition-all duration-300">
+                <p className="text-[11px] font-mono text-gray-600 uppercase tracking-widest mb-2">
                   Next post
                 </p>
                 <div className="flex items-center justify-between gap-4">
                   <p className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors leading-snug">
-                    SGP4 Propagation Off the Main Thread with Comlink
+                  The Hidden Software Challenges of Tracking 1 Million Space Objects
                   </p>
-                  <ChevronRight
-                    size={14}
-                    className="flex-shrink-0 text-gray-600 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all"
-                  />
+                <ChevronRight
+                  size={18}
+                  className="flex-shrink-0 text-gray-600 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all"
+                />
                 </div>
               </div>
-            </Link> */}
+            </Link>
           </motion.div>
         </div>
       </article>

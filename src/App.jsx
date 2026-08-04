@@ -10,6 +10,7 @@ import Recipick from './CaseStudies/Recipick';
 import Drakon from './CaseStudies/Drakon';
 import Blog from './sections/Blog';
 import OrbitalTemporalPost from './BlogPosts/OrbitalTemporalPost';
+import MillionObjectsTrackingPost from './BlogPosts/MillionObjectsTrackingPost';
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
         <Route
           path="/blog/orbital-systems-temporal"
           element={<OrbitalTemporalPost />}
+        />
+        <Route
+          path="/blog/tracking-million-space-objects"
+          element={<MillionObjectsTrackingPost />}
         />
       </Routes>
       <Footer />
