@@ -84,7 +84,7 @@ const Drakon = () => {
             >
               {/* In Development Badge */}
               <motion.a
-                href="https://drakon-01a.vercel.app/globe"
+                href="https://d3ek2lczi7hsuh.cloudfront.net/"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.8 }}
