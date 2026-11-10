@@ -26,7 +26,7 @@ const Projects = () => {
         videoUrl:
           'https://res.cloudinary.com/dsrmecb5y/video/upload/v1778443936/0510_gkndg9.mp4',
         links: {
-          live: 'https://drakon-01a.vercel.app/',
+          live: 'https://d3ek2lczi7hsuh.cloudfront.net/',
           github: 'https://github.com/Piyushverma-tech/drakon',
         },
       },

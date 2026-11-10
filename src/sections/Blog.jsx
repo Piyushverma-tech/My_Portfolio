@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 
 const POSTS = [
   {
     slug: 'tracking-million-space-objects',
-    title:
-      'The Hidden Software Challenges of Tracking 1 Million Space Objects',
+    title: 'The Hidden Software Challenges of Tracking 1 Million Space Objects',
     excerpt:
       'Tracking 30,000 objects and tracking 1 million objects are not the same problem at different scales. From O(N²) conjunction screening to spatial indexing, memory layout, and distributed fault tolerance — the software is what breaks first.',
     date: '2026-08-01',
@@ -25,7 +24,6 @@ const POSTS = [
     featured: false,
   },
 ];
-
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 const fmt = (iso) =>
@@ -76,23 +74,22 @@ const accentVariants = {
   },
 };
 
-
 // ─── post card ───────────────────────────────────────────────────────
 const Post = ({ post }) => (
   <motion.div variants={fadeUp}>
     <div className="flex flex-col gap-2 mx-6 border border-white/10 rounded-lg py-4 px-6">
       {/* label */}
       <div className="flex items-center gap-2 mb-4">
-      {post.featured && (
-        <>
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
-        </span>
-     
-        <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
-            Latest Post
-          </span>
+        {post.featured && (
+          <>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
+            </span>
+
+            <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
+              Latest Post
+            </span>
           </>
         )}
       </div>
@@ -142,12 +139,8 @@ const Post = ({ post }) => (
   </motion.div>
 );
 
-
-
 // ─── Main component ───────────────────────────────────────────────────────────
 const Blog = () => {
-
-
   return (
     <section className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-16 md:py-24 relative overflow-hidden">
       {/* Animated background grid */}
@@ -227,15 +220,17 @@ const Blog = () => {
         </motion.div>
 
         {/* ── Featured post ── */}
-        {POSTS.map((post) => (    <motion.div
+        {POSTS.map((post) => (
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
             className="mb-12"
+            key={post.slug}
           >
             <Post post={post} />
-          </motion.div>) )}
-      
+          </motion.div>
+        ))}
       </div>
     </section>
   );
