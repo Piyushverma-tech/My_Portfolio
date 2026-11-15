@@ -69,6 +69,8 @@ const HomePage = () => {
     'SQL',
     'Docker',
     'Kubernetes',
+    'Nginx',
+    'AWS',
     'Git',
     'GitHub',
     'CI/CD',
@@ -79,7 +81,6 @@ const HomePage = () => {
     'Optimization',
     'Security',
     'Design Patterns',
-    'Networking',
     'Operating Systems',
   ];
 

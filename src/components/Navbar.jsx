@@ -44,7 +44,7 @@ const PACKET =
 /* of --b (hence the 1.4142 = sqrt(2) factors on the slant).           */
 /* ================================================================== */
 
-// Left plate (logo): flat bottom, then a "/" slant rising to the top edge
+// Left plate (logo)
 const LEFT_OUTER = 'polygon(0 0, 100% 0, calc(100% - var(--h)) 100%, 0 100%)';
 const LEFT_STRIP = `polygon(
   0 calc(100% - var(--b)),
@@ -55,7 +55,7 @@ const LEFT_STRIP = `polygon(
   0 100%
 )`;
 
-// Right plate (links): a "\" slant dropping from the top edge, then flat to the right
+// Right plate (links)
 const RIGHT_OUTER = 'polygon(0 0, 100% 0, 100% 100%, var(--h) 100%)';
 const RIGHT_STRIP = `polygon(
   0 0,
@@ -66,7 +66,7 @@ const RIGHT_STRIP = `polygon(
   var(--h) 100%
 )`;
 
-// Mobile dropdown: chamfered top-left corner, outlined on every side
+// Mobile dropdown
 const PANEL_OUTER = 'polygon(24px 0, 100% 0, 100% 100%, 0 100%, 0 24px)';
 const PANEL_STRIP = `polygon(evenodd,
   24px 0, 100% 0, 100% 100%, 0 100%, 0 24px, 24px 0,
@@ -302,7 +302,7 @@ const Navbar = () => {
                     className={`relative block text-sm font-semibold transition-colors lg:text-[15px] ${
                       active
                         ? 'text-green-400'
-                        : 'text-gray-200 hover:text-white'
+                        : 'text-gray-300 hover:text-white'
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -311,7 +311,7 @@ const Navbar = () => {
                     {active && (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute -bottom-2 left-0 right-0 h-px bg-green-400 shadow-[0_0_8px_#4ade80]"
+                        className="absolute -bottom-2 left-0 right-0 h-[2px] bg-cyan-400 shadow-[0_0_8px_#4ade80]"
                       />
                     )}
                   </motion.a>

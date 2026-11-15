@@ -361,7 +361,7 @@ const Projects = () => {
           animate="animate"
           exit="exit"
           key="development-section"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-8 md:gap-y-8 mt-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-8 md:gap-y-8 mt-8"
         >
           {projectsData.development.map((project, index) => (
             <motion.div
