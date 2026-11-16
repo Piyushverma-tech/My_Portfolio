@@ -226,7 +226,7 @@ const HomePage = () => {
                   transition={{ delay: 2 }}
                   className="text-xs sm:text-lg italic Sub-text text-gray-400 font-semibold max-w-lg leading-relaxed text-left mx-auto lg:mx-0 bg-black/20 px-2 py-1 sm:px-4 sm:py-2 border-l-2 border-green-400/50 backdrop-blur-sm"
                 >
-                  Balancing the creation and removal of bugs.
+                  Turning data into deeper understanding.
                 </motion.p>
 
                 {/* CTA Buttons */}

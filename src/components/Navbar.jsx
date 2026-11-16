@@ -244,7 +244,7 @@ const Navbar = () => {
       {/* No opacity animation here on purpose: opacity < 1 on an ancestor kills backdrop blur */}
       <motion.nav
         aria-label="Primary"
-        className="pointer-events-none fixed inset-x-0 top-0 z-50 flex items-start justify-between [--b:2px] [--h:56px] md:[--h:62px]"
+        className="pointer-events-none fixed inset-x-0 top-0 z-50 flex items-start justify-between [--b:2px] [--h:48px] md:[--h:62px]"
         initial={{ y: -90 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
@@ -333,7 +333,7 @@ const Navbar = () => {
               className="flex items-center"
               style={{
                 height: 'var(--h)',
-                paddingLeft: 'calc(var(--h) * 0.5 + 24px)',
+                paddingLeft: 'calc(var(--h) * 0.5 + 32px)',
                 paddingRight: 20,
               }}
             >
@@ -356,7 +356,7 @@ const Navbar = () => {
               // Slide only (no opacity) so the glass keeps blurring while it moves
               <motion.div
                 id="mobile-menu"
-                className="pointer-events-auto absolute right-0 top-full mt-2 w-64"
+                className="pointer-events-auto absolute right-0 top-full mt-4 w-64"
                 initial={{ x: 20 }}
                 animate={{
                   x: 0,
@@ -379,10 +379,10 @@ const Navbar = () => {
                             href={item.href}
                             onClick={(e) => handleNavClick(e, item)}
                             aria-current={active ? 'page' : undefined}
-                            className={`block py-2 text-base font-semibold transition-colors ${
+                            className={`block py-2 text-sm font-semibold transition-colors ${
                               active
                                 ? 'text-green-400'
-                                : 'text-gray-200 hover:text-white'
+                                : 'text-gray-300 hover:text-white'
                             }`}
                           >
                             {item.title}

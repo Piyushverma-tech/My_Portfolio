@@ -528,7 +528,7 @@ const ContactForm = () => {
             >
               {/* Main heading*/}
               <motion.h2
-                className="text-3xl md:text-[28px] Section-Heading px-8 py-4 tracking-widest uppercase text-green-400 font-mono max-sm:hidden"
+                className="text-[26px] Section-Heading px-8 py-4 tracking-widest uppercase text-green-400 font-mono max-sm:hidden"
                 variants={textVariants}
               >
                 &gt; establish_connection
@@ -537,7 +537,7 @@ const ContactForm = () => {
                   animate={{ opacity: [1, 0, 1] }}
                   transition={{ duration: 0.8, repeat: Infinity }} // Slightly faster blinking
                 >
-                  |
+                  <span className="text-3xl">|</span>
                 </motion.span>
               </motion.h2>
               <motion.h2
@@ -846,7 +846,7 @@ const ContactForm = () => {
               DIRECT:{' '}
               <a
                 href="mailto:Piyush626480@gmail.com"
-                className="text-cyan-400 hover:underline"
+                className="text-cyan-400 hover:underline tracking-wider"
               >
                 contact@piyushverma.dev
               </a>
